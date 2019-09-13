@@ -1,0 +1,11 @@
+{
+  "indexes": [
+    {
+      "collectionId": "findings",
+      "fields": [
+          { "fieldPath": "user", "mode": "ASCENDING" },
+          { "fieldPath": "date", "mode": "ASCENDING" }
+      ]
+    }
+  ]
+}

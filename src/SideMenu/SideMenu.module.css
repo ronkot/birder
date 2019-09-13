@@ -1,0 +1,118 @@
+.container {
+  min-height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  transition: all 300ms ease-in-out;
+}
+
+.container.closed {
+  margin-left: -100vw;
+}
+
+.closeArea {
+  transition: all 300ms ease-in-out;
+}
+
+.container.open > .closeArea {
+  background: rgba(50, 50, 50, 0.8);
+}
+
+.menu {
+  width: 250px;
+  background: var(--color-blue-darkest);
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+}
+
+.birderText {
+  font-size: 24px;
+}
+
+.version {
+  font-size: 10px;
+}
+
+.menuTop {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid var(--color-blue-dark);
+}
+
+.logoLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  padding: 5px;
+  background: var(--color-white);
+  margin-right: 10px;
+}
+
+.closeButton {
+  width: 50px;
+  height: 50px;
+  background: var(--color-blue-dark);
+  color: white;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.email {
+  font-size: 13px;
+}
+
+.menuContent {
+  display: grid;
+  align-self: center;
+  grid-row-gap: 20px;
+  justify-self: center;
+  text-align: center;
+}
+
+.menuContent > a {
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menuBottom {
+  border-top: 1px solid var(--color-blue-dark);
+  padding: 20px 0;
+  display: grid;
+  grid-row-gap: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.logOut {
+  cursor: pointer;
+}
+
+.logOut > i {
+  margin-right: 5px;
+}
+
+.new {
+  color: white;
+  background: red;
+  font-size: 10px;
+  padding: 4px 8px 3px 8px;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+
+.separator {
+  margin-top: 20px;
+}

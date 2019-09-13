@@ -1,0 +1,38 @@
+.superWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  grid-column-gap: 3px;
+}
+
+.superWrapper.withIcon {
+  grid-template-columns: 1fr 20px;
+}
+
+.progressBarContainer {
+  position: relative;
+  color: var(--color-white);
+}
+
+.progressBar {
+  flex: 1;
+  height: 16px;
+  background: var(--color-blue-darkest);
+  border-radius: 50px;
+}
+
+.progressBarProgress {
+  background: var(--color-blue-dark);
+  height: 100%;
+  border-radius: 50px;
+}
+
+.progressBarLabel {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 100%;
+  font-size: 12px;
+  font-weight: bolder;
+}
+

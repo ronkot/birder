@@ -1,0 +1,26 @@
+.button {
+  padding: 20px;
+  text-align: center;
+  border-radius: 100px;
+  font-weight: bolder;
+  min-width: 150px;
+}
+
+.basic {
+  border: 1px solid var(--color-white);
+}
+
+.primary {
+  background: var(--color-blue-dark);
+  color: var(--color-white);
+}
+
+.secondary {
+  background: var(--color-blue-medium);
+  color: var(--color-white);
+}
+
+.alert {
+  background: red;
+  color: var(--color-white);
+}

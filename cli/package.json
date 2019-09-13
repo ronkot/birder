@@ -1,0 +1,19 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "stats.js",
+  "scripts": {
+    "cli": "babel-node"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
+    "@google-cloud/firestore": "^0.17.0",
+    "babel-preset-env": "^1.7.0",
+    "gm": "^1.23.1",
+    "lodash": "^4.17.11"
+  }
+}

@@ -1,0 +1,36 @@
+.signIn {
+  text-align: center;
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginButton {
+  padding: 10px;
+  background: var(--color-white);
+  color: var(--color-gray);
+  font-size: 12px;
+}
+
+.loginButton > span {
+  margin-right: 5px;
+}
+
+.logo {
+  border-radius: 150%;
+  max-width: 170px;
+  max-height: 170px;
+  padding: 30px;
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo > img {
+  width: 115px;
+}

@@ -1,0 +1,34 @@
+.achievement {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.achievementInfo {
+  text-align: center;
+}
+
+.name {
+  font-size: 30px;
+}
+
+.badge {
+  max-width: 50%;
+  margin: 10px auto;
+}
+
+.notCompleted {
+  filter: contrast(0.1);
+}
+
+.description {
+  margin: 20px 0;
+}
+
+.birds {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-auto-rows: min-content;
+  grid-gap: 10px;
+  overflow-x: hidden;
+  margin-top: 40px;
+}

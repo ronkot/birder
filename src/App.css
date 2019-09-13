@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+:root {
+  --color-white: white;
+  --color-gray-very-light: #eee;
+  --color-gray-light: #aaa;
+  --color-gray: #555;
+  --color-blue-light: #80bd9e;
+  --color-blue-medium: #7ebfc5;
+  --color-blue-dark: #55a2b4;
+  --color-blue-darkest: #3d7582;
+  --color-highlight: yellow;
+}
+
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr;
+  font-family: 'Montserrat  ', sans-serif;
+  color: var(--color-white);
+  background-color: var(--color-blue-light);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.appContent {
+  overflow: auto;
+  padding: 20px;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  background: var(--color-blue-dark);
+  align-items: center;
+  font-size: 13px;
+}
+
+nav > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav > a:not(:first-child) {
+  border-left: 2px solid var(--color-blue-medium);
+}
+
+nav > a.active {
+  background-color: var(--color-blue-darkest);
+}
+
+img {
+  display: block;
+  border: 0;
+  width: 100%;
+  height: auto;
+}
+
+input {
+  padding: 8px;
+  border-radius: 3px;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--color-gray-light);
+}
+
+.loadingSplash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loadingSplash > img {
+  border-radius: 100px;
+  width: 170px;
+  height: 170px;
+  padding: 20px;
+  background: var(--color-white);
+  margin-bottom: 50px;
+}
+
+.loadingSplash > i {
+  font-size: 50px;
+}
