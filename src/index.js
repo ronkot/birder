@@ -14,7 +14,7 @@ import firebase from './firebase/firebase'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import rootReducer, {initialState} from './reducers'
-import env from '../env'
+import env from './env'
 
 moment.locale('fi')
 

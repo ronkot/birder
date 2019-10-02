@@ -1,4 +1,4 @@
-import env from '../env'
+import env from '../src/env'
 
 const Firestore = require('@google-cloud/firestore')
 const _ = require('lodash')

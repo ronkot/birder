@@ -8,7 +8,7 @@ import {
   PrimaryButton,
   AlertButton
 } from '../common/Button/Button'
-import Map from '../Map/Map'
+import Map from '../Map/Map2'
 import ButtonGroup from '../ButtonGroup/ButtonGroup'
 
 class Modal extends PureComponent {
@@ -101,12 +101,12 @@ export default class FindingModal extends PureComponent {
             ]}
           />
           {this.state.locationActiveSelection === 'map' && (
-            <div className={styles.map}>
-              <Map
-                onCoordinatesSelected={this.onCoordinatesSelected}
-                markerCoordinates={this.state.coordinates}
-              />
-            </div>
+            <Map
+              onCoordinatesSelected={this.onCoordinatesSelected}
+              markerCoordinates={this.state.coordinates}
+              bird={this.props.bird}
+              finding={this.props.finding}
+            />
           )}
           <SecondaryButton onClick={this.props.onClose}>
             Peruuta

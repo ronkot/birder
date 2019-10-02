@@ -4,7 +4,7 @@ import 'firebase/database'
 import 'firebase/functions'
 import 'firebase/auth'
 
-import env from '../../env'
+import env from '../env'
 
 const config = {
   apiKey: env.firebaseApiKey,
