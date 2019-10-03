@@ -1,62 +1,86 @@
-import React, { PureComponent } from 'react'
-import GoogleMapReact from 'google-map-react'
+import React, {Component} from 'react'
+import {Map, TileLayer, Marker, Popup, ScaleControl} from 'react-leaflet'
 
+import BirdIcon from './BirdIcon'
 import styles from './Map.module.css'
 import * as location from '../location'
 
-const Marker = () => <div className={styles.marker} />
-
-class Map extends PureComponent {
+export default class BirderMap extends Component {
   static defaultProps = {
-    center: {
-      // Finland
-      lat: 63.22683987726258,
-      lng: 25.985456800620568
-    },
-    zoom: 10,
-    markerCoordinates: null,
-    readOnly: false
+    bird: null
   }
 
-  onClickMap = ({ lat, lng }) => {
-    if (this.props.readOnly) return
+  handleClick = (e) => {
+    const {lat, lng} = e.latlng
+    this.props.onCoordinatesSelected({lat, lng})
+  }
 
-    this.props.onCoordinatesSelected({ lat, lng })
+  getCenter = () => {
+    return (
+      this.props.markerCoordinates || {
+        // Finland
+        lat: 63.22683987726258,
+        lng: 25.985456800620568
+      }
+    )
   }
 
   render() {
+    const {bird} = this.props
+
+    const renderMarker = () => {
+      if (!this.props.markerCoordinates) {
+        return null
+      }
+      return (
+        <Marker position={this.props.markerCoordinates} icon={BirdIcon(bird)}>
+          <Popup direction="right" offset={[-8, -2]} opacity={1}>
+            <span>{bird.nameFi}</span>
+          </Popup>
+        </Marker>
+      )
+    }
+
     return (
-      // Important! Always set the container height explicitly
       <div className={styles.map}>
-        <GoogleMapReact
-          bootstrapURLKeys={{
-            key: 'AIzaSyDQoGEFFrSlBjwFnUvN5pWu1OhTDAtttfA',
-            language: 'fi',
-            region: 'fi'
-          }}
-          onClick={this.onClickMap}
-          defaultCenter={this.props.center}
-          center={this.props.markerCoordinates}
-          defaultZoom={this.props.zoom}>
-          {this.props.markerCoordinates ? (
-            <Marker {...this.props.markerCoordinates} />
-          ) : null}
-        </GoogleMapReact>
-        {location.supported() &&
-          !this.props.readOnly && (
-            <LocateButton onLocation={this.props.onCoordinatesSelected} />
-          )}
+        <Map
+          className={styles.map}
+          onClick={this.handleClick}
+          zoom={13}
+          center={this.getCenter()}
+        >
+          <TileLayer
+            attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {renderMarker()}
+          <ScaleControl />
+          <LocateButton onLocation={this.props.onCoordinatesSelected} />
+        </Map>
       </div>
     )
   }
 }
 
-class LocateButton extends PureComponent {
+class LocateButton extends Component {
   state = {
     loading: false
   }
 
-  locate = async () => {
+  buttonRef = React.createRef()
+
+  componentDidMount() {
+    console.log('current', this.buttonRef.current)
+    this.buttonRef.current.addEventListener('click', this.locate)
+  }
+
+  componentWillUnmount() {
+    this.buttonRef.current.removeEventListener('click', this.locate)
+  }
+
+  locate = async (evt) => {
+    evt.stopPropagation()
+
     if (this.state.loading) return
 
     const permissionStatus = await location.permissionStatus()
@@ -68,10 +92,10 @@ class LocateButton extends PureComponent {
     }
 
     // if (permissionStatus.state === 'prompt') {
-    //   alert('Paikantaminen vaatii suostumukse')
+    //   alert('Paikantaminen vaatii suostumuksen')
     // }
 
-    this.setState({ loading: true })
+    this.setState({loading: true})
     try {
       const loc = await location.get(false, 30000)
       const coordinates = {
@@ -82,13 +106,13 @@ class LocateButton extends PureComponent {
     } catch (err) {
       console.log('Sijainnin hakeminen ei onnistunut', err)
     } finally {
-      this.setState({ loading: false })
+      this.setState({loading: false})
     }
   }
 
   render() {
     return (
-      <div className={styles.locateButton} onClick={this.locate}>
+      <div className={styles.locateButton} ref={this.buttonRef}>
         {this.state.loading ? (
           <i className="fas fa-spinner fa-spin" />
         ) : (
@@ -98,5 +122,3 @@ class LocateButton extends PureComponent {
     )
   }
 }
-
-export default Map

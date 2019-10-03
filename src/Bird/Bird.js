@@ -21,6 +21,8 @@ class Bird extends PureComponent {
   }
 
   render() {
+    if (this.state.editModalOpen) return this.renderForm()
+
     const {bird} = this.props
     return (
       <div className={styles.bird}>
@@ -58,7 +60,6 @@ class Bird extends PureComponent {
               </PrimaryButton>
             )}
         </div>
-        {this.state.editModalOpen && this.renderForm()}
       </div>
     )
   }

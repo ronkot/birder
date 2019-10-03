@@ -1,7 +1,7 @@
 import React from 'react'
 import L from 'leaflet'
 
-import styles from './Map2.module.css'
+import styles from './Map.module.css'
 
 export default (bird) => {
   return new L.Icon({

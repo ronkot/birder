@@ -3,7 +3,7 @@ import {Map, TileLayer, Marker, Popup, ScaleControl} from 'react-leaflet'
 import moment from 'moment'
 
 import BirdIcon from './BirdIcon'
-import styles from './Map2.module.css'
+import styles from './Map.module.css'
 
 export default class StaticMap extends React.Component {
   static defaultProps = {
