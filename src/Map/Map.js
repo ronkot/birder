@@ -10,6 +10,22 @@ export default class BirderMap extends Component {
     bird: null
   }
 
+  locateButtonRef = React.createRef()
+
+  async componentDidMount() {
+    if (!this.props.markerCoordinates) {
+      console.log('search')
+      console.log(location.supported())
+      console.log(await location.permissionStatus())
+      if (
+        location.supported() &&
+        (await location.permissionStatus()).state === 'granted'
+      ) {
+        this.locateButtonRef.current.locate()
+      }
+    }
+  }
+
   handleClick = (e) => {
     const {lat, lng} = e.latlng
     this.props.onCoordinatesSelected({lat, lng})
@@ -46,7 +62,7 @@ export default class BirderMap extends Component {
         <Map
           className={styles.map}
           onClick={this.handleClick}
-          zoom={13}
+          zoom={6}
           center={this.getCenter()}
         >
           <TileLayer
@@ -55,7 +71,10 @@ export default class BirderMap extends Component {
           />
           {renderMarker()}
           <ScaleControl />
-          <LocateButton onLocation={this.props.onCoordinatesSelected} />
+          <LocateButton
+            ref={this.locateButtonRef}
+            onLocation={this.props.onCoordinatesSelected}
+          />
         </Map>
       </div>
     )
@@ -70,7 +89,6 @@ class LocateButton extends Component {
   buttonRef = React.createRef()
 
   componentDidMount() {
-    console.log('current', this.buttonRef.current)
     this.buttonRef.current.addEventListener('click', this.locate)
   }
 
@@ -79,7 +97,7 @@ class LocateButton extends Component {
   }
 
   locate = async (evt) => {
-    evt.stopPropagation()
+    evt && evt.stopPropagation()
 
     if (this.state.loading) return
 
@@ -91,9 +109,9 @@ class LocateButton extends Component {
       return
     }
 
-    // if (permissionStatus.state === 'prompt') {
-    //   alert('Paikantaminen vaatii suostumuksen')
-    // }
+    if (permissionStatus.state === 'prompt') {
+      alert('Paikantaminen vaatii suostumuksen')
+    }
 
     this.setState({loading: true})
     try {

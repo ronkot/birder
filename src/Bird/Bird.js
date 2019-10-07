@@ -13,7 +13,7 @@ import {saveFinding, removeFinding} from './BirdActions'
 import styles from './Bird.module.css'
 import {PrimaryButton} from '../common/Button/Button'
 import FindingModal from './FindingModal'
-import StaticMap from '../Map/StaticMap'
+import {StaticMap} from '../Map/StaticMap'
 
 class Bird extends PureComponent {
   state = {
@@ -88,12 +88,13 @@ class Bird extends PureComponent {
       date,
       place: {type}
     } = finding
-    console.log(type)
     return (
       <>
         <div className={styles.date}>Havaittu {moment(date).format('L')}</div>
         {type === 'coordinates' && (
-          <StaticMap bird={this.props.bird} finding={this.props.finding} />
+          <StaticMap
+            findings={[{...this.props.finding, bird: this.props.bird}]}
+          />
         )}
       </>
     )
