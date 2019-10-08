@@ -19,8 +19,7 @@ import ButtonGroup from '../ButtonGroup/ButtonGroup'
 import {BirdexSearch} from '../Birdex/BirdexSearch'
 import {BirdList} from '../Birdex/BirdList'
 import {BirdGrid} from '../Birdex/BirdGrid'
-
-// TODO: Move Birdex and History common dependencies somewhere.
+import {StaticMap} from '../Map/StaticMap'
 
 class History extends PureComponent {
   componentWillUnmount() {
@@ -31,6 +30,45 @@ class History extends PureComponent {
   componentDidMount() {
     document.querySelector('.appContent').scrollTo(0, this.props.scrollPosition)
     this.props.setScrollPosition(0)
+  }
+
+  renderView = (filteredBirds) => {
+    switch (this.props.viewType) {
+      case 'grid':
+        return (
+          <BirdGrid
+            birds={filteredBirds}
+            findings={this.props.findings}
+            to="/current"
+          />
+        )
+
+      case 'list':
+        return (
+          <BirdList
+            birds={filteredBirds}
+            findings={this.props.findings}
+            to="/current"
+          />
+        )
+
+      case 'map':
+        const findingsWithCoordinates = this.props.findings
+          .filter(
+            (finding) => finding.place && finding.place.type === 'coordinates'
+          )
+          .filter((finding) =>
+            filteredBirds.some((bird) => bird.id === finding.bird)
+          )
+          .map((finding) => ({
+            ...finding,
+            bird: filteredBirds.find((bird) => bird.id === finding.bird)
+          }))
+        return <StaticMap findings={findingsWithCoordinates} />
+
+      default:
+        return ''
+    }
   }
 
   render() {
@@ -64,24 +102,16 @@ class History extends PureComponent {
               {
                 key: 'list',
                 content: <i className="fas fa-align-justify" />
+              },
+              {
+                key: 'map',
+                content: <i className="fas fa-map" />
               }
             ]}
           />
         </div>
 
-        {this.props.viewType === 'grid' ? (
-          <BirdGrid
-            birds={filteredBirds}
-            findings={this.props.findings}
-            to="/history"
-          />
-        ) : (
-          <BirdList
-            birds={filteredBirds}
-            findings={this.props.findings}
-            to="/history"
-          />
-        )}
+        {this.renderView(filteredBirds)}
       </div>
     )
   }

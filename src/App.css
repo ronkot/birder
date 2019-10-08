@@ -62,13 +62,6 @@ nav > a.active {
   background-color: var(--color-blue-darkest);
 }
 
-img {
-  display: block;
-  border: 0;
-  width: 100%;
-  height: auto;
-}
-
 input {
   padding: 8px;
   border-radius: 3px;

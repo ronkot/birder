@@ -2,7 +2,7 @@
   min-height: 100vh;
   width: 100vw;
   position: absolute;
-  z-index: 2;
+  z-index: 2000; /* To place over leaflet.js map */
   display: grid;
   grid-template-columns: max-content 1fr;
   transition: all 300ms ease-in-out;

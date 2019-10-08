@@ -101,12 +101,11 @@ export default class FindingModal extends PureComponent {
             ]}
           />
           {this.state.locationActiveSelection === 'map' && (
-            <div className={styles.map}>
-              <Map
-                onCoordinatesSelected={this.onCoordinatesSelected}
-                markerCoordinates={this.state.coordinates}
-              />
-            </div>
+            <Map
+              onCoordinatesSelected={this.onCoordinatesSelected}
+              markerCoordinates={this.state.coordinates}
+              bird={this.props.bird}
+            />
           )}
           <SecondaryButton onClick={this.props.onClose}>
             Peruuta
