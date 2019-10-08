@@ -60,6 +60,7 @@
 .datePicker {
   display: grid;
   grid-row-gap: 3px;
+  z-index: 2000; /* To place over map */
 }
 
 .form {

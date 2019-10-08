@@ -37,7 +37,9 @@ class Achievement extends PureComponent {
           />
           <div className={styles.description}>{description}</div>
           {[...goals].reverse().map((goal) => {
-            const icon = <img src={goal.badge} alt="" />
+            const icon = (
+              <img src={goal.badge} alt="" className={styles.achievementIcon} />
+            )
             return (
               <ProgressBar
                 key={goal.target}

@@ -16,7 +16,8 @@
 
 .image {
   margin-bottom: 7px;
-  height: 123px; /* TODO: this is a hack. How to make images smaller in better way? */
+  height: auto;
+  width: 100%;
 }
 
 .notCompleted .image {
