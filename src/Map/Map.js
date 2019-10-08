@@ -13,16 +13,12 @@ export default class BirderMap extends Component {
   locateButtonRef = React.createRef()
 
   async componentDidMount() {
-    if (!this.props.markerCoordinates) {
-      console.log('search')
-      console.log(location.supported())
-      console.log(await location.permissionStatus())
-      if (
-        location.supported() &&
-        (await location.permissionStatus()).state === 'granted'
-      ) {
-        this.locateButtonRef.current.locate()
-      }
+    if (
+      !this.props.markerCoordinates &&
+      location.supported() &&
+      (await location.permissionStatus()).state === 'granted'
+    ) {
+      this.locateButtonRef.current.locate()
     }
   }
 
