@@ -78,11 +78,14 @@ class History extends PureComponent {
       return bird.nameFi.match(re) || bird.nameLatin.match(re)
     }
     const filteredBirds = this.props.birds.filter(matchSearchTerm)
+    const uniqueFinings = this.props.birds.filter((bird) =>
+      this.props.findings.some((finding) => finding.bird === bird.id)
+    ).length
 
     return (
       <div>
         <div className={styles.listStats}>
-          Birder-elikset: {this.props.findings.length}/{this.props.birds.length}
+          Birder-elikset: {uniqueFinings}/{this.props.allBirds.length}
         </div>
 
         <div className={styles.controls}>
