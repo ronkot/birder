@@ -6,7 +6,7 @@ import styles from './Bird.module.css'
 import {
   SecondaryButton,
   PrimaryButton,
-  AlertButton
+  ConfirmButton
 } from '../common/Button/Button'
 import Map from '../Map/Map'
 import ButtonGroup from '../ButtonGroup/ButtonGroup'
@@ -112,9 +112,13 @@ export default class FindingModal extends PureComponent {
           </SecondaryButton>
           <PrimaryButton onClick={this.saveFinding}>Tallenna</PrimaryButton>
           {this.props.finding && (
-            <AlertButton onClick={this.props.onRemoveFinding}>
-              Poista havainto
-            </AlertButton>
+            <ConfirmButton
+              onClick={this.props.onRemoveFinding}
+              renderContent={({state}) => {
+                if (state === 'initial') return 'Poista havainto'
+                else if (state === 'confirm') return 'Varmista poistaminen'
+              }}
+            />
           )}
         </div>
       </Modal>

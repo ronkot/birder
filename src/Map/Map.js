@@ -16,7 +16,8 @@ export default class BirderMap extends Component {
     if (
       !this.props.markerCoordinates &&
       location.supported() &&
-      (await location.permissionStatus()).state === 'granted'
+      (await location.permissionStatus()).state === 'granted' &&
+      this.locateButtonRef.current
     ) {
       this.locateButtonRef.current.locate()
     }

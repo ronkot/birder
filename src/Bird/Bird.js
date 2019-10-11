@@ -84,18 +84,16 @@ class Bird extends PureComponent {
 
   renderFound() {
     const {finding} = this.props
-    const {
-      date,
-      place: {type}
-    } = finding
+    const {date, place} = finding
     return (
       <>
         <div className={styles.date}>Havaittu {moment(date).format('L')}</div>
-        {type === 'coordinates' && (
-          <StaticMap
-            findings={[{...this.props.finding, bird: this.props.bird}]}
-          />
-        )}
+        {place &&
+          place.type === 'coordinates' && (
+            <StaticMap
+              findings={[{...this.props.finding, bird: this.props.bird}]}
+            />
+          )}
       </>
     )
   }
