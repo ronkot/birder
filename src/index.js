@@ -15,6 +15,7 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import rootReducer, {initialState} from './reducers'
 import env from './env'
+import version from './version'
 
 moment.locale('fi')
 
@@ -50,7 +51,30 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.register()
+serviceWorker.register({
+  onUpdate: (registration) => {
+    const waitingServiceWorker = registration.waiting
+
+    if (waitingServiceWorker) {
+      waitingServiceWorker.addEventListener('statechange', (event) => {
+        if (event.target.state === 'activated') {
+          if (
+            window.confirm(
+              `Uusi versio (${version}) on saatavlla. Haluatko ottaa sen heti käyttöösi?`
+            )
+          ) {
+            window.location.reload()
+          }
+        }
+      })
+      waitingServiceWorker.postMessage({type: 'SKIP_WAITING'})
+    }
+  },
+  onSuccess: (registration) =>
+    /**
+     * Could show "offline mode available" message here, but let's not do it
+     * before create react app allows speciying the resources to be cached.
+     * Currently the resources in public/ folder aren't cached, but thre's a CRA PR
+     * that will allow configuring paths to be cached.
+     */
+})
