@@ -1,7 +1,7 @@
 .topBar {
   background: var(--color-blue-darkest);
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: 1fr min-content;
   border-bottom: 1px solid var(--color-blue-medium);
 }
 

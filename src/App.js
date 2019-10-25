@@ -55,7 +55,6 @@ class SignedInContent extends Component {
   render() {
     return (
       <>
-        <TopBar />
         <SideMenu />
         <div className="appContent">
           <Switch>
@@ -72,6 +71,7 @@ class SignedInContent extends Component {
             <Route exact path="/about" component={About} />
           </Switch>
         </div>
+        <TopBar />
       </>
     )
   }

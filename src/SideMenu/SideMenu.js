@@ -17,16 +17,17 @@ class SideMenu extends PureComponent {
           isMenuOpen ? styles.open : styles.closed
         }`}
       >
+        <div className={styles.closeArea} onClick={this.props.closeMenu} />
         <div className={styles.menu}>
           <div className={styles.menuTop}>
+            <div className={styles.closeButton} onClick={this.props.closeMenu}>
+              <i className="fas fa-angle-double-right" />
+            </div>
             <div className={styles.logoLine}>
               <img className={styles.logo} src="/img/logo.svg" />
               <div className={styles.birderText}>
                 Birder <span className={styles.version}>{version}</span>
               </div>
-            </div>
-            <div className={styles.closeButton} onClick={this.props.closeMenu}>
-              <i className="fas fa-angle-double-left" />
             </div>
           </div>
           <div className={styles.menuContent}>
@@ -62,7 +63,6 @@ class SideMenu extends PureComponent {
             </div>
           </div>
         </div>
-        <div className={styles.closeArea} onClick={this.props.closeMenu} />
       </div>
     )
   }
