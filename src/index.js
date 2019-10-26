@@ -70,11 +70,12 @@ serviceWorker.register({
       waitingServiceWorker.postMessage({type: 'SKIP_WAITING'})
     }
   },
-  onSuccess: (registration) =>
+  onSuccess: (registration) => {
     /**
      * Could show "offline mode available" message here, but let's not do it
      * before create react app allows speciying the resources to be cached.
      * Currently the resources in public/ folder aren't cached, but thre's a CRA PR
      * that will allow configuring paths to be cached.
      */
+  }
 })

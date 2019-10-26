@@ -4098,8 +4098,8 @@ module.exports = [
     nameLatin: 'Oenanthe hispanica',
     nameEn: 'Black-eared Wheatear',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'rusotasku.jpg',
+    photographer: 'Arvi Tyni',
     detectLink: 'https://fi.wikipedia.org/wiki/Rusotasku'
   },
   {
@@ -4112,8 +4112,8 @@ module.exports = [
     nameLatin: 'Saxicola rubicola',
     nameEn: 'European Stonechat',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'mustapaatasku.jpg',
+    photographer: 'Terho Kaikkonen',
     detectLink: 'https://fi.wikipedia.org/wiki/Mustapäätasku'
   },
   {
@@ -4280,8 +4280,8 @@ module.exports = [
     nameLatin: 'Streptopelia turtur',
     nameEn: 'European Turtle Dove',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'turturikyyhky.jpg',
+    photographer: 'Terho Kaikkonen',
     detectLink: 'https://fi.wikipedia.org/wiki/Turturikyyhky'
   },
   {
@@ -4336,8 +4336,64 @@ module.exports = [
     nameLatin: 'Uria aalge',
     nameEn: 'Common Murre',
     rarity: 5,
+    photo: 'etelankiisla.jpg',
+    photographer: 'Terho Kaikkonen',
+    detectLink: 'https://fi.wikipedia.org/wiki/Etel%C3%A4nkiisla'
+  },
+  {
+    id: 'b-311',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Scolopacidae',
+    familyFi: 'Kurpat',
+    nameFi: 'Merisirri',
+    nameLatin: 'Calidris maritima',
+    nameEn: 'Purple Sandpiper',
+    rarity: 5,
+    photo: 'merisirri.jpg',
+    photographer: 'Juho Tirkkonen',
+    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/merisirri'
+  },
+  {
+    id: 'b-312',
+    orderLatin: 'Ciconiiformes',
+    orderFi: 'Haikaralinnut',
+    familyLatin: 'Ardeidae',
+    familyFi: 'Haikarat',
+    nameFi: 'Lehmähaikara',
+    nameLatin: 'Bubulcus ibis',
+    nameEn: 'Cattle Egret',
+    rarity: 5,
+    photo: 'lehmahaikara.jpg',
+    photographer: 'Heikki Vuonokari',
+    detectLink: 'https://fi.wikipedia.org/wiki/Lehm%C3%A4haikara'
+  },
+  {
+    id: 'b-313',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Emberizidae',
+    familyFi: 'Sirkut',
+    nameFi: 'Mäntysirkku',
+    nameLatin: 'Emberiza leucocephalos',
+    nameEn: 'Pine Bunting',
+    rarity: 5,
     photo: 'birderkuva.jpg',
     photographer: '',
-    detectLink: 'https://fi.wikipedia.org/wiki/Etel%C3%A4nkiisla'
+    detectLink: 'https://fi.wikipedia.org/wiki/M%C3%A4ntysirkku'
+  },
+  {
+    id: 'b-314',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Scolopacidae',
+    familyFi: 'Kurpat',
+    nameFi: 'Eskimosirri',
+    nameLatin: 'Calidris bairdii',
+    nameEn: "Baird's Sandpiper",
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.wikipedia.org/wiki/Eskimosirri'
   }
 ]
