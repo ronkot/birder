@@ -1,19 +1,35 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
+import {NavLink} from 'react-router-dom'
+import {Select, MenuItem} from '@material-ui/core'
 
 import styles from './TopBar.module.css'
 import {openMenu} from '../SideMenu/SideMenuRedux'
-import version from '../version'
+import {setYear} from '../reducers'
 
 class TopBar extends PureComponent {
   render() {
     return (
       <div className={styles.topBar}>
         <div className={styles.content}>
-          <img className={styles.logo} src="img/logo.svg" />
-          <div className={styles.birderText}>
-            Birder <span className={styles.version}>{version}</span>
-          </div>
+          <NavLink to="/current" activeClassName={styles.activeLink}>
+            <i className="fa fa-binoculars" />
+          </NavLink>
+          <NavLink to="/stats" activeClassName={styles.activeLink}>
+            <i className="fa fa-chart-line" />
+          </NavLink>
+          <NavLink to="/achievements" activeClassName={styles.activeLink}>
+            <i className="fa fa-trophy" />
+          </NavLink>
+          <Select
+            value={this.props.year}
+            onChange={(evt) => this.props.setYear(evt.target.value)}
+            native={true}
+          >
+            <option value={'all'}>Kaikki</option>
+            <option value={2019}>2019</option>
+            <option value={2018}>2018</option>
+          </Select>
         </div>
         <div className={styles.openButton} onClick={this.props.openMenu}>
           <i className="fas fa-bars" />
@@ -23,11 +39,16 @@ class TopBar extends PureComponent {
   }
 }
 
+const mapStateToProps = (state) => ({
+  year: state.year
+})
+
 const mapDispatchToProps = (dispatch) => ({
-  openMenu: () => dispatch(openMenu())
+  openMenu: () => dispatch(openMenu()),
+  setYear: (year) => dispatch(setYear(year))
 })
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(TopBar)
