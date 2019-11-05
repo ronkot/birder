@@ -10,12 +10,14 @@ export class BirdThumbnail extends PureComponent {
     } = this.props
     return (
       <div className={styles.bird}>
-        <img
-          className={!found ? styles.notFound : undefined}
-          src={`/img/birds/${photo}`}
-          alt=""
-          loading="lazy"
-        />
+        <div className={styles.imgContainer}>
+          <img
+            className={!found ? styles.notFound : undefined}
+            src={`/img/birds/${photo}`}
+            alt=""
+            loading="lazy"
+          />
+        </div>
         <div className={styles.birdName}>{nameFi}</div>
         <div className={styles.birdLatinName}>{nameLatin}</div>
       </div>
