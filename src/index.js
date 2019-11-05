@@ -15,7 +15,6 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import rootReducer, {initialState} from './reducers'
 import env from './env'
-import version from './version'
 
 moment.locale('fi')
 
@@ -60,7 +59,7 @@ serviceWorker.register({
         if (event.target.state === 'activated') {
           if (
             window.confirm(
-              `Uusi versio (${version}) on saatavlla. Haluatko ottaa sen heti käyttöösi?`
+              `Uusi versio on saatavlla. Haluatko ottaa sen heti käyttöösi?`
             )
           ) {
             window.location.reload()
