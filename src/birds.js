@@ -3370,8 +3370,8 @@ module.exports = [
     nameLatin: 'Emberiza rustica',
     nameEn: 'Rustic Bunting',
     rarity: 4,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'pohjansirkku.jpg',
+    photographer: 'Osmo Heikkala',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pohjansirkku'
   },
   {
@@ -3595,7 +3595,7 @@ module.exports = [
     nameEn: 'Red-rumped Swallow',
     rarity: 5,
     photo: 'ruostepaasky.jpg',
-    photographer: 'Liam Sanchez',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.wikipedia.org/wiki/Ruostepääsky'
   },
   {
@@ -3650,8 +3650,8 @@ module.exports = [
     nameLatin: 'Phylloscopus borealis',
     nameEn: 'Arctic Warbler',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'lapinuunilintu.jpg',
+    photographer: 'Osmo Heikkala',
     detectLink: 'https://fi.wikipedia.org/wiki/Lapinuunilintu'
   },
   {
@@ -3776,8 +3776,8 @@ module.exports = [
     nameLatin: 'Podiceps nigricollis',
     nameEn: 'Black-necked Grebe',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'mustakaulauikku.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.wikipedia.org/wiki/Mustakaulauikku'
   },
   {
@@ -4182,8 +4182,8 @@ module.exports = [
     nameLatin: 'Rhodostethia rosea',
     nameEn: "Ross's Gull",
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'ruusulokki.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.wikipedia.org/wiki/Ruusulokki'
   },
   {
@@ -4266,8 +4266,8 @@ module.exports = [
     nameLatin: 'Pluvialis squatarola',
     nameEn: 'Grey Plover',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'tundrakurmitsa.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tundrakurmitsa'
   },
   {
@@ -4294,8 +4294,8 @@ module.exports = [
     nameLatin: 'Locustella lanceolata',
     nameEn: 'Lanceolated Warbler',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'viirusirkkalintu.jpg',
+    photographer: 'Osmo Heikkala',
     detectLink: 'https://fi.wikipedia.org/wiki/Viirusirkkalintu'
   },
   {
@@ -4308,8 +4308,8 @@ module.exports = [
     nameLatin: 'Tringa stagnatilis',
     nameEn: 'Marsh Sandpiper',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'lampiviklo.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.wikipedia.org/wiki/Lampiviklo'
   },
   {
@@ -4395,5 +4395,33 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.wikipedia.org/wiki/Eskimosirri'
+  },
+  {
+    id: 'b-315',
+    orderLatin: 'Anseriformes',
+    orderFi: 'Sorsalinnut',
+    familyLatin: 'Anatidae',
+    familyFi: 'Sorsat',
+    nameFi: 'Punapäänarsku',
+    nameLatin: 'Netta rufina',
+    nameEn: 'Red-crested Pochard',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.wikipedia.org/wiki/Punap%C3%A4%C3%A4narsku'
+  },
+  {
+    id: 'b-316',
+    orderLatin: 'Anseriformes',
+    orderFi: 'Sorsalinnut',
+    familyLatin: 'Anatidae',
+    familyFi: 'Sorsat',
+    nameFi: 'Tiibetinhanhi',
+    nameLatin: 'Anser indicus',
+    nameEn: 'Bar-headed Goose',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tiibetinhanhi'
   }
 ]
