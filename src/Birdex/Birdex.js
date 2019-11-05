@@ -115,7 +115,6 @@ class Birdex extends PureComponent {
 }
 
 export default compose(
-  listenFindings(),
   connect(
     (state) => {
       const user = selectUser(state)
@@ -133,5 +132,6 @@ export default compose(
       setSearchTerm: (term) => dispatch(setSearchTerm(term)),
       setViewType: (type) => dispatch(setViewType(type))
     })
-  )
+  ),
+  listenFindings
 )(Birdex)

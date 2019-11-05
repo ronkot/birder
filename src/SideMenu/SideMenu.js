@@ -57,7 +57,12 @@ class SideMenu extends PureComponent {
           </div>
           <div className={styles.menuBottom}>
             <div className={styles.email}>{this.props.user.email}</div>
-            <div className={styles.logOut} onClick={auth.logout}>
+            <div
+              className={styles.logOut}
+              onClick={
+                auth.logout /*  dispatch({ type: '@@reduxFirestore/CLEAR_DATA' }) */
+              }
+            >
               <i className="fas fa-sign-out-alt" />
               Kirjaudu ulos
             </div>

@@ -42,6 +42,6 @@ function year(state = currentYear(), action) {
 export function setYear(year) {
   return {
     type: SET_YEAR,
-    year
+    year: +year
   }
 }

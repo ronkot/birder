@@ -70,6 +70,6 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default compose(
-  listenFindings(),
-  connect(mapStateToProps)
+  connect(mapStateToProps),
+  listenFindings
 )(Achievement)

@@ -1,26 +1,32 @@
-import { firestoreConnect } from 'react-redux-firebase'
+import {firestoreConnect} from 'react-redux-firebase'
 
-import { selectUser } from './selectors'
-import { currentYear } from './utils'
+import {selectUser} from './selectors'
 
-export function listenFindings() {
-  return firestoreConnect((props, store) => {
-    const state = store.getState()
-    const user = selectUser(state)
-    return [
-      {
-        collection: 'findings',
-        where: ['user', '==', user.uid]
-      }
-    ]
-  })
-}
+export const listenFindings = firestoreConnect((props, store) => {
+  const state = store.getState()
+  const year = state.year
+  const nextYear = year + 1
+  const user = selectUser(state)
+  console.log('listenFindings', year, user.uid)
+  return [
+    {
+      collection: 'findings',
+      where: [
+        ['user', '==', user.uid],
+        ['date', '>=', `${year}-01-01`],
+        ['date', '<', `${nextYear}-01-01`]
+      ]
+    }
+  ]
+})
 
-export function listenHiScores() {
-  return firestoreConnect([
+export const listenHiScores = firestoreConnect((props, store) => {
+  const state = store.getState()
+  const year = state.year
+  return [
     {
       collection: 'hiscores',
-      where: ['year', '==', currentYear()]
+      where: ['year', '==', year]
     }
-  ])
-}
+  ]
+})

@@ -86,9 +86,9 @@ class Stats extends Component {
 }
 
 export default compose(
-  listenHiScores(),
   connect((state) => ({
     user: selectUser(state),
     hiscores: selectHiscores(state)
-  }))
+  })),
+  listenHiScores
 )(Stats)

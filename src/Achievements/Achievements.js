@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { Link } from 'react-router-dom'
+import React, {PureComponent} from 'react'
+import {connect} from 'react-redux'
+import {compose} from 'redux'
+import {Link} from 'react-router-dom'
 
 import styles from './Achievements.module.css'
-import { selectAchievements } from '../selectors'
-import { listenFindings } from '../listeners'
-import { ProgressBar } from '../ProgressBar/ProgressBar'
+import {selectAchievements} from '../selectors'
+import {listenFindings} from '../listeners'
+import {ProgressBar} from '../ProgressBar/ProgressBar'
 
 class Achievements extends PureComponent {
   render() {
@@ -21,17 +21,17 @@ class Achievements extends PureComponent {
 }
 
 export default compose(
-  listenFindings(),
   connect((state) => {
     return {
       achievements: selectAchievements(state)
     }
-  })
+  }),
+  listenFindings
 )(Achievements)
 
 class AchievmentLink extends PureComponent {
   render() {
-    const { id, name, goals, progress } = this.props.achievement
+    const {id, name, goals, progress} = this.props.achievement
 
     let completedGoal
     let nextGoal = goals[0]
@@ -49,7 +49,8 @@ class AchievmentLink extends PureComponent {
         className={`${styles.achievement} ${
           completed ? '' : styles.notCompleted
         }`}
-        to={`/achievements/${id}`}>
+        to={`/achievements/${id}`}
+      >
         <div className={styles.name}>{name}</div>
         <img className={styles.image} src={badge} alt="" />
         <ProgressBar target={target} progress={progress} />

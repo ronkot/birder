@@ -155,9 +155,9 @@ const mapDispatchToProps = (dispatch) =>
   )
 
 export default compose(
-  listenFindings(),
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )
+  ),
+  listenFindings
 )(Bird)
