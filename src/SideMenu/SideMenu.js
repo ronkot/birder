@@ -1,16 +1,15 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {NavLink} from 'react-router-dom'
+import React, { PureComponent } from "react";
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-import auth from '../firebase/auth'
-import styles from './SideMenu.module.css'
-import {currentYear} from '../utils'
-import {closeMenu} from './SideMenuRedux'
-import version from '../version'
+import auth from "../firebase/auth";
+import styles from "./SideMenu.module.css";
+import { closeMenu } from "./SideMenuRedux";
+import version from "../version";
 
 class SideMenu extends PureComponent {
   render() {
-    const {isMenuOpen} = this.props
+    const { isMenuOpen } = this.props;
     return (
       <div
         className={`${styles.container} ${
@@ -31,12 +30,8 @@ class SideMenu extends PureComponent {
             </div>
           </div>
           <div className={styles.menuContent}>
-            <NavLink
-              to="/current"
-              onClick={this.props.closeMenu}
-            >{`Pinnat ${currentYear()}`}</NavLink>
-            <NavLink to="/history" onClick={this.props.closeMenu}>
-              Birder-elikset
+            <NavLink to="/birdex" onClick={this.props.closeMenu}>
+              Pinnat
             </NavLink>
             <NavLink to="/achievements" onClick={this.props.closeMenu}>
               Saavutukset
@@ -69,19 +64,19 @@ class SideMenu extends PureComponent {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   user: state.firebase.profile,
   isMenuOpen: state.isMenuOpen
-})
-const mapDispatchToProps = (dispatch) => ({
+});
+const mapDispatchToProps = dispatch => ({
   closeMenu: () => dispatch(closeMenu())
-})
+});
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SideMenu)
+)(SideMenu);

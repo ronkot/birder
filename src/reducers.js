@@ -1,19 +1,19 @@
-import {combineReducers} from 'redux'
-import {firebaseReducer} from 'react-redux-firebase'
-import {firestoreReducer} from 'redux-firestore'
+import { combineReducers } from "redux"
+import { firebaseReducer } from "react-redux-firebase"
+import { firestoreReducer } from "redux-firestore"
 
-import birds from './birds'
-import {scrollPosition, searchTerm, viewType} from './Birdex/BirdexRedux'
-import {isMenuOpen} from './SideMenu/SideMenuRedux'
-import {currentYear} from './utils'
+import birds from "./birds"
+import { scrollPosition, searchTerm, viewType } from "./Birdex/BirdexRedux"
+import { isMenuOpen } from "./SideMenu/SideMenuRedux"
+import { currentYear } from "./utils"
 
 export const initialState = {
   birds,
 
   // ui
   birdexScrollPosition: 0,
-  birdexSearchTerm: '',
-  birdexViewType: 'grid', // [list, grid]
+  birdexSearchTerm: "",
+  birdexViewType: "grid", // [list, grid]
   isMenuOpen: false,
   year: currentYear()
 }
@@ -30,7 +30,7 @@ export default combineReducers({
 })
 
 // TODO: Move to own file
-export const SET_YEAR = 'SET_YEAR'
+export const SET_YEAR = "SET_YEAR"
 function year(state = currentYear(), action) {
   switch (action.type) {
     case SET_YEAR:
@@ -42,6 +42,6 @@ function year(state = currentYear(), action) {
 export function setYear(year) {
   return {
     type: SET_YEAR,
-    year: +year
+    year: year === "all" ? "all" : +year
   }
 }

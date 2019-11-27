@@ -1,85 +1,87 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {compose} from 'redux'
+import React, { PureComponent } from "react"
+import { connect } from "react-redux"
+import { compose } from "redux"
 
-import {listenFindings} from '../listeners'
-import styles from './Birdex.module.css'
+import { listenFindings } from "../listeners"
+import styles from "./Birdex.module.css"
 import {
   selectCurrentYearFindings,
   selectBirdsSortedByName,
   selectUser
-} from '../selectors'
-import {currentYear} from '../utils'
-import {setScrollPosition, setSearchTerm, setViewType} from './BirdexRedux'
-import ButtonGroup from '../ButtonGroup/ButtonGroup'
-import {BirdexSearch} from './BirdexSearch'
-import {BirdList} from './BirdList'
-import {BirdGrid} from './BirdGrid'
-import {StaticMap} from '../Map/StaticMap'
+} from "../selectors"
+import { currentYear } from "../utils"
+import { setScrollPosition, setSearchTerm, setViewType } from "./BirdexRedux"
+import ButtonGroup from "../ButtonGroup/ButtonGroup"
+import { BirdexSearch } from "./BirdexSearch"
+import { BirdList } from "./BirdList"
+import { BirdGrid } from "./BirdGrid"
+import { StaticMap } from "../Map/StaticMap"
 
 class Birdex extends PureComponent {
   componentWillUnmount() {
-    const scrollPos = document.querySelector('.appContent').scrollTop
+    const scrollPos = document.querySelector(".appContent").scrollTop
     this.props.setScrollPosition(scrollPos)
   }
 
   componentDidMount() {
-    document.querySelector('.appContent').scrollTo(0, this.props.scrollPosition)
+    document.querySelector(".appContent").scrollTo(0, this.props.scrollPosition)
     this.props.setScrollPosition(0)
   }
 
-  renderView = (filteredBirds) => {
+  renderView = filteredBirds => {
     switch (this.props.viewType) {
-      case 'grid':
+      case "grid":
         return (
           <BirdGrid
             birds={filteredBirds}
             findings={this.props.findings}
-            to="/current"
+            to="/birdex"
           />
         )
 
-      case 'list':
+      case "list":
         return (
           <BirdList
             birds={filteredBirds}
             findings={this.props.findings}
-            to="/current"
+            to="/birdex"
           />
         )
 
-      case 'map':
+      case "map":
         const findingsWithCoordinates = this.props.findings
           .filter(
-            (finding) => finding.place && finding.place.type === 'coordinates'
+            finding => finding.place && finding.place.type === "coordinates"
           )
-          .filter((finding) =>
-            filteredBirds.some((bird) => bird.id === finding.bird)
+          .filter(finding =>
+            filteredBirds.some(bird => bird.id === finding.bird)
           )
-          .map((finding) => ({
+          .map(finding => ({
             ...finding,
-            bird: filteredBirds.find((bird) => bird.id === finding.bird)
+            bird: filteredBirds.find(bird => bird.id === finding.bird)
           }))
         return <StaticMap findings={findingsWithCoordinates} />
 
       default:
-        return ''
+        return ""
     }
   }
 
   render() {
-    const matchSearchTerm = (bird) => {
+    const matchSearchTerm = bird => {
       if (!this.props.searchTerm) return true
-      const re = new RegExp(this.props.searchTerm, 'i')
+      const re = new RegExp(this.props.searchTerm, "i")
       return bird.nameFi.match(re) || bird.nameLatin.match(re)
     }
     const filteredBirds = this.props.birds.filter(matchSearchTerm)
 
+    const pointsTtile =
+      this.props.year === "all" ? "Elikset" : `Pinnat ${this.props.year}`
+
     return (
       <div>
         <div className={styles.listStats}>
-          Pinnat {currentYear()}: {this.props.findings.length}/
-          {this.props.birds.length}
+          {pointsTtile}: {this.props.findings.length}/{this.props.birds.length}
         </div>
 
         <div className={styles.controls}>
@@ -93,15 +95,15 @@ class Birdex extends PureComponent {
             onActiveChanged={this.props.setViewType}
             buttons={[
               {
-                key: 'grid',
+                key: "grid",
                 content: <i className="fas fa-th" />
               },
               {
-                key: 'list',
+                key: "list",
                 content: <i className="fas fa-align-justify" />
               },
               {
-                key: 'map',
+                key: "map",
                 content: <i className="fas fa-map" />
               }
             ]}
@@ -116,7 +118,7 @@ class Birdex extends PureComponent {
 
 export default compose(
   connect(
-    (state) => {
+    state => {
       const user = selectUser(state)
       return {
         user,
@@ -124,13 +126,14 @@ export default compose(
         findings: selectCurrentYearFindings(state),
         scrollPosition: state.birdexScrollPosition,
         searchTerm: state.birdexSearchTerm,
-        viewType: state.birdexViewType
+        viewType: state.birdexViewType,
+        year: state.year
       }
     },
-    (dispatch) => ({
-      setScrollPosition: (position) => dispatch(setScrollPosition(position)),
-      setSearchTerm: (term) => dispatch(setSearchTerm(term)),
-      setViewType: (type) => dispatch(setViewType(type))
+    dispatch => ({
+      setScrollPosition: position => dispatch(setScrollPosition(position)),
+      setSearchTerm: term => dispatch(setSearchTerm(term)),
+      setViewType: type => dispatch(setViewType(type))
     })
   ),
   listenFindings
