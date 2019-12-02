@@ -1,17 +1,17 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {compose} from 'redux'
-import orderBy from 'lodash/orderBy'
+import React, { PureComponent } from "react"
+import { connect } from "react-redux"
+import { compose } from "redux"
+import orderBy from "lodash/orderBy"
 
-import {selectAchievements} from '../selectors'
-import {listenFindings} from '../listeners'
-import styles from './Achievement.module.css'
-import {ProgressBar} from '../ProgressBar/ProgressBar'
-import {BirdThumbnail} from '../common/BirdThumbnail/BirdThumbnail'
+import { selectAchievements } from "../selectors"
+import { listenFindings } from "../listeners"
+import styles from "./Achievement.module.css"
+import { ProgressBar } from "../ProgressBar/ProgressBar"
+import { BirdThumbnail } from "../common/BirdThumbnail/BirdThumbnail"
 
 class Achievement extends PureComponent {
   render() {
-    const {name, goals, progress, description, birds} = this.props.achievement
+    const { name, goals, progress, description, birds } = this.props.achievement
 
     let completedGoal
     let nextGoal = goals[0]
@@ -30,13 +30,13 @@ class Achievement extends PureComponent {
           <div className={styles.name}>{name}</div>
           <img
             className={`${styles.badge} ${
-              completed ? '' : styles.notCompleted
+              completed ? "" : styles.notCompleted
             }`}
             src={badge}
             alt=""
           />
           <div className={styles.description}>{description}</div>
-          {[...goals].reverse().map((goal) => {
+          {[...goals].reverse().map(goal => {
             const icon = (
               <img src={goal.badge} alt="" className={styles.achievementIcon} />
             )
@@ -51,9 +51,9 @@ class Achievement extends PureComponent {
           })}
           <div className={styles.birds}>
             {birds &&
-              orderBy(birds, ['found', 'nameFi'], ['desc', 'asc']).map(
-                (bird) => <BirdThumbnail bird={bird} found={bird.found} />
-              )}
+              orderBy(birds, ["found", "nameFi"], ["desc", "asc"]).map(bird => (
+                <BirdThumbnail bird={bird} found={bird.found} />
+              ))}
           </div>
         </div>
       </div>
@@ -64,8 +64,9 @@ class Achievement extends PureComponent {
 const mapStateToProps = (state, ownProps) => {
   return {
     achievement: selectAchievements(state).find(
-      (a) => a.id === ownProps.match.params.id
-    )
+      a => a.id === ownProps.match.params.id
+    ),
+    year: state.year
   }
 }
 

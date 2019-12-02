@@ -140,7 +140,8 @@ const mapStateToProps = (state, ownProps) => {
     finding: findings.find(
       finding => finding.bird === ownProps.match.params.id
     ),
-    isEditable: isCurrentYear
+    isEditable: isCurrentYear,
+    year: state.year
   }
 }
 

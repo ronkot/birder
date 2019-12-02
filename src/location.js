@@ -4,9 +4,9 @@ export function supported() {
 
 //  'granted', 'denied' or 'prompt'
 export async function permissionStatus() {
-  if (!navigator.permissions) return { state: 'unknown' }
+  if (!navigator.permissions) return {state: 'unknown'}
 
-  return navigator.permissions.query({ name: 'geolocation' })
+  return navigator.permissions.query({name: 'geolocation'})
   // .then(function(permissionStatus) {
   //   console.log('geolocation permission state is ', permissionStatus.state)
 
@@ -20,7 +20,7 @@ export async function get(accurate = true, timeout = 30000) {
   return new Promise((resolve, reject) => {
     const options = {
       enableHighAccuracy: accurate,
-      timeout
+      timeout,
     }
     navigator.geolocation.getCurrentPosition(resolve, reject, options)
   })
