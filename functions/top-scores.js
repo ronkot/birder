@@ -14,6 +14,10 @@ module.exports = async (change, context) => {
   const { date, user } = document
   const year = new Date(date).getFullYear()
 
+  await updateHiscores(year, user)
+}
+
+async function updateHiscores(year, user) {
   const findingsSnapshot = await db
     .collection('findings')
     .where('user', '==', user)
