@@ -3820,8 +3820,8 @@ module.exports = [
     nameLatin: 'Gavia pacifica',
     nameEn: 'Pacific Loon',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'tundrakuikka.jpg',
+    photographer: 'Eino Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Tundrakuikka'
   },
   {
@@ -3862,8 +3862,8 @@ module.exports = [
     nameLatin: 'Otus scops',
     nameEn: 'Eurasian Scops Owl',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'kylapollonen.jpg',
+    photographer: 'Eino Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Kyläpöllönen'
   },
   {
@@ -4058,8 +4058,8 @@ module.exports = [
     nameLatin: 'Monticola saxatilis',
     nameEn: 'Common Rock Thrush',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'kivikkorastas.jpg',
+    photographer: 'Eino Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Kivikkorastas'
   },
   {
@@ -4128,8 +4128,8 @@ module.exports = [
     nameLatin: 'Saxicola caprata',
     nameEn: 'Pied Bush Chat',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'nokitasku.jpg',
+    photographer: 'Kalle Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Nokitasku'
   },
   {
@@ -4142,8 +4142,8 @@ module.exports = [
     nameLatin: 'Pluvialis fulva',
     nameEn: 'Pacific Golden Plover',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'siperiankurmitsa.jpg',
+    photographer: 'Eino Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Siperiankurmitsa'
   },
   {
@@ -4198,8 +4198,8 @@ module.exports = [
     nameLatin: 'Pagophila eburnea',
     nameEn: 'Ivory Gull',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'jaalokki.jpg',
+    photographer: 'Eino Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Jäälokki'
   },
   {
@@ -4212,8 +4212,8 @@ module.exports = [
     nameLatin: 'Xema sabini',
     nameEn: "Sabine's Gull",
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'tiiralokki.jpg',
+    photographer: 'Eino Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Tiiralokki'
   },
   {
@@ -4311,7 +4311,7 @@ module.exports = [
     nameEn: 'Marsh Sandpiper',
     rarity: 5,
     photo: 'lampiviklo.jpg',
-    photographer: 'Heikki Vuonokari',
+    photographer: 'Kalle Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Lampiviklo'
   },
   {
@@ -4324,8 +4324,8 @@ module.exports = [
     nameLatin: 'Melanitta perspicillata',
     nameEn: 'Surf Scoter',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'pilkkaniska.jpg',
+    photographer: 'Eino Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Pilkkaniska'
   },
   {
@@ -4394,8 +4394,8 @@ module.exports = [
     nameLatin: 'Calidris bairdii',
     nameEn: "Baird's Sandpiper",
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'eskimosirri.jpg',
+    photographer: 'Kalle Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Eskimosirri'
   },
   {
@@ -4408,8 +4408,8 @@ module.exports = [
     nameLatin: 'Netta rufina',
     nameEn: 'Red-crested Pochard',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'punapaanarsku.jpg',
+    photographer: 'Eino Hiekkanen',
     detectLink: 'https://fi.wikipedia.org/wiki/Punap%C3%A4%C3%A4narsku'
   },
   {
@@ -4422,8 +4422,8 @@ module.exports = [
     nameLatin: 'Anser indicus',
     nameEn: 'Bar-headed Goose',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'tiibetinhanhi.jpg',
+    photographer: 'Eino Hiekkanen',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tiibetinhanhi'
   }
 ]
