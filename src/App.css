@@ -16,7 +16,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: min-content 1fr;
+  grid-template-rows: 1fr min-content;
   font-family: 'Montserrat  ', sans-serif;
   color: var(--color-white);
   background-color: var(--color-blue-light);

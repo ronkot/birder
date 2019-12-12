@@ -5,7 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@sentry/browser": "^5.5.0",
-    "firebase": "^5.9.4",
+    "firebase": "^7.2.3",
     "formik": "^1.5.7",
     "leaflet": "^1.5.1",
     "lodash": "^4.17.11",
@@ -14,11 +14,11 @@
     "react-dom": "^16.8.6",
     "react-leaflet": "^2.4.0",
     "react-redux": "^5.0.7",
-    "react-redux-firebase": "^2.2.6",
+    "react-redux-firebase": "^2.5.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^3.0.1",
     "redux": "^4.0.0",
-    "redux-firestore": "^0.7.3",
+    "redux-firestore": "^0.7.4",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -39,5 +39,11 @@
   "devDependencies": {
     "firebase-tools": "^6.10.0",
     "prettier": "^1.14.3"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "semi": false,
+    "singleQuote": true,
+    "arrowParens": "always"
   }
 }

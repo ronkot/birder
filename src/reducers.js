@@ -5,6 +5,7 @@ import {firestoreReducer} from 'redux-firestore'
 import birds from './birds'
 import {scrollPosition, searchTerm, viewType} from './Birdex/BirdexRedux'
 import {isMenuOpen} from './SideMenu/SideMenuRedux'
+import {currentYear} from './utils'
 
 export const initialState = {
   birds,
@@ -13,7 +14,8 @@ export const initialState = {
   birdexScrollPosition: 0,
   birdexSearchTerm: '',
   birdexViewType: 'grid', // [list, grid]
-  isMenuOpen: false
+  isMenuOpen: false,
+  year: currentYear(),
 }
 
 export default combineReducers({
@@ -23,5 +25,23 @@ export default combineReducers({
   birdexScrollPosition: scrollPosition,
   birdexSearchTerm: searchTerm,
   birdexViewType: viewType,
-  isMenuOpen
+  isMenuOpen,
+  year,
 })
+
+// TODO: Move to own file
+export const SET_YEAR = 'SET_YEAR'
+function year(state = currentYear(), action) {
+  switch (action.type) {
+    case SET_YEAR:
+      return action.year
+    default:
+      return state
+  }
+}
+export function setYear(year) {
+  return {
+    type: SET_YEAR,
+    year: year === 'all' ? 'all' : +year,
+  }
+}

@@ -1,27 +1,19 @@
 .topBar {
   background: var(--color-blue-darkest);
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: 1fr min-content;
   border-bottom: 1px solid var(--color-blue-medium);
-}
-
-.birderText {
-  font-size: 20px;
-}
-
-.version {
-  font-size: 10px;
 }
 
 .content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .openButton {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: var(--color-blue-dark);
   color: white;
   border-radius: 2px;
@@ -31,11 +23,6 @@
   cursor: pointer;
 }
 
-.logo {
-  width: 35px;
-  height: 35px;
-  border-radius: 100px;
-  padding: 5px;
-  background: var(--color-white);
-  margin-right: 10px;
+.activeLink {
+  color: var(--color-blue-light);
 }

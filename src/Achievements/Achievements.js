@@ -1,32 +1,37 @@
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { Link } from 'react-router-dom'
+import React, { PureComponent } from "react"
+import { connect } from "react-redux"
+import { compose } from "redux"
+import { Link } from "react-router-dom"
 
-import styles from './Achievements.module.css'
-import { selectAchievements } from '../selectors'
-import { listenFindings } from '../listeners'
-import { ProgressBar } from '../ProgressBar/ProgressBar'
+import styles from "./Achievements.module.css"
+import { selectAchievements } from "../selectors"
+import { listenFindings } from "../listeners"
+import { ProgressBar } from "../ProgressBar/ProgressBar"
 
 class Achievements extends PureComponent {
   render() {
+    const allTime = this.props.year === "all"
     return (
-      <div className={styles.achievements}>
-        {this.props.achievements.map((a) => (
-          <AchievmentLink achievement={a} key={a.id} />
-        ))}
+      <div>
+        <h1>{allTime ? "Saavutukset" : `Saavutukset ${this.props.year}`}</h1>
+        <div className={styles.achievements}>
+          {this.props.achievements.map(a => (
+            <AchievmentLink achievement={a} key={a.id} />
+          ))}
+        </div>
       </div>
     )
   }
 }
 
 export default compose(
-  listenFindings(),
-  connect((state) => {
+  connect(state => {
     return {
-      achievements: selectAchievements(state)
+      achievements: selectAchievements(state),
+      year: state.year
     }
-  })
+  }),
+  listenFindings
 )(Achievements)
 
 class AchievmentLink extends PureComponent {
@@ -47,9 +52,10 @@ class AchievmentLink extends PureComponent {
     return (
       <Link
         className={`${styles.achievement} ${
-          completed ? '' : styles.notCompleted
+          completed ? "" : styles.notCompleted
         }`}
-        to={`/achievements/${id}`}>
+        to={`/achievements/${id}`}
+      >
         <div className={styles.name}>{name}</div>
         <img className={styles.image} src={badge} alt="" />
         <ProgressBar target={target} progress={progress} />

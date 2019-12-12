@@ -7,7 +7,6 @@ import 'react-dates/lib/css/_datepicker.css'
 import './App.css'
 import Birdex from './Birdex/Birdex'
 import Bird from './Bird/Bird'
-import History from './History/History'
 import Achievements from './Achievements/Achievements'
 import Achievement from './Achievement/Achievement'
 import SignIn from './SignIn/SignIn'
@@ -55,15 +54,12 @@ class SignedInContent extends Component {
   render() {
     return (
       <>
-        <TopBar />
         <SideMenu />
         <div className="appContent">
           <Switch>
-            <Route exact path="/" render={() => <Redirect to="/current" />} />
-            <Route exact path="/current" component={Birdex} />
-            <Route exact path="/current/:id" component={Bird} />
-            <Route exact path="/history" component={History} />
-            <Route exact path="/history/:id" component={Bird} />
+            <Route exact path="/" render={() => <Redirect to="/birdex" />} />
+            <Route exact path="/birdex" component={Birdex} />
+            <Route exact path="/birdex/:id" component={Bird} />
             <Route exact path="/achievements" component={Achievements} />
             <Route exact path="/achievements/:id" component={Achievement} />
             <Route exact path="/stats" component={Stats} />
@@ -72,6 +68,7 @@ class SignedInContent extends Component {
             <Route exact path="/about" component={About} />
           </Switch>
         </div>
+        <TopBar />
       </>
     )
   }
@@ -79,7 +76,7 @@ class SignedInContent extends Component {
 
 const mapStateToProps = (state) => ({
   user: state.firebase.profile,
-  initialized: state.initialized
+  initialized: state.initialized,
 })
 
 export default connect(mapStateToProps)(App)

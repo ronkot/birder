@@ -20,7 +20,7 @@ moment.locale('fi')
 
 if (process.env.NODE_ENV === 'production') {
   Sentry.init({
-    dsn: env.sentryDsn
+    dsn: env.sentryDsn,
   })
 }
 
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 const config = {
   userProfile: 'users',
   useFirestoreForProfile: true,
-  enableLogging: true
+  enableLogging: true,
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -76,5 +76,5 @@ serviceWorker.register({
      * Currently the resources in public/ folder aren't cached, but thre's a CRA PR
      * that will allow configuring paths to be cached.
      */
-  }
+  },
 })
