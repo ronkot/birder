@@ -95,3 +95,7 @@
 .separator {
   margin-top: 20px;
 }
+
+.activeLink {
+  color: var(--color-blue-light);
+}

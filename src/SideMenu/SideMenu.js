@@ -9,7 +9,6 @@ import version from '../version'
 
 class SideMenu extends PureComponent {
   render() {
-    const {isMenuOpen} = this.props
     return (
       <div className={styles.menu}>
         <div className={styles.menuTop}>
@@ -24,16 +23,32 @@ class SideMenu extends PureComponent {
           </div>
         </div>
         <div className={styles.menuContent}>
-          <NavLink to="/birdex" onClick={this.props.closeMenu}>
+          <NavLink
+            to="/birdex"
+            onClick={this.props.closeMenu}
+            activeClassName={styles.activeLink}
+          >
             Pinnat
           </NavLink>
-          <NavLink to="/achievements" onClick={this.props.closeMenu}>
+          <NavLink
+            to="/achievements"
+            onClick={this.props.closeMenu}
+            activeClassName={styles.activeLink}
+          >
             Saavutukset
           </NavLink>
-          <NavLink to="/stats" onClick={this.props.closeMenu}>
+          <NavLink
+            to="/stats"
+            onClick={this.props.closeMenu}
+            activeClassName={styles.activeLink}
+          >
             Tilastot
           </NavLink>
-          <NavLink to="/profile" onClick={this.props.closeMenu}>
+          <NavLink
+            to="/profile"
+            onClick={this.props.closeMenu}
+            activeClassName={styles.activeLink}
+          >
             Profiili
           </NavLink>
           {/*<div className={styles.separator} />
