@@ -1,4 +1,7 @@
 .topBar {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
   background: var(--color-blue-darkest);
   display: grid;
   grid-template-columns: 1fr min-content;

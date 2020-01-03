@@ -18,3 +18,8 @@ export function closeMenu() {
     type: CLOSE_MENU
   }
 }
+
+export function setMenuState(open) {
+  if (open) return openMenu()
+  else return closeMenu()
+}
