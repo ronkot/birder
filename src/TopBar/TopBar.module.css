@@ -1,8 +1,13 @@
 .topBar {
+  position: fixed;
+  height: 55px;
+  width: 100%;
+  bottom: 0;
   background: var(--color-blue-darkest);
   display: grid;
   grid-template-columns: 1fr min-content;
   border-bottom: 1px solid var(--color-blue-medium);
+  font-size: 20px;
 }
 
 .content {
@@ -12,8 +17,7 @@
 }
 
 .openButton {
-  width: 40px;
-  height: 40px;
+  width: 50px;
   background: var(--color-blue-dark);
   color: white;
   border-radius: 2px;

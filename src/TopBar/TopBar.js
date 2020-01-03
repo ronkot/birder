@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 import {Select} from '@material-ui/core'
 
 import styles from './TopBar.module.css'
-import {openMenu} from '../SideMenu/SideMenuRedux'
+import {setMenuState} from '../SideMenu/SideMenuRedux'
 import {setYear} from '../reducers'
 import {currentYear} from '../utils'
 
@@ -30,7 +30,10 @@ class TopBar extends PureComponent {
             {this.getYearOptions()}
           </Select>
         </div>
-        <div className={styles.openButton} onClick={this.props.openMenu}>
+        <div
+          className={styles.openButton}
+          onClick={() => this.props.setMenuState(true)}
+        >
           <i className="fas fa-bars" />
         </div>
       </div>
@@ -43,7 +46,7 @@ class TopBar extends PureComponent {
         Kaikki
       </option>
     ]
-    for (let i = 2019; i <= currentYear(); i++) {
+    for (let i = currentYear(); i >= 2019; i--) {
       options.push(
         <option key={i} value={i}>
           {i}
@@ -55,11 +58,12 @@ class TopBar extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  year: state.year
+  year: state.year,
+  isMenuOpen: state.isMenuOpen
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  openMenu: () => dispatch(openMenu()),
+  setMenuState: (state) => dispatch(setMenuState(state)),
   setYear: (year) => dispatch(setYear(year))
 })
 

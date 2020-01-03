@@ -3,6 +3,7 @@ import {Router, Route, Switch, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
+import Sidebar from 'react-sidebar'
 
 import './App.css'
 import Birdex from './Birdex/Birdex'
@@ -11,13 +12,14 @@ import Achievements from './Achievements/Achievements'
 import Achievement from './Achievement/Achievement'
 import SignIn from './SignIn/SignIn'
 import TopBar from './TopBar/TopBar'
-import SideMenu from './SideMenu/SideMenu'
 import Stats from './Stats/Stats'
 import firebase from './firebase/firebase'
 import Profile from './Profile/Profile'
 import About from './About/About'
 import Guide from './Guide/Guide'
 import history from './history'
+import SideMenu from './SideMenu/SideMenu'
+import {setMenuState} from './SideMenu/SideMenuRedux'
 
 class App extends Component {
   render() {
@@ -27,7 +29,7 @@ class App extends Component {
       } else if (this.props.user.isEmpty) {
         return <SignIn />
       } else {
-        return <SignedInContent />
+        return <SignedInContent {...this.props} />
       }
     }
     return (
@@ -53,8 +55,20 @@ class LoadingSplash extends PureComponent {
 class SignedInContent extends Component {
   render() {
     return (
-      <>
-        <SideMenu />
+      <Sidebar
+        sidebar={<SideMenu />}
+        open={this.props.isMenuOpen}
+        onSetOpen={this.props.setMenuState}
+        pullRight={true}
+        styles={{
+          sidebar: {
+            zIndex: '1002'
+          },
+          overlay: {
+            zIndex: '1001'
+          }
+        }}
+      >
         <div className="appContent">
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/birdex" />} />
@@ -69,7 +83,7 @@ class SignedInContent extends Component {
           </Switch>
         </div>
         <TopBar />
-      </>
+      </Sidebar>
     )
   }
 }
@@ -77,6 +91,14 @@ class SignedInContent extends Component {
 const mapStateToProps = (state) => ({
   user: state.firebase.profile,
   initialized: state.initialized,
+  isMenuOpen: state.isMenuOpen
 })
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = (dispatch) => ({
+  setMenuState: (state) => dispatch(setMenuState(state))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
