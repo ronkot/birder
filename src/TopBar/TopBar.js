@@ -46,7 +46,7 @@ class TopBar extends PureComponent {
         Kaikki
       </option>
     ]
-    for (let i = 2019; i <= currentYear(); i++) {
+    for (let i = currentYear(); i >= 2019; i--) {
       options.push(
         <option key={i} value={i}>
           {i}
