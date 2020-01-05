@@ -16,7 +16,6 @@ import Stats from './Stats/Stats'
 import firebase from './firebase/firebase'
 import Profile from './Profile/Profile'
 import About from './About/About'
-import Guide from './Guide/Guide'
 import history from './history'
 import SideMenu from './SideMenu/SideMenu'
 import {setMenuState} from './SideMenu/SideMenuRedux'
@@ -78,7 +77,6 @@ class SignedInContent extends Component {
             <Route exact path="/achievements/:id" component={Achievement} />
             <Route exact path="/stats" component={Stats} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/guide" component={Guide} />
             <Route exact path="/about" component={About} />
           </Switch>
         </div>

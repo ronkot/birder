@@ -34,3 +34,12 @@
 .logo > img {
   width: 115px;
 }
+
+.help {
+  text-align: left;
+  margin-top: 40px;
+}
+
+.help a {
+  color: var(--color-blue-darkest);
+}

@@ -10,6 +10,10 @@ export default class BirderMap extends Component {
     bird: null
   }
 
+  state = {
+    zoom: 8
+  }
+
   locateButtonRef = React.createRef()
 
   async componentDidMount() {
@@ -38,6 +42,10 @@ export default class BirderMap extends Component {
     )
   }
 
+  onViewportChanged = (viewport) => {
+    this.setState({zoom: viewport.zoom})
+  }
+
   render() {
     const {bird} = this.props
 
@@ -59,7 +67,8 @@ export default class BirderMap extends Component {
         <Map
           className={styles.map}
           onClick={this.handleClick}
-          zoom={6}
+          onViewportChanged={this.onViewportChanged}
+          zoom={this.state.zoom}
           center={this.getCenter()}
         >
           <TileLayer
