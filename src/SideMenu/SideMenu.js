@@ -51,13 +51,14 @@ class SideMenu extends PureComponent {
           >
             Profiili
           </NavLink>
-          {/*<div className={styles.separator} />
-            <NavLink to="/guide" onClick={this.props.closeMenu}>
-              Ohjeita
-            </NavLink>
-            <NavLink to="/about" onClick={this.props.closeMenu}>
-              Tietoja
-      </NavLink>*/}
+          <div className={styles.separator} />
+          <NavLink
+            activeClassName={styles.activeLink}
+            to="/about"
+            onClick={this.props.closeMenu}
+          >
+            Tietoja
+          </NavLink>
         </div>
         <div className={styles.menuBottom}>
           <div className={styles.email}>{this.props.user.email}</div>

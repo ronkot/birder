@@ -1,17 +1,16 @@
 import React, {PureComponent} from 'react'
 
+import {HowToStart, WhatIsBirder, Functionalities, ChangeLog} from '../Faq/Faq'
+
 export default class About extends PureComponent {
   render() {
     return (
       <div>
-        <h1>Tietoja Birderistä</h1>
-        <p>TODO</p>
-
-        <h3>Anna palautetta</h3>
-        <ul>
-          <li>Insta</li>
-          <li>Sähköposti</li>
-        </ul>
+        <h1>Tietoja</h1>
+        <WhatIsBirder />
+        <Functionalities />
+        <HowToStart />
+        <ChangeLog />
       </div>
     )
   }
