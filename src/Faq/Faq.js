@@ -14,8 +14,9 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <b>alpha 0.10.1</b>
-          <ul>
+          <ul style={{paddingLeft: '15px'}}>
             <li>Lisätty tietoja Birderistä sekä muutoshistoria</li>
+            <li>Kartan käytettävyysparannuksia</li>
           </ul>
         </Typography>
       </ExpansionPanelDetails>
