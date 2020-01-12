@@ -22,7 +22,8 @@
     "react-sidebar": "^3.0.2",
     "redux": "^4.0.0",
     "redux-firestore": "^0.7.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "smoothscroll-polyfill": "^0.4.4"
   },
   "scripts": {
     "start": "react-scripts start",

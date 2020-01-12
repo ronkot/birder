@@ -8,6 +8,7 @@ import thunk from 'redux-thunk'
 import moment from 'moment'
 import 'moment/locale/fi'
 import * as Sentry from '@sentry/browser'
+import smoothscroll from 'smoothscroll-polyfill'
 
 import './index.css'
 import firebase from './firebase/firebase'
@@ -15,6 +16,8 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import rootReducer, {initialState} from './reducers'
 import env from './env'
+
+smoothscroll.polyfill() // Polyfills http://iamdustan.com/smoothscroll/
 
 moment.locale('fi')
 
