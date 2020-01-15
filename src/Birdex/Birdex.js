@@ -9,7 +9,6 @@ import {
   selectBirdsSortedByName,
   selectUser
 } from '../selectors'
-import {currentYear} from '../utils'
 import {setScrollPosition, setSearchTerm, setViewType} from './BirdexRedux'
 import ButtonGroup from '../ButtonGroup/ButtonGroup'
 import {BirdexSearch} from './BirdexSearch'

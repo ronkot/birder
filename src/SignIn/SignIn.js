@@ -18,7 +18,7 @@ class SignIn extends React.Component {
     return (
       <div className={styles.signIn}>
         <div className={styles.logo}>
-          <img src="/img/logo.svg" />
+          <img src="/img/icons/logo.svg" />
         </div>
         <h1>Birder</h1>
         <p>Kirjaudu sisään sosiaalisen median palveluilla</p>

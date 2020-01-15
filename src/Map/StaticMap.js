@@ -41,8 +41,11 @@ export class StaticMap extends React.Component {
 
   render() {
     return (
-      <div className={styles.map}>
-        <Map className={styles.map} bounds={this.getBounds()}>
+      <div>
+        <Map
+          className={`${styles.map} ${styles.large}`}
+          bounds={this.getBounds()}
+        >
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

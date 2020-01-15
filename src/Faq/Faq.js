@@ -13,6 +13,18 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <b>alpha 0.10.3</b>
+          <ul style={{paddingLeft: '15px'}}>
+            <li>
+              Korjattu iOS layout-ongelmia, erityisesti lintuhavaintonäkymässä
+            </li>
+            <li>Korjattu iOS app-ikonit</li>
+            <li>
+              Suurempi karttakoko pinnanäkymässä, pienempi havainnon
+              syöttänäkymässä
+            </li>
+            <li>Korjattu Internet Explorerin ongelmia</li>
+          </ul>
           <b>alpha 0.10.2</b>
           <ul style={{paddingLeft: '15px'}}>
             <li>Lisätty tietoja Birderistä sekä muutoshistoria</li>

@@ -26,8 +26,8 @@ a {
 
 .appContent {
   overflow: auto;
+
   padding: 20px;
-  padding-bottom: 70px;
 }
 
 nav {
