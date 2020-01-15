@@ -1,21 +1,25 @@
-import React, { PureComponent } from "react"
-import { connect } from "react-redux"
-import { compose } from "redux"
-import { Link } from "react-router-dom"
+import React, {PureComponent} from 'react'
+import {connect} from 'react-redux'
+import {compose} from 'redux'
+import {Link} from 'react-router-dom'
 
-import styles from "./Achievements.module.css"
-import { selectAchievements } from "../selectors"
-import { listenFindings } from "../listeners"
-import { ProgressBar } from "../ProgressBar/ProgressBar"
+import styles from './Achievements.module.css'
+import {selectAchievements} from '../selectors'
+import {listenFindings} from '../listeners'
+import {ProgressBar} from '../ProgressBar/ProgressBar'
 
 class Achievements extends PureComponent {
+  componentDidMount() {
+    document.querySelector('.appContent').scrollTo(0, 0)
+  }
+
   render() {
-    const allTime = this.props.year === "all"
+    const allTime = this.props.year === 'all'
     return (
       <div>
-        <h1>{allTime ? "Saavutukset" : `Saavutukset ${this.props.year}`}</h1>
+        <h1>{allTime ? 'Saavutukset' : `Saavutukset ${this.props.year}`}</h1>
         <div className={styles.achievements}>
-          {this.props.achievements.map(a => (
+          {this.props.achievements.map((a) => (
             <AchievmentLink achievement={a} key={a.id} />
           ))}
         </div>
@@ -25,7 +29,7 @@ class Achievements extends PureComponent {
 }
 
 export default compose(
-  connect(state => {
+  connect((state) => {
     return {
       achievements: selectAchievements(state),
       year: state.year
@@ -36,7 +40,7 @@ export default compose(
 
 class AchievmentLink extends PureComponent {
   render() {
-    const { id, name, goals, progress } = this.props.achievement
+    const {id, name, goals, progress} = this.props.achievement
 
     let completedGoal
     let nextGoal = goals[0]
@@ -52,7 +56,7 @@ class AchievmentLink extends PureComponent {
     return (
       <Link
         className={`${styles.achievement} ${
-          completed ? "" : styles.notCompleted
+          completed ? '' : styles.notCompleted
         }`}
         to={`/achievements/${id}`}
       >
