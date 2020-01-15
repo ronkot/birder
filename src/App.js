@@ -44,7 +44,7 @@ class LoadingSplash extends PureComponent {
     return (
       <div className="loadingSplash">
         <h1>Birder</h1>
-        <img src="/img/logo.svg" />
+        <img src="/img/icons/logo.svg" />
         <i className="fas fa-spinner fa-pulse" />
       </div>
     )
@@ -65,6 +65,10 @@ class SignedInContent extends Component {
           },
           overlay: {
             zIndex: '1001'
+          },
+          content: {
+            display: 'flex',
+            flexDirection: 'column'
           }
         }}
       >

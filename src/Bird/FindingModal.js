@@ -49,7 +49,7 @@ export default class FindingModal extends PureComponent {
   }
 
   saveFinding = () => {
-    const date = this.state.date.toISOString()
+    const date = (this.state.date || moment()).toISOString() // TODO: This is a hack fix for sentry error: Cannot read property 'toISOString' of null
     this.props.onSaveFinding({
       id: this.props.finding ? this.props.finding.id : null,
       bird: this.props.bird,

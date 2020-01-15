@@ -16,7 +16,7 @@ class SideMenu extends PureComponent {
             <i className="fas fa-angle-double-right" />
           </div>
           <div className={styles.logoLine}>
-            <img className={styles.logo} src="/img/logo.svg" />
+            <img className={styles.logo} src="/img/icons/logo.svg" />
             <div className={styles.birderText}>
               Birder <span className={styles.version}>{version}</span>
             </div>
