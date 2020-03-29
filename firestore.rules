@@ -17,5 +17,10 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    match /latestFindings/{findingId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
   }
 }

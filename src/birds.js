@@ -4423,5 +4423,19 @@ module.exports = [
     photo: 'tiibetinhanhi.jpg',
     photographer: 'Eino Hiekkanen',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tiibetinhanhi'
+  },
+  {
+    id: 'b-317',
+    orderLatin: 'Anseriformes',
+    orderFi: 'Sorsalinnut',
+    familyLatin: 'Anatidae',
+    familyFi: 'Sorsat',
+    nameFi: 'Kyhmyhaahka',
+    nameLatin: 'Somateria spectabilis',
+    nameEn: 'King Eider',
+    rarity: 4,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kyhmyhaahka'
   }
 ]

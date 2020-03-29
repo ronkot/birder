@@ -1,8 +1,11 @@
 import {getVal} from 'react-redux-firebase'
+import _ from 'lodash'
 import max from 'lodash/max'
 import sumBy from 'lodash/sumBy'
 import countBy from 'lodash/countBy'
 import sortBy from 'lodash/sortBy'
+import groupBy from 'lodash/groupBy'
+import minBy from 'lodash/minBy'
 
 import {currentYear} from './utils'
 
@@ -27,7 +30,7 @@ export function selectCurrentYearFindings(state) {
 }
 
 export function selectBirds(state) {
-  return state.birds
+  return state.birds || []
 }
 
 export function selectBirdsSortedByName(state) {
@@ -44,6 +47,28 @@ export function selectFoundBirds(state) {
 
 export function selectHiscores(state) {
   return getVal(state.firestore.ordered, `hiscores`, [])
+}
+
+export function selectLatestFindings(state) {
+  const latestFindings = getVal(state.firestore.ordered, `latestFindings`, [])
+  const year = getYear(state)
+  if (year === 'all') {
+    return (
+      _.chain(latestFindings)
+        .groupBy('bird')
+        .values()
+        // Get the earliest finding, exluding the year part
+        .map((findings) => minBy(findings, (finding) => finding.date.slice(5)))
+        .flatten()
+        .value()
+    )
+  } else {
+    return latestFindings
+  }
+}
+
+export function getYear(state) {
+  return state.year
 }
 
 export function selectAchievements(state) {
@@ -96,7 +121,7 @@ export function selectAchievements(state) {
     birds,
     bronzeTarget,
     silverTarget,
-    goldTarget,
+    goldTarget
   }) => {
     birds = birds.map((bird) => ({...bird, found: isBirdFound(bird)}))
     return {
@@ -107,18 +132,18 @@ export function selectAchievements(state) {
       goals: [
         {
           target: bronzeTarget,
-          badge: bronzeAchievement,
+          badge: bronzeAchievement
         },
         {
           target: silverTarget,
-          badge: silverchievement,
+          badge: silverchievement
         },
         {
           target: goldTarget,
-          badge: goldAchievement,
-        },
+          badge: goldAchievement
+        }
       ],
-      birds,
+      birds
     }
   }
 
@@ -132,17 +157,17 @@ export function selectAchievements(state) {
       goals: [
         {
           target: 30,
-          badge: bronzeAchievement,
+          badge: bronzeAchievement
         },
         {
           target: 100,
-          badge: silverchievement,
+          badge: silverchievement
         },
         {
           target: 250,
-          badge: goldAchievement,
-        },
-      ],
+          badge: goldAchievement
+        }
+      ]
     },
 
     {
@@ -153,17 +178,17 @@ export function selectAchievements(state) {
       goals: [
         {
           target: 3,
-          badge: bronzeAchievement,
+          badge: bronzeAchievement
         },
         {
           target: 6,
-          badge: silverchievement,
+          badge: silverchievement
         },
         {
           target: 8,
-          badge: goldAchievement,
-        },
-      ],
+          badge: goldAchievement
+        }
+      ]
     },
 
     {
@@ -174,17 +199,17 @@ export function selectAchievements(state) {
       goals: [
         {
           target: 3,
-          badge: bronzeAchievement,
+          badge: bronzeAchievement
         },
         {
           target: 4,
-          badge: silverchievement,
+          badge: silverchievement
         },
         {
           target: 5,
-          badge: goldAchievement,
-        },
-      ],
+          badge: goldAchievement
+        }
+      ]
     },
     buildBirdAchievement({
       id: 'backyard-birds',
@@ -209,8 +234,8 @@ export function selectAchievements(state) {
         'b-117',
         'b-201',
         'b-192',
-        'b-197',
-      ].map((birdId) => birds.find((bird) => bird.id === birdId)),
+        'b-197'
+      ].map((birdId) => birds.find((bird) => bird.id === birdId))
     }),
     buildBirdAchievement({
       id: 'strigidae',
@@ -219,7 +244,7 @@ export function selectAchievements(state) {
       bronzeTarget: 3,
       silverTarget: 5,
       goldTarget: 7,
-      birds: birds.filter((bird) => bird.familyLatin === 'Strigidae'),
+      birds: birds.filter((bird) => bird.familyLatin === 'Strigidae')
     }),
     buildBirdAchievement({
       id: 'picidae',
@@ -228,7 +253,7 @@ export function selectAchievements(state) {
       bronzeTarget: 2,
       silverTarget: 4,
       goldTarget: 6,
-      birds: birds.filter((bird) => bird.familyLatin === 'Picidae'),
+      birds: birds.filter((bird) => bird.familyLatin === 'Picidae')
     }),
     buildBirdAchievement({
       id: 'laridae-sternidae',
@@ -240,7 +265,7 @@ export function selectAchievements(state) {
       birds: birds.filter(
         (bird) =>
           bird.familyLatin === 'Laridae' || bird.familyLatin === 'Sternidae'
-      ),
+      )
     }),
     buildBirdAchievement({
       id: 'corvidae',
@@ -249,7 +274,7 @@ export function selectAchievements(state) {
       bronzeTarget: 2,
       silverTarget: 4,
       goldTarget: 7,
-      birds: birds.filter((bird) => bird.familyLatin === 'Corvidae'),
+      birds: birds.filter((bird) => bird.familyLatin === 'Corvidae')
     }),
     buildBirdAchievement({
       id: 'anatidae',
@@ -258,8 +283,8 @@ export function selectAchievements(state) {
       bronzeTarget: 8,
       silverTarget: 15,
       goldTarget: 22,
-      birds: birds.filter((bird) => bird.familyLatin === 'Anatidae'),
-    }),
+      birds: birds.filter((bird) => bird.familyLatin === 'Anatidae')
+    })
   ]
 
   return achievments

@@ -13,6 +13,12 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <b>alpha 0.11.0</b>
+          <ul style={{paddingLeft: '15px'}}>
+            <li>Lisätty "Varhaisimmat havainnot" -osio Tilastot-sivulle</li>
+            <li>Lisätty Kyhmyhaahka</li>
+            <li>Korjattu kartta lintunäkymässä</li>
+          </ul>
           <b>alpha 0.10.3</b>
           <ul style={{paddingLeft: '15px'}}>
             <li>

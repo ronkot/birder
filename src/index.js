@@ -16,6 +16,7 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import rootReducer, {initialState} from './reducers'
 import env from './env'
+import version from './version'
 
 smoothscroll.polyfill() // Polyfills http://iamdustan.com/smoothscroll/
 
@@ -23,7 +24,8 @@ moment.locale('fi')
 
 if (process.env.NODE_ENV === 'production') {
   Sentry.init({
-    dsn: env.sentryDsn
+    dsn: env.sentryDsn,
+    release: 'birder@' + version
   })
 }
 

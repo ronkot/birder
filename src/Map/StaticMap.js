@@ -41,43 +41,41 @@ export class StaticMap extends React.Component {
 
   render() {
     return (
-      <div>
-        <Map
-          className={`${styles.map} ${styles.large}`}
-          bounds={this.getBounds()}
-        >
-          <TileLayer
-            attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-            url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {this.props.findings.map((finding) => {
-            const {
-              date,
-              bird,
-              place: {coordinates}
-            } = finding
-            const leafletCoordinates = {
-              lat: coordinates.latitude,
-              lng: coordinates.longitude
-            }
-            return (
-              <Marker
-                key={finding.id}
-                position={leafletCoordinates}
-                icon={BirdIcon(bird)}
-              >
-                <Popup direction="right" offset={[-8, -2]} opacity={1}>
-                  <span>
-                    {bird.nameFi} {moment(date).format('L')}
-                  </span>
-                </Popup>
-              </Marker>
-            )
-          })}
+      <Map
+        className={`${styles.map} ${styles.large}`}
+        bounds={this.getBounds()}
+      >
+        <TileLayer
+          attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {this.props.findings.map((finding) => {
+          const {
+            date,
+            bird,
+            place: {coordinates}
+          } = finding
+          const leafletCoordinates = {
+            lat: coordinates.latitude,
+            lng: coordinates.longitude
+          }
+          return (
+            <Marker
+              key={finding.id}
+              position={leafletCoordinates}
+              icon={BirdIcon(bird)}
+            >
+              <Popup direction="right" offset={[-8, -2]} opacity={1}>
+                <span>
+                  {bird.nameFi} {moment(date).format('L')}
+                </span>
+              </Popup>
+            </Marker>
+          )
+        })}
 
-          <ScaleControl />
-        </Map>
-      </div>
+        <ScaleControl />
+      </Map>
     )
   }
 }

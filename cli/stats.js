@@ -31,6 +31,3 @@ db.collection('findings')
   .catch((err) => {
     console.log('Error getting documents', err)
   })
-
-// TODO: async/await
-// Excel export
