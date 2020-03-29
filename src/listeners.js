@@ -15,8 +15,8 @@ export const listenFindings = firestoreConnect((props, store) => {
   return [
     {
       collection: 'findings',
-      where,
-    },
+      where
+    }
   ]
 })
 
@@ -25,11 +25,28 @@ export const listenHiScores = firestoreConnect((props) => {
   const where = []
   if (year !== 'all') {
     where.push(['year', '==', year])
+    where.push(['findings', '>', 1])
+  } else {
+    where.push(['findings', '>', 5])
   }
   return [
     {
       collection: 'hiscores',
-      where,
-    },
+      where
+    }
+  ]
+})
+
+export const listenLatestFindings = firestoreConnect((props) => {
+  const year = props.year
+  const where = []
+  if (year !== 'all') {
+    where.push(['year', '==', year])
+  }
+  return [
+    {
+      collection: 'latestFindings',
+      where
+    }
   ]
 })
