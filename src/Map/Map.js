@@ -42,7 +42,7 @@ export default class BirderMap extends Component {
     )
   }
 
-  onViewportChange = (viewport) => {
+  onViewportChanged = (viewport) => {
     this.setState({zoom: viewport.zoom})
   }
 
@@ -67,7 +67,7 @@ export default class BirderMap extends Component {
         <Map
           className={styles.map}
           onClick={this.handleClick}
-          onViewportChange={this.onViewportChange}
+          onViewportChanged={this.onViewportChanged}
           zoom={this.state.zoom}
           center={this.getCenter()}
         >
