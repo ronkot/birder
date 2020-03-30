@@ -15,7 +15,7 @@ module.exports = async (change, context) => {
 
   await Promise.all([
     updateHiscores(year, user),
-    updateLatestFindings(year, date, user, bird)
+    updateLatestFindings(year, date, user, bird, deleted)
   ])
 }
 
@@ -75,13 +75,15 @@ async function updateHiscores(year, user) {
   }
 }
 
-async function updateLatestFindings(year, date, user, bird) {
+// TODO: Should also delete latestFinding when needed.
+// For this, store also id of the original finding.
+async function updateLatestFindings(year, date, user, bird, deleted) {
   const latestFindingSnapshot = await db
     .collection('latestFindings')
     .where('bird', '==', bird)
-    .where('year', '>=', year)
+    .where('year', '==', year)
     .get()
-  const latestFinding = latestFindingSnapshot[0]
+  let latestFinding = latestFindingSnapshot.docs[0]
 
   console.log(`Latest finding for bird ${bird} on year ${year}`, latestFinding)
 
@@ -99,23 +101,48 @@ async function updateLatestFindings(year, date, user, bird) {
     await db.collection('latestFindings').add(entry)
   } else {
     const latestFindingData = latestFinding.data()
-    if (date >= latestFindingData.date) {
-      console.log(
-        `Was not latest finding for bird ${bird}: ${date}. Returning.`
-      )
-      return
+
+    if (deleted && latestFindingData.user === user) {
+      console.log('Latest finding was deleted, find out the next latest')
+      await db
+        .collection('latestFindings')
+        .doc(latestFinding.id)
+        .delete()
+
+      const nextLatestFinding = await findLatestFinding(year, bird)
+
+      if (nextLatestFinding) {
+        const userObj = await getUser(nextLatestFinding.user)
+        const entry = {
+          user: nextLatestFinding.user,
+          bird,
+          year,
+          region: 'fi',
+          date: nextLatestFinding.date,
+          playerName: userObj.playerName || ''
+        }
+        console.log('Updating latest finding after delete', entry)
+        await db.collection('latestFindings').add(entry)
+      }
+    } else {
+      if (date >= latestFindingData.date) {
+        console.log(
+          `Was not latest finding for bird ${bird}: ${date}. Returning.`
+        )
+        return
+      }
+      const userObj = await getUser(user)
+      const update = {
+        user,
+        date,
+        playerName: userObj.playerName || ''
+      }
+      console.log('Updating latest finding', update)
+      await db
+        .collection('latestFindings')
+        .doc(latestFinding.id)
+        .update(update)
     }
-    const userObj = await getUser(user)
-    const update = {
-      user,
-      date,
-      playerName: userObj.playerName || ''
-    }
-    console.log('Updating latest finding', update)
-    await db
-      .collection('latestFindings')
-      .doc(latestFinding.id)
-      .update(update)
   }
 }
 
@@ -125,4 +152,16 @@ async function getUser(userId) {
     .doc(userId)
     .get()
   return userDoc.data()
+}
+
+async function findLatestFinding(year, bird) {
+  const snapshot = await db
+    .collection('findings')
+    .where('bird', '==', bird)
+    .where('date', '>=', `${year}-01-01`)
+    .where('date', '<', `${year + 1}-01-01`)
+    .orderBy('date', 'asc')
+    .limit(1)
+    .get()
+  return snapshot.docs[0] ? snapshot.docs[0].data() : undefined
 }
