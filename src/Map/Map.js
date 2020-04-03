@@ -100,6 +100,7 @@ class LocateButton extends Component {
 
   componentWillUnmount() {
     this.buttonRef.current.removeEventListener('click', this.locate)
+    this.unmounted = true
   }
 
   locate = async (evt) => {
@@ -108,6 +109,8 @@ class LocateButton extends Component {
     if (this.state.loading) return
 
     const permissionStatus = await location.permissionStatus()
+    if (this.unmounted) return
+
     if (permissionStatus.state === 'denied') {
       alert(
         'Birderin lupa paikantamiseen on kielletty. Salli paikantaminen selaimen asetuksista.'

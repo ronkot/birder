@@ -25,9 +25,6 @@ export const listenHiScores = firestoreConnect((props) => {
   const where = []
   if (year !== 'all') {
     where.push(['year', '==', year])
-    where.push(['findings', '>', 1])
-  } else {
-    where.push(['findings', '>', 5])
   }
   return [
     {
