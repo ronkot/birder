@@ -13,6 +13,15 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <b>alpha 0.12.0</b>
+          <ul style={{paddingLeft: '15px'}}>
+            <li>Lisätty Arotasku ja Allihaahka</li>
+            <li>Viimeisimpiä havaintoja voi nyt lajitella sarakkeittain</li>
+            <li>
+              Korjauksia lintuhavainnon syöttämisnäkymään. Parantaa
+              toivottavasti iOS-käyttökokemusta.
+            </li>
+          </ul>
           <b>alpha 0.11.1</b>
           <ul style={{paddingLeft: '15px'}}>
             <li>Korjattu tilastosivun päivittyminen</li>
