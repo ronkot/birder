@@ -13,6 +13,8 @@ import Achievement from './Achievement/Achievement'
 import SignIn from './SignIn/SignIn'
 import TopBar from './TopBar/TopBar'
 import Stats from './Stats/Stats'
+import LatestFindings from './Stats/LatestFindings'
+import HiScores from './Stats/HiScores'
 import firebase from './firebase/firebase'
 import Profile from './Profile/Profile'
 import About from './About/About'
@@ -80,6 +82,12 @@ class SignedInContent extends Component {
             <Route exact path="/achievements" component={Achievements} />
             <Route exact path="/achievements/:id" component={Achievement} />
             <Route exact path="/stats" component={Stats} />
+            <Route exact path="/stats/hi-scores" component={HiScores} />
+            <Route
+              exact
+              path="/stats/latest-findings"
+              component={LatestFindings}
+            />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/about" component={About} />
           </Switch>
