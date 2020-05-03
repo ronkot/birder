@@ -4439,5 +4439,33 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kyhmyhaahka'
+  },
+  {
+    id: 'b-318',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Muscicapidae',
+    familyFi: 'Siepot',
+    nameFi: 'Arotasku',
+    nameLatin: 'Oenanthe isabellina',
+    nameEn: 'Isabelline Wheatear',
+    rarity: 5,
+    photo: 'arotasku.jpg',
+    photographer: 'Juho Tirkkonen',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Arotasku'
+  },
+  {
+    id: 'b-319',
+    orderLatin: 'Anseriformes',
+    orderFi: 'Sorsalinnut',
+    familyLatin: 'Anatidae',
+    familyFi: 'Sorsat',
+    nameFi: 'Allihaahka',
+    nameLatin: 'Polysticta stelleri',
+    nameEn: "Steller's Eider",
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/allihaahka'
   }
 ]
