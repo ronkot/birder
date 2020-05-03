@@ -1,1 +1,1 @@
-export default 'alpha 0.11.1'
+export default 'alpha 0.12.0'
