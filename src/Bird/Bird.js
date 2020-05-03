@@ -1,20 +1,16 @@
-import React, { PureComponent } from "react"
-import { connect } from "react-redux"
-import { compose, bindActionCreators } from "redux"
-import moment from "moment"
+import React, {PureComponent} from 'react'
+import {connect} from 'react-redux'
+import {compose, bindActionCreators} from 'redux'
+import moment from 'moment'
 
-import {
-  selectCurrentYearFindings,
-  selectFindings,
-  selectBirdsSortedByName
-} from "../selectors"
-import { listenFindings } from "../listeners"
-import { saveFinding, removeFinding } from "./BirdActions"
-import styles from "./Bird.module.css"
-import { PrimaryButton } from "../common/Button/Button"
-import FindingModal from "./FindingModal"
-import { StaticMap } from "../Map/StaticMap"
-import { currentYear } from "../utils"
+import {selectFindings, selectBirdsSortedByName} from '../selectors'
+import {listenFindings} from '../listeners'
+import {saveFinding, removeFinding} from './BirdActions'
+import styles from './Bird.module.css'
+import {PrimaryButton} from '../common/Button/Button'
+import EditBird from './EditBird'
+import {StaticMap} from '../Map/StaticMap'
+import {currentYear} from '../utils'
 
 class Bird extends PureComponent {
   state = {
@@ -24,7 +20,7 @@ class Bird extends PureComponent {
   render() {
     if (this.state.editModalOpen) return this.renderForm()
 
-    const { bird } = this.props
+    const {bird} = this.props
     return (
       <div className={styles.bird}>
         <div className={styles.birdInfo}>
@@ -54,7 +50,7 @@ class Bird extends PureComponent {
               onClick={this.openEditModal}
               disabled={!this.props.isEditable}
             >
-              {this.props.finding ? "Muokkaa havaintoa" : "Lisää havainto"}
+              {this.props.finding ? 'Muokkaa havaintoa' : 'Lisää havainto'}
             </PrimaryButton>
           )}
           {!this.props.isEditable && (
@@ -66,14 +62,14 @@ class Bird extends PureComponent {
   }
 
   renderRarity() {
-    const { rarity } = this.props.bird
+    const {rarity} = this.props.bird
     return (
       <div className={styles.stars}>
         {Array.from(Array(rarity)).map((_, i) => (
           <span
             key={`active_${i}`}
             className="fas fa-star"
-            style={{ color: "var(--color-highlight)" }}
+            style={{color: 'var(--color-highlight)'}}
           />
         ))}
         {Array.from(Array(5 - rarity)).map((_, i) => (
@@ -84,15 +80,15 @@ class Bird extends PureComponent {
   }
 
   renderFound() {
-    const { finding } = this.props
-    const { date, place } = finding
+    const {finding} = this.props
+    const {date, place} = finding
     return (
       <>
-        <div className={styles.date}>Havaittu {moment(date).format("L")}</div>
+        <div className={styles.date}>Havaittu {moment(date).format('L')}</div>
         {place &&
-          place.type === "coordinates" && (
+          place.type === 'coordinates' && (
             <StaticMap
-              findings={[{ ...this.props.finding, bird: this.props.bird }]}
+              findings={[{...this.props.finding, bird: this.props.bird}]}
             />
           )}
       </>
@@ -101,7 +97,7 @@ class Bird extends PureComponent {
 
   renderForm() {
     return (
-      <FindingModal
+      <EditBird
         finding={this.props.finding}
         bird={this.props.bird}
         onClose={this.closeEditModal}
@@ -112,14 +108,14 @@ class Bird extends PureComponent {
   }
 
   openEditModal = () => {
-    this.setState({ editModalOpen: true })
+    this.setState({editModalOpen: true})
   }
 
   closeEditModal = () => {
-    this.setState({ editModalOpen: false })
+    this.setState({editModalOpen: false})
   }
 
-  saveFinding = data => {
+  saveFinding = (data) => {
     this.closeEditModal()
     this.props.saveFinding(data)
   }
@@ -135,17 +131,17 @@ const mapStateToProps = (state, ownProps) => {
   const findings = selectFindings(state)
   return {
     bird: selectBirdsSortedByName(state).find(
-      b => b.id === ownProps.match.params.id
+      (b) => b.id === ownProps.match.params.id
     ),
     finding: findings.find(
-      finding => finding.bird === ownProps.match.params.id
+      (finding) => finding.bird === ownProps.match.params.id
     ),
     isEditable: isCurrentYear,
     year: state.year
   }
 }
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       saveFinding,

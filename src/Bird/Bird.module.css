@@ -70,14 +70,10 @@
   padding: 20px 10px;
 }
 
-.modal {
+.findingModal {
   background: var(--color-white);
   color: darkslategray;
   padding: 20px;
-  overflow-y: scroll;
-}
-
-.findingModal {
   display: grid;
   grid-row-gap: 10px;
 }
