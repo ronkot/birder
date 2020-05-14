@@ -4481,5 +4481,47 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Mustalepp%C3%A4lintu'
+  },
+  {
+    id: 'b-321',
+    orderLatin: 'Ciconiiformes',
+    orderFi: 'Haikaralinnut',
+    familyLatin: 'Ardeidae',
+    familyFi: 'Haikarat',
+    nameFi: 'Mustahaikara',
+    nameLatin: 'Ciconia nigra',
+    nameEn: 'Black Stork',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustahaikara'
+  },
+  {
+    id: 'b-322',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Muscicapidae',
+    familyFi: 'Siepot',
+    nameFi: 'Sepeltasku',
+    nameLatin: 'Saxicola maurus',
+    nameEn: 'Siberian Stonechat',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Sepeltasku'
+  },
+  {
+    id: 'b-323',
+    orderLatin: 'Galliformes',
+    orderFi: 'Kanalinnut',
+    familyLatin: 'Phasianidae',
+    familyFi: 'Aitokanat',
+    nameFi: 'Viiriäinen',
+    nameLatin: 'Coturnix coturnix',
+    nameEn: 'Common Quail',
+    rarity: 4,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/viiriainen'
   }
 ]
