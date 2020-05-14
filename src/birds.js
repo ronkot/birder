@@ -4465,5 +4465,19 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/allihaahka'
+  },
+  {
+    id: 'b-320',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Muscicapidae',
+    familyFi: 'Siepot',
+    nameFi: 'Mustaleppälintu',
+    nameLatin: 'Phoenicurus ochruros',
+    nameEn: 'Black Redstart',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Mustalepp%C3%A4lintu'
   }
 ]
