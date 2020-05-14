@@ -13,6 +13,11 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <b>alpha 0.12.1</b>
+          <ul style={{paddingLeft: '15px'}}>
+            <li>Lisätty Mustaleppälintu</li>
+            <li>Korjaus iOS Safarin geolokaatioongelmaan</li>
+          </ul>
           <b>alpha 0.12.0</b>
           <ul style={{paddingLeft: '15px'}}>
             <li>Lisätty Arotasku ja Allihaahka</li>

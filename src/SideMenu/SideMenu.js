@@ -56,7 +56,7 @@ class SideMenu extends PureComponent {
             to="/about"
             onClick={this.props.closeMenu}
           >
-            <span className={styles.new}>UUSI</span> Tietoja
+            Tietoja
           </NavLink>
         </div>
         <div className={styles.menuBottom}>

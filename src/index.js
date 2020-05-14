@@ -60,6 +60,7 @@ serviceWorker.register({
     const waitingServiceWorker = registration.waiting
 
     if (waitingServiceWorker) {
+      /*
       waitingServiceWorker.addEventListener('statechange', (event) => {
         if (event.target.state === 'activated') {
           if (
@@ -71,6 +72,7 @@ serviceWorker.register({
           }
         }
       })
+      */
       waitingServiceWorker.postMessage({type: 'SKIP_WAITING'})
     }
   },
