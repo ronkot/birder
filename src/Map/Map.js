@@ -72,8 +72,8 @@ export default class BirderMap extends Component {
           center={this.getCenter()}
         >
           <TileLayer
-            attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-            url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution="&amp;copy <a href=&quot;https://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {renderMarker()}
           <ScaleControl />

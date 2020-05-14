@@ -46,8 +46,8 @@ export class StaticMap extends React.Component {
         bounds={this.getBounds()}
       >
         <TileLayer
-          attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-          url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="&amp;copy <a href=&quot;https://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {this.props.findings.map((finding) => {
           const {
