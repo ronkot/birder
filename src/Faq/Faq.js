@@ -13,6 +13,13 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <b>alpha 0.13.0</b>
+          <ul style={{paddingLeft: '15px'}}>
+            <li>Lisätty Mustahaikara, Sepeltasku ja Viiriäinen</li>
+            <li>
+              Havaintoja voi nyt syöttää myös menneille vuosille (2019 ->)
+            </li>
+          </ul>
           <b>alpha 0.12.1</b>
           <ul style={{paddingLeft: '15px'}}>
             <li>Lisätty Mustaleppälintu</li>

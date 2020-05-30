@@ -10,7 +10,6 @@ import styles from './Bird.module.css'
 import {PrimaryButton} from '../common/Button/Button'
 import EditBird from './EditBird'
 import {StaticMap} from '../Map/StaticMap'
-import {currentYear} from '../utils'
 
 class Bird extends PureComponent {
   state = {
@@ -45,17 +44,9 @@ class Bird extends PureComponent {
           )}
           {this.props.finding && this.renderFound()}
 
-          {this.props.isEditable && (
-            <PrimaryButton
-              onClick={this.openEditModal}
-              disabled={!this.props.isEditable}
-            >
-              {this.props.finding ? 'Muokkaa havaintoa' : 'Lisää havainto'}
-            </PrimaryButton>
-          )}
-          {!this.props.isEditable && (
-            <i>Voit merkitä tai muokata havaintoja vain kuluvalle vuodelle</i>
-          )}
+          <PrimaryButton onClick={this.openEditModal}>
+            {this.props.finding ? 'Muokkaa havaintoa' : 'Lisää havainto'}
+          </PrimaryButton>
         </div>
       </div>
     )
@@ -85,12 +76,11 @@ class Bird extends PureComponent {
     return (
       <>
         <div className={styles.date}>Havaittu {moment(date).format('L')}</div>
-        {place &&
-          place.type === 'coordinates' && (
-            <StaticMap
-              findings={[{...this.props.finding, bird: this.props.bird}]}
-            />
-          )}
+        {place && place.type === 'coordinates' && (
+          <StaticMap
+            findings={[{...this.props.finding, bird: this.props.bird}]}
+          />
+        )}
       </>
     )
   }
@@ -99,6 +89,7 @@ class Bird extends PureComponent {
     return (
       <EditBird
         finding={this.props.finding}
+        year={this.props.year}
         bird={this.props.bird}
         onClose={this.closeEditModal}
         onSaveFinding={this.saveFinding}
@@ -127,7 +118,6 @@ class Bird extends PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const isCurrentYear = state.year === currentYear()
   const findings = selectFindings(state)
   return {
     bird: selectBirdsSortedByName(state).find(
@@ -136,7 +126,6 @@ const mapStateToProps = (state, ownProps) => {
     finding: findings.find(
       (finding) => finding.bird === ownProps.match.params.id
     ),
-    isEditable: isCurrentYear,
     year: state.year
   }
 }
@@ -151,9 +140,6 @@ const mapDispatchToProps = (dispatch) =>
   )
 
 export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   listenFindings
 )(Bird)
