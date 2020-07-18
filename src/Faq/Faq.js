@@ -13,6 +13,10 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <b>alpha 0.13.1</b>
+          <ul style={{paddingLeft: '15px'}}>
+            <li>Lisätty Mustapääsirkku ja Isolokki</li>
+          </ul>
           <b>alpha 0.13.0</b>
           <ul style={{paddingLeft: '15px'}}>
             <li>Lisätty Mustahaikara, Sepeltasku ja Viiriäinen</li>

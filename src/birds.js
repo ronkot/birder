@@ -4521,5 +4521,61 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/viiriainen'
+  },
+  {
+    id: 'b-324',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Glareolidae',
+    familyFi: 'Pääskykahlaajat',
+    nameFi: 'Pääskykahlaaja',
+    nameLatin: 'Glareola pratincola',
+    nameEn: 'Collared Pratincole',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/P%C3%A4%C3%A4skykahlaaja'
+  },
+  {
+    id: 'b-325',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Sternidae',
+    familyFi: 'Tiirat',
+    nameFi: 'Riuttatiira',
+    nameLatin: 'Sterna sandvicensis',
+    nameEn: 'Sandwich Tern',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Riuttatiira'
+  },
+  {
+    id: 'b-326',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Emberizidae',
+    familyFi: 'Sirkut',
+    nameFi: 'Mustapääsirkku',
+    nameLatin: 'Emberiza melanocephala',
+    nameEn: 'Corn Bunting',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Mustap%C3%A4%C3%A4sirkku'
+  },
+  {
+    id: 'b-327',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Laridae',
+    familyFi: 'Lokit',
+    nameFi: 'Isolokki',
+    nameLatin: 'Larus hyperboreus',
+    nameEn: 'Glaucous Gull',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/isolokki'
   }
 ]
