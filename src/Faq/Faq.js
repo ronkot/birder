@@ -13,6 +13,11 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <b>alpha 0.13.2</b>
+          <ul style={{paddingLeft: '15px'}}>
+            <li>Lisätty Avosetti ja Etelänsatakieli</li>
+            <li>Lisätty puuttuvia kuvia. Kiitos Terho Kaikkonen 🙏</li>
+          </ul>
           <b>alpha 0.13.1</b>
           <ul style={{paddingLeft: '15px'}}>
             <li>Lisätty Mustapääsirkku ja Isolokki</li>

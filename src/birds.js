@@ -4476,8 +4476,8 @@ module.exports = [
     nameLatin: 'Phoenicurus ochruros',
     nameEn: 'Black Redstart',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'mustaleppalintu.jpg',
+    photographer: 'Terho Kaikkonen',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Mustalepp%C3%A4lintu'
   },
   {
@@ -4490,8 +4490,8 @@ module.exports = [
     nameLatin: 'Ciconia nigra',
     nameEn: 'Black Stork',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'mustahaikara.jpg',
+    photographer: 'Terho Kaikkonen',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustahaikara'
   },
   {
@@ -4560,8 +4560,8 @@ module.exports = [
     nameLatin: 'Emberiza melanocephala',
     nameEn: 'Corn Bunting',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'mustapaasirkku.jpg',
+    photographer: 'Terho Kaikkonen',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Mustap%C3%A4%C3%A4sirkku'
   },
   {
@@ -4574,8 +4574,36 @@ module.exports = [
     nameLatin: 'Larus hyperboreus',
     nameEn: 'Glaucous Gull',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'isolokki.jpg',
+    photographer: 'Terho Kaikkonen',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/isolokki'
+  },
+  {
+    id: 'b-328',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Burhinidae',
+    familyFi: 'Paksujalat',
+    nameFi: 'Avosetti',
+    nameLatin: 'Recurvirostra avosetta',
+    nameEn: 'Pied Avocet',
+    rarity: 5,
+    photo: 'avosetti.jpg',
+    photographer: 'Terho Kaikkonen',
+    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/avosetti'
+  },
+  {
+    id: 'b-329',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Muscicapidae',
+    familyFi: 'Siepot',
+    nameFi: 'Etelänsatakieli',
+    nameLatin: 'Luscinia megarhynchos',
+    nameEn: 'Common Nightingale',
+    rarity: 5,
+    photo: 'etelansatakieli.jpg',
+    photographer: 'Terho Kaikkonen',
+    detectLink: 'https://fi.wikipedia.org/wiki/Etel%C3%A4nsatakieli'
   }
 ]
