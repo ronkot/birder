@@ -9,7 +9,7 @@
     "firebase": "^7.19.0",
     "formik": "^1.5.8",
     "leaflet": "^1.6.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "react": "^16.13.1",
     "react-dates": "^18.5.0",
     "react-dom": "^16.13.1",
