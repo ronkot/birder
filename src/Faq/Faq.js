@@ -13,6 +13,13 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <b>alpha 0.13.3</b>
+          <ul style={{paddingLeft: '15px'}}>
+            <li>
+              Lisätty Kashmirinuunilintu ja Tundrakurppelo. Kiitos kuvista Juho
+              Tirkkonen 🙏💯
+            </li>
+          </ul>
           <b>alpha 0.13.2</b>
           <ul style={{paddingLeft: '15px'}}>
             <li>Lisätty Avosetti ja Etelänsatakieli</li>
