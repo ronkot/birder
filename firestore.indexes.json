@@ -3,8 +3,22 @@
     {
       "collectionId": "findings",
       "fields": [
-          { "fieldPath": "user", "mode": "ASCENDING" },
-          { "fieldPath": "date", "mode": "ASCENDING" }
+        {"fieldPath": "user", "mode": "ASCENDING"},
+        {"fieldPath": "date", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId": "findings",
+      "fields": [
+        {"fieldPath": "bird", "mode": "ASCENDING"},
+        {"fieldPath": "date", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId": "latestFindings",
+      "fields": [
+        {"fieldPath": "bird", "mode": "ASCENDING"},
+        {"fieldPath": "year", "mode": "ASCENDING"}
       ]
     }
   ]
