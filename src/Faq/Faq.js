@@ -13,6 +13,10 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <b>alpha 0.13.4</b>
+          <ul style={{paddingLeft: '15px'}}>
+            <li>Korjattu kirjautumisongelmia.</li>
+          </ul>
           <b>alpha 0.13.3</b>
           <ul style={{paddingLeft: '15px'}}>
             <li>
