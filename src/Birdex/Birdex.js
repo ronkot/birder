@@ -9,7 +9,12 @@ import {
   selectBirdsSortedByName,
   selectUser
 } from '../selectors'
-import {setScrollPosition, setSearchTerm, setViewType} from './BirdexRedux'
+import {
+  setScrollPosition,
+  setSearchTerm,
+  setViewType,
+  setVisibilityFilter
+} from './BirdexRedux'
 import ButtonGroup from '../ButtonGroup/ButtonGroup'
 import {BirdexSearch} from './BirdexSearch'
 import {BirdList} from './BirdList'
@@ -72,7 +77,16 @@ class Birdex extends PureComponent {
       const re = new RegExp(this.props.searchTerm, 'i')
       return bird.nameFi.match(re) || bird.nameLatin.match(re)
     }
-    const filteredBirds = this.props.birds.filter(matchSearchTerm)
+    const matchVisiblityFilter = (bird) => {
+      if (this.props.visibilityFilter === 'all') return true
+      else if (this.props.visibilityFilter === 'seen')
+        return this.props.findings.some((finding) => finding.bird === bird.id)
+      else
+        return !this.props.findings.some((finding) => finding.bird === bird.id)
+    }
+    const filteredBirds = this.props.birds
+      .filter(matchSearchTerm)
+      .filter(matchVisiblityFilter)
 
     const pointsTtile =
       this.props.year === 'all' ? 'Elikset' : `Pinnat ${this.props.year}`
@@ -111,6 +125,25 @@ class Birdex extends PureComponent {
               }
             ]}
           />
+
+          <ButtonGroup
+            active={this.props.visibilityFilter}
+            onActiveChanged={this.props.setVisibilityFilter}
+            buttons={[
+              {
+                key: 'all',
+                content: <i className="fas fa-infinity" />
+              },
+              {
+                key: 'seen',
+                content: <i className="fas fa-eye" />
+              },
+              {
+                key: 'unseen',
+                content: <i className="fas fa-eye-slash" />
+              }
+            ]}
+          />
         </div>
 
         {this.renderView(filteredBirds)}
@@ -130,13 +163,15 @@ export default compose(
         scrollPosition: state.birdexScrollPosition,
         searchTerm: state.birdexSearchTerm,
         viewType: state.birdexViewType,
+        visibilityFilter: state.birdexVisibilityFilter,
         year: state.year
       }
     },
     (dispatch) => ({
       setScrollPosition: (position) => dispatch(setScrollPosition(position)),
       setSearchTerm: (term) => dispatch(setSearchTerm(term)),
-      setViewType: (type) => dispatch(setViewType(type))
+      setViewType: (type) => dispatch(setViewType(type)),
+      setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter))
     })
   ),
   listenFindings

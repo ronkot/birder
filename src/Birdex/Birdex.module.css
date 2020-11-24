@@ -57,12 +57,16 @@
 }
 
 .controls {
-  display: grid;
+  display: flex;
   align-items: center;
-  grid-template-columns: 1fr min-content;
+  flex-wrap: wrap;
   grid-gap: 10px;
   margin-bottom: 20px;
   position: sticky;
   top: -15px;
   z-index: 1;
+}
+
+.controls > * {
+  flex: 1;
 }
