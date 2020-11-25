@@ -13,81 +13,49 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
-          <b>alpha 0.14.0</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>Lisätty pinnafiltteri</li>
-          </ul>
-          <b>alpha 0.13.4</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>Korjattu kirjautumisongelmia.</li>
-          </ul>
-          <b>alpha 0.13.3</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>
-              Lisätty Kashmirinuunilintu ja Tundrakurppelo. Kiitos kuvista Juho
-              Tirkkonen 🙏💯
-            </li>
-          </ul>
-          <b>alpha 0.13.2</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>Lisätty Avosetti ja Etelänsatakieli</li>
-            <li>Lisätty puuttuvia kuvia. Kiitos Terho Kaikkonen 🙏</li>
-          </ul>
-          <b>alpha 0.13.1</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>Lisätty Mustapääsirkku ja Isolokki</li>
-          </ul>
-          <b>alpha 0.13.0</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>Lisätty Mustahaikara, Sepeltasku ja Viiriäinen</li>
-            <li>
-              Havaintoja voi nyt syöttää myös menneille vuosille (2019 ->)
-            </li>
-          </ul>
-          <b>alpha 0.12.1</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>Lisätty Mustaleppälintu</li>
-            <li>Korjaus iOS Safarin geolokaatioongelmaan</li>
-          </ul>
-          <b>alpha 0.12.0</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>Lisätty Arotasku ja Allihaahka</li>
-            <li>Viimeisimpiä havaintoja voi nyt lajitella sarakkeittain</li>
-            <li>
-              Korjauksia lintuhavainnon syöttämisnäkymään. Parantaa
-              toivottavasti iOS-käyttökokemusta.
-            </li>
-          </ul>
-          <b>alpha 0.11.1</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>Korjattu tilastosivun päivittyminen</li>
-          </ul>
-          <b>alpha 0.11.0</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>Lisätty "Varhaisimmat havainnot" -osio Tilastot-sivulle</li>
-            <li>Lisätty Kyhmyhaahka</li>
-            <li>Korjattu kartta lintunäkymässä</li>
-          </ul>
-          <b>alpha 0.10.3</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>
-              Korjattu iOS layout-ongelmia, erityisesti lintuhavaintonäkymässä
-            </li>
-            <li>Korjattu iOS app-ikonit</li>
-            <li>
-              Suurempi karttakoko pinnanäkymässä, pienempi havainnon
-              syöttänäkymässä
-            </li>
-            <li>Korjattu Internet Explorerin ongelmia</li>
-          </ul>
-          <b>alpha 0.10.2</b>
-          <ul style={{paddingLeft: '15px'}}>
-            <li>Lisätty tietoja Birderistä sekä muutoshistoria</li>
-            <li>Kartan käytettävyysparannuksia</li>
-          </ul>
+          <Release release="0.14.1" notes={['Tyylikorjauksia']} />
+          <Release release="0.14.0" notes={['Lisätty pinnafiltteri']} />
+          <Release release="0.13.4" notes={['Korjattu kirjautumisongelmia.']} />
+          <Release
+            release="0.13.3"
+            notes={[
+              'Lisätty Kashmirinuunilintu ja Tundrakurppelo. Kiitos kuvista Juho Tirkkonen 🙏💯'
+            ]}
+          />
+          <Release
+            release="0.13.2"
+            notes={[
+              'Lisätty Avosetti ja Etelänsatakieli',
+              'Lisätty puuttuvia kuvia. Kiitos Terho Kaikkonen 🙏'
+            ]}
+          />
+          <Release
+            release="0.13.1"
+            notes={['Lisätty Mustapääsirkku ja Isolokki']}
+          />
+          <Release
+            release="0.13.0"
+            notes={[
+              'Lisätty Mustahaikara, Sepeltasku ja Viiriäinen',
+              'Havaintoja voi nyt syöttää myös menneille vuosille (2019 ->)'
+            ]}
+          />
         </Typography>
       </ExpansionPanelDetails>
     </ExpansionPanel>
+  )
+}
+
+const Release = ({release, notes}) => {
+  return (
+    <>
+      <b>{release}</b>
+      <ul style={{paddingLeft: '15px'}}>
+        {notes.map((note, i) => (
+          <li key={i}>{note}</li>
+        ))}
+      </ul>
+    </>
   )
 }
 
