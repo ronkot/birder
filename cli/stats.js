@@ -1,4 +1,7 @@
+import {writeFileSync, readFileSync} from 'fs'
+
 import env from '../src/env'
+import birds from '../src/birds'
 
 const Firestore = require('@google-cloud/firestore')
 const _ = require('lodash')
@@ -8,26 +11,65 @@ const db = new Firestore({
   keyFilename: env.firebaseCredentialsFile
 })
 
-console.log(env)
+const YEAR = '2020'
+const FINDINGS_FILE = `findings-${YEAR}.json`
+const COORDINATES_FILE = `coordinates-${YEAR}.txt`
 
-db.collection('findings')
-  .where('date', '>=', '2019-01-01')
-  .get()
-  .then((snapshot) => {
-    const data = snapshot.docs.map((doc) => doc.data())
-    const byUser = _.groupBy(data, 'user')
-    const users = Object.keys(byUser)
+async function getData() {
+  try {
+    const data = readFileSync(FINDINGS_FILE)
+    console.log('Read data from file')
+    return JSON.parse(data)
+  } catch {}
+  console.log('Fetch data from db')
+  const snapshot = await db
+    .collection('findings')
+    .where('date', '>=', `${YEAR}-01-01`)
+    .get()
+  const data = snapshot.docs.map((doc) => doc.data())
+  writeFileSync(FINDINGS_FILE, JSON.stringify(data))
+  return data
+}
 
-    console.log(users)
+async function main() {
+  const data = await getData()
+  const byUser = _.groupBy(data, 'user')
+  const users = Object.keys(byUser)
 
-    console.log('')
-    console.log(`${users.length} users this year`)
-    console.log(`${snapshot.docs.length} logs this year`)
-    console.log('')
-    for (const [user, findings] of Object.entries(byUser)) {
-      console.log(`${user}: ${findings.length}`)
-    }
-  })
-  .catch((err) => {
-    console.log('Error getting documents', err)
-  })
+  console.log(users)
+
+  console.log('')
+  console.log(`${users.length} users this year`)
+  console.log(`${data.length} logs this year`)
+  console.log('')
+
+  const byBird = _.groupBy(data, 'bird')
+  const birdCounts = _.sortBy(
+    Object.entries(byBird).map(([birdId, findings]) => [
+      birds.find((bird) => bird.id === birdId).nameFi,
+      findings.length
+    ]),
+    (item) => item[1]
+  )
+
+  console.log('birds by findings')
+  console.log(birdCounts.map((row) => row.join(' ')).join('\n'))
+
+  // Data for http://www1.heatmapper.ca/geocoordinate/
+  const heatMapCoordinates = data
+    .filter((item) => item.place && item.place.type === 'coordinates')
+    .map((item) =>
+      [
+        item.place.coordinates._longitude,
+        item.place.coordinates._latitude
+      ].join('\t')
+    )
+
+  console.log(`${heatMapCoordinates.length} logs with coordinate points`)
+  writeFileSync(
+    COORDINATES_FILE,
+    `Longitude\tLatitude\n${heatMapCoordinates.join('\n')}`
+  )
+}
+
+main()
