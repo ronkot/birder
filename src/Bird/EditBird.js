@@ -13,9 +13,7 @@ import ButtonGroup from '../ButtonGroup/ButtonGroup'
 
 export default class EditBird extends PureComponent {
   state = {
-    date: moment()
-      .year(this.props.year)
-      .startOf('day'),
+    date: moment().year(this.props.year),
     dateSelectFocused: false,
     coordinates: null,
     locationActiveSelection: 'map'
@@ -45,9 +43,7 @@ export default class EditBird extends PureComponent {
   }
 
   saveFinding = () => {
-    const date = (
-      this.state.date || moment.year(this.props.year).startOf('day')
-    ).toISOString() // TODO: This is a hack fix for sentry error: Cannot read property 'toISOString' of null
+    const date = (this.state.date || moment.year(this.props.year)).toISOString() // TODO: This is a hack fix for sentry error: Cannot read property 'toISOString' of null
     this.props.onSaveFinding({
       id: this.props.finding ? this.props.finding.id : null,
       bird: this.props.bird,
