@@ -1,4 +1,5 @@
 import {firestoreConnect} from 'react-redux-firebase'
+import moment from 'moment'
 
 import {selectUser} from './selectors'
 
@@ -8,8 +9,22 @@ export const listenFindings = firestoreConnect((props, store) => {
   const user = selectUser(store.getState())
   const where = [['user', '==', user.uid]]
   if (year !== 'all') {
-    where.push(['date', '>=', `${year}-01-01`])
-    where.push(['date', '<', `${nextYear}-01-01`])
+    where.push([
+      'date',
+      '>=',
+      moment()
+        .year(year)
+        .startOf('year')
+        .toISOString()
+    ])
+    where.push([
+      'date',
+      '<',
+      moment()
+        .year(nextYear)
+        .startOf('year')
+        .toISOString()
+    ])
   }
 
   return [

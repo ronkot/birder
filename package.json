@@ -11,7 +11,7 @@
     "leaflet": "^1.6.0",
     "lodash": "^4.17.20",
     "react": "^16.13.1",
-    "react-dates": "^18.5.0",
+    "react-dates": "^21.8.0",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.7.0",
     "react-redux": "^5.1.2",

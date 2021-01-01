@@ -46,10 +46,7 @@ export default class EditBird extends PureComponent {
 
   saveFinding = () => {
     const date = (
-      this.state.date ||
-      moment()
-        .year(this.props.year)
-        .startOf('day')
+      this.state.date || moment.year(this.props.year).startOf('day')
     ).toISOString() // TODO: This is a hack fix for sentry error: Cannot read property 'toISOString' of null
     this.props.onSaveFinding({
       id: this.props.finding ? this.props.finding.id : null,
@@ -63,6 +60,7 @@ export default class EditBird extends PureComponent {
   }
 
   render() {
+    console.log(this.props, this.state)
     return (
       <div className={styles.findingModal}>
         <h3>{this.props.finding ? 'Muokkaa havaintoa' : 'Lisää havainto'}</h3>
