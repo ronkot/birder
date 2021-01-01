@@ -13,6 +13,12 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <Release
+            release="0.14.2"
+            notes={[
+              'Korjattu vuoden ensimmäisen päivän bugi, joka esti pinnojen merkkaamisen.'
+            ]}
+          />
           <Release release="0.14.1" notes={['Tyylikorjauksia']} />
           <Release release="0.14.0" notes={['Lisätty pinnafiltteri']} />
           <Release release="0.13.4" notes={['Korjattu kirjautumisongelmia.']} />

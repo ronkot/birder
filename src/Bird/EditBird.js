@@ -60,7 +60,6 @@ export default class EditBird extends PureComponent {
   }
 
   render() {
-    console.log(this.props, this.state)
     return (
       <div className={styles.findingModal}>
         <h3>{this.props.finding ? 'Muokkaa havaintoa' : 'Lisää havainto'}</h3>

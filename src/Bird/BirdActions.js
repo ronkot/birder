@@ -21,7 +21,6 @@ export const saveFinding = ({id = null, bird, date, place}) => (
     place,
     user: user.uid
   }
-  console.log('DEBUG ', data)
 
   if (id) {
     db.collection('findings')
