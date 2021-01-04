@@ -14,6 +14,13 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.15.0"
+            notes={[
+              'Lisätty Töyhtökiuru',
+              'Korjausyritys iOS zoomausongelmiin'
+            ]}
+          />
+          <Release
             release="0.14.2"
             notes={[
               'Korjattu vuoden ensimmäisen päivän bugi, joka esti pinnojen merkkaamisen.'

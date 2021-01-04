@@ -4663,7 +4663,7 @@ module.exports = [
     detectLink: 'https://fi.wikipedia.org/wiki/Taigakirvinen'
   },
   {
-    id: 'b-345',
+    id: 'b-334',
     orderLatin: 'Passeriformes',
     orderFi: 'Varpuslinnut',
     familyLatin: 'Sylviidae',
@@ -4677,7 +4677,7 @@ module.exports = [
     detectLink: 'https://fi.wikipedia.org/wiki/Ruskouunilintu'
   },
   {
-    id: 'b-346',
+    id: 'b-335',
     orderLatin: 'Passeriformes',
     orderFi: 'Varpuslinnut',
     familyLatin: 'Phylloscopidae',
@@ -4689,5 +4689,19 @@ module.exports = [
     photo: 'kashmirinuunilintu.jpeg',
     photographer: 'Juho Tirkkonen',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Kashmirinuunilintu'
+  },
+  {
+    id: 'b-336',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Alaudidae',
+    familyFi: 'Kiurut',
+    nameFi: 'Töyhtökiuru',
+    nameLatin: 'Galerida cristata',
+    nameEn: 'Crested Lark',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/T%C3%B6yht%C3%B6kiurut'
   }
 ]

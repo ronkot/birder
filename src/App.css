@@ -12,6 +12,10 @@
   --color-highlight: yellow;
 }
 
+body {
+  touch-action: manipulation; /* Prevent iOS Safari to zoom on double-tap */
+}
+
 .app {
   min-height: 100vh;
   font-family: 'Montserrat  ', sans-serif;
