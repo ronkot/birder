@@ -4,10 +4,7 @@ import max from 'lodash/max'
 import sumBy from 'lodash/sumBy'
 import countBy from 'lodash/countBy'
 import sortBy from 'lodash/sortBy'
-import groupBy from 'lodash/groupBy'
 import minBy from 'lodash/minBy'
-
-import {currentYear} from './utils'
 
 const bronzeAchievement = '/img/bronze.png'
 const silverchievement = '/img/silver.png'
@@ -27,6 +24,21 @@ export function selectCurrentYearFindings(state) {
     : selectFindings(state).filter(
         (finding) => new Date(finding.date).getFullYear() === selectedYear
       )
+}
+
+export function selectCoordinateSuggestions(state) {
+  const findings = selectCurrentYearFindings(state).filter(
+    (finding) => finding.place?.type === 'coordinates'
+  )
+  const birds = selectBirds(state)
+  const suggestions = findings.map((finding) => ({
+    name: birds.find((b) => b.id === finding.bird).nameFi,
+    coordinates: {
+      lat: finding.place.coordinates.latitude,
+      lng: finding.place.coordinates.longitude
+    }
+  }))
+  return sortBy(suggestions, 'name')
 }
 
 export function selectBirds(state) {

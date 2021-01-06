@@ -3,7 +3,11 @@ import {connect} from 'react-redux'
 import {compose, bindActionCreators} from 'redux'
 import moment from 'moment'
 
-import {selectFindings, selectBirdsSortedByName} from '../selectors'
+import {
+  selectFindings,
+  selectBirds,
+  selectCoordinateSuggestions
+} from '../selectors'
 import {listenFindings} from '../listeners'
 import {saveFinding, removeFinding} from './BirdActions'
 import styles from './Bird.module.css'
@@ -94,6 +98,7 @@ class Bird extends PureComponent {
         onClose={this.closeEditModal}
         onSaveFinding={this.saveFinding}
         onRemoveFinding={this.removeFinding}
+        coordinateSuggestions={this.props.coordinateSuggestions}
       />
     )
   }
@@ -120,12 +125,11 @@ class Bird extends PureComponent {
 const mapStateToProps = (state, ownProps) => {
   const findings = selectFindings(state)
   return {
-    bird: selectBirdsSortedByName(state).find(
-      (b) => b.id === ownProps.match.params.id
-    ),
+    bird: selectBirds(state).find((b) => b.id === ownProps.match.params.id),
     finding: findings.find(
       (finding) => finding.bird === ownProps.match.params.id
     ),
+    coordinateSuggestions: selectCoordinateSuggestions(state),
     year: state.year
   }
 }

@@ -15,22 +15,12 @@ export default class BirderMap extends Component {
     zoom: 8
   }
 
-  locateButtonRef = React.createRef()
-
-  async componentDidMount() {
-    if (
-      !this.props.markerCoordinates &&
-      location.supported() &&
-      (await location.permissionStatus()).state === 'granted' &&
-      this.locateButtonRef.current
-    ) {
-      this.locateButtonRef.current.locate()
-    }
-  }
+  suggestionInput = React.createRef()
 
   handleClick = (e) => {
     const {lat, lng} = e.latlng
     this.props.onCoordinatesSelected({lat, lng})
+    this.suggestionInput.current.value = null
   }
 
   getCenter = () => {
@@ -41,6 +31,14 @@ export default class BirderMap extends Component {
         lng: 25.985456800620568
       }
     )
+  }
+
+  onCopyCoordinatesFrom = () => {
+    const suggestionIndex = this.suggestionInput.current.value
+    const suggestion = this.props.coordinateSuggestions[suggestionIndex]
+    if (suggestion) {
+      this.props.onCoordinatesSelected(suggestion.coordinates)
+    }
   }
 
   onViewportChanged = (viewport) => {
@@ -79,10 +77,20 @@ export default class BirderMap extends Component {
           {renderMarker()}
           <ScaleControl />
         </Map>
-        <LocateButton
-          ref={this.locateButtonRef}
-          onLocation={this.props.onCoordinatesSelected}
-        />
+        <LocateButton onLocation={this.props.onCoordinatesSelected} />
+        <div style={{marginTop: '10px'}}>
+          <span>Kopioi sijainti: </span>
+          <select
+            ref={this.suggestionInput}
+            defaultValue={-1}
+            onChange={this.onCopyCoordinatesFrom}
+          >
+            <option value={null}></option>
+            {this.props.coordinateSuggestions.map((suggestion, i) => (
+              <option value={i}>{suggestion.name}</option>
+            ))}
+          </select>
+        </div>
       </div>
     )
   }

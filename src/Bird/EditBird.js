@@ -98,6 +98,7 @@ export default class EditBird extends PureComponent {
             onCoordinatesSelected={this.onCoordinatesSelected}
             markerCoordinates={this.state.coordinates}
             bird={this.props.bird}
+            coordinateSuggestions={this.props.coordinateSuggestions}
           />
         )}
         <SecondaryButton onClick={this.props.onClose}>Peruuta</SecondaryButton>
