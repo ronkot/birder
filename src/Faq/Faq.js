@@ -14,6 +14,12 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.16.0"
+            notes={[
+              'Lisätty mahdollisuus kopioida paikkatieto aiemmasta merkinnästä'
+            ]}
+          />
+          <Release
             release="0.15.0"
             notes={[
               'Lisätty Töyhtökiuru',
