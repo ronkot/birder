@@ -84,12 +84,12 @@ export default class EditBird extends PureComponent {
           }
           buttons={[
             {
-              key: 'no-location',
-              content: 'Ei sijaintia'
-            },
-            {
               key: 'map',
               content: 'Kartalta'
+            },
+            {
+              key: 'no-location',
+              content: 'Ei sijaintia'
             }
           ]}
         />

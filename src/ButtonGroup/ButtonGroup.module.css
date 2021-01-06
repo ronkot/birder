@@ -8,14 +8,14 @@
 .buttonGroupButton {
   padding: 10px 15px;
   width: 100%;
-  background: var(--color-blue-darkest);
+  background: var(--color-blue-dark);
   color: var(--color-white);
   font-size: 12px;
   cursor: pointer;
 }
 
 .buttonGroupButtonActive {
-  background: var(--color-blue-dark);
+  background: var(--color-blue-darkest);
 }
 
 .buttonGroupButton:first-child {

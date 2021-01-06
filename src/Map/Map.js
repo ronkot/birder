@@ -4,6 +4,7 @@ import {Map, TileLayer, Marker, Popup, ScaleControl} from 'react-leaflet'
 import BirdIcon from './BirdIcon'
 import styles from './Map.module.css'
 import * as location from '../location'
+import {SecondaryButton} from '../common/Button/Button'
 
 export default class BirderMap extends Component {
   static defaultProps = {
@@ -72,16 +73,16 @@ export default class BirderMap extends Component {
           center={this.getCenter()}
         >
           <TileLayer
-            attribution="&amp;copy <a href=&quot;https://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            attribution='&amp;copy <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {renderMarker()}
           <ScaleControl />
-          <LocateButton
-            ref={this.locateButtonRef}
-            onLocation={this.props.onCoordinatesSelected}
-          />
         </Map>
+        <LocateButton
+          ref={this.locateButtonRef}
+          onLocation={this.props.onCoordinatesSelected}
+        />
       </div>
     )
   }
@@ -92,14 +93,7 @@ class LocateButton extends Component {
     loading: false
   }
 
-  buttonRef = React.createRef()
-
-  componentDidMount() {
-    this.buttonRef.current.addEventListener('click', this.locate)
-  }
-
   componentWillUnmount() {
-    this.buttonRef.current.removeEventListener('click', this.locate)
     this.unmounted = true
   }
 
@@ -139,13 +133,15 @@ class LocateButton extends Component {
 
   render() {
     return (
-      <div className={styles.locateButton} ref={this.buttonRef}>
+      <SecondaryButton onClick={this.locate}>
         {this.state.loading ? (
           <i className="fas fa-spinner fa-spin" />
         ) : (
-          <i className="fas fa-user" />
+          <span>
+            <i className="fas fa-user" /> Käytä sijaintiani
+          </span>
         )}
-      </div>
+      </SecondaryButton>
     )
   }
 }
