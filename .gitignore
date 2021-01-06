@@ -31,3 +31,4 @@ public/img/birds
 firebase-debug.log
 stats.csv
 stats-data-raw.json
+*.log

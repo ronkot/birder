@@ -17,6 +17,13 @@ const config = {
 firebase.initializeApp(config)
 
 export const db = firebase.firestore()
+
+// Use firebase emulator during development
+if (window.location.hostname === 'localhost') {
+  db.useEmulator('localhost', 8080)
+  firebase.functions().useEmulator('localhost', 5001)
+}
+
 db.enablePersistence()
   .then(() => {
     console.log('Offline support enabled')
