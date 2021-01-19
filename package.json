@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "deploy": "npm run build && firebase deploy",
     "test": "react-scripts test",
-    "start:emulator": "firebase emulators:start"
+    "start:emulator": "firebase emulators:start --import=./firestore-dev-data --export-on-exit"
   },
   "eslintConfig": {
     "extends": "react-app"

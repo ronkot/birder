@@ -32,3 +32,4 @@ firebase-debug.log
 stats.csv
 stats-data-raw.json
 *.log
+firestore-dev-data
