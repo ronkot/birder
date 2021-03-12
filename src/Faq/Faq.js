@@ -14,6 +14,13 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.17.0"
+            notes={[
+              'Lisätty Ohotanlokki',
+              'Korjaus vuoden 2020 "Varhaisimmat havainnot" näkymään'
+            ]}
+          />
+          <Release
             release="0.16.0"
             notes={[
               'Lisätty mahdollisuus kopioida paikkatieto aiemmasta merkinnästä'
