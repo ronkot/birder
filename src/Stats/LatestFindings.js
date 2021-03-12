@@ -35,13 +35,17 @@ class Stats extends Component {
 
   render() {
     const allTimeStats = this.props.year === 'all'
+
     const latestFindingsWithBirds = this.props.latestFindings.map(
-      (latestFinding) => ({
-        ...latestFinding,
-        birdNameFi: this.props.birds.find((b) => b.id === latestFinding.bird)
-          .nameFi
-      })
+      (latestFinding) => {
+        const bird = this.props.birds.find((b) => b.id === latestFinding.bird)
+        return {
+          ...latestFinding,
+          birdNameFi: bird?.nameFi
+        }
+      }
     )
+
     return (
       <div>
         <h1>Varhaisimmat havainnot</h1>
