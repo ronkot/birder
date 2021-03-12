@@ -4703,5 +4703,19 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.m.wikipedia.org/wiki/T%C3%B6yht%C3%B6kiurut'
+  },
+  {
+    id: 'b-337',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Laridae',
+    familyFi: 'Lokit',
+    nameFi: 'Ohotanlokki',
+    nameLatin: 'Larus schistisagus',
+    nameEn: '',
+    rarity: 5,
+    photo: 'ohotanlokki.jpg',
+    photographer: 'Petri Päivärinta',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Ohotanlokki'
   }
 ]
