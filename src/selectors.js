@@ -61,6 +61,12 @@ export function selectHiscores(state) {
   return getVal(state.firestore.ordered, `hiscores`, [])
 }
 
+export function selectAllFriends(state) {
+  const user = selectUser(state)
+  console.log('selectAllFriends', user)
+  return state.firestore.ordered[`users/${user.uid}/friends`] || []
+}
+
 export function selectLatestFindings(state) {
   const latestFindings = getVal(state.firestore.ordered, `latestFindings`, [])
   const year = getYear(state)

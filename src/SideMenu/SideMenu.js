@@ -45,6 +45,13 @@ class SideMenu extends PureComponent {
             Tilastot
           </NavLink>
           <NavLink
+            to="/friends"
+            onClick={this.props.closeMenu}
+            activeClassName={styles.activeLink}
+          >
+            Kaverit
+          </NavLink>
+          <NavLink
             to="/profile"
             onClick={this.props.closeMenu}
             activeClassName={styles.activeLink}
@@ -84,7 +91,4 @@ const mapDispatchToProps = (dispatch) => ({
   closeMenu: () => dispatch(closeMenu())
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SideMenu)
+export default connect(mapStateToProps, mapDispatchToProps)(SideMenu)

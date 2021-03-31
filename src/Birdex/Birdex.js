@@ -2,12 +2,13 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 
-import {listenFindings} from '../listeners'
+import {listenFindings, listenFriends} from '../listeners'
 import styles from './Birdex.module.css'
 import {
   selectCurrentYearFindings,
   selectBirdsSortedByName,
-  selectUser
+  selectUser,
+  selectAllFriends
 } from '../selectors'
 import {
   setScrollPosition,
@@ -72,6 +73,8 @@ class Birdex extends PureComponent {
   }
 
   render() {
+    console.log('Friends', this.props.friends)
+
     const matchSearchTerm = (bird) => {
       if (!this.props.searchTerm) return true
       const re = new RegExp(this.props.searchTerm, 'i')
@@ -160,6 +163,7 @@ export default compose(
         user,
         birds: selectBirdsSortedByName(state),
         findings: selectCurrentYearFindings(state),
+        friends: selectAllFriends(state),
         scrollPosition: state.birdexScrollPosition,
         searchTerm: state.birdexSearchTerm,
         viewType: state.birdexViewType,
@@ -174,5 +178,6 @@ export default compose(
       setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter))
     })
   ),
-  listenFindings
+  listenFindings,
+  listenFriends
 )(Birdex)

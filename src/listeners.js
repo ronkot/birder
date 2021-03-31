@@ -62,3 +62,12 @@ export const listenLatestFindings = firestoreConnect((props) => {
     }
   ]
 })
+
+export const listenFriends = firestoreConnect((props) => {
+  console.log('listenFriends', `users/${props.user.uid}/friends`)
+  return [
+    {
+      collection: `users/${props.user.uid}/friends`
+    }
+  ]
+})
