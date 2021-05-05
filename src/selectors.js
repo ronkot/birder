@@ -14,6 +14,10 @@ export function selectUser(state) {
   return state.firebase.auth
 }
 
+export function selectProfile(state) {
+  return state.firebase.profile
+}
+
 export function selectFindings(state) {
   return getVal(state.firestore.ordered, `findings`, [])
 }
@@ -77,6 +81,10 @@ export function selectPendingFriendRequests(state) {
   return selectAllFriends(state).filter(
     (friend) => friend.state === 'pending-approval'
   )
+}
+
+export function selectApprovedFriends(state) {
+  return selectAllFriends(state).filter((friend) => friend.state === 'approved')
 }
 
 export function selectLatestFindings(state) {

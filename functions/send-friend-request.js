@@ -11,9 +11,9 @@ module.exports = async (data, context) => {
     )
   }
 
-  const { friendId } = data
+  const { friendShortId } = data
 
-  if (!friendId) {
+  if (!friendShortId) {
     throw new functions.https.HttpsError(
       'invalid-argument',
       'Friend id missing'
@@ -24,13 +24,13 @@ module.exports = async (data, context) => {
 
   const friendsResult = await db
     .collection('users')
-    .where('shortId', '==', friendId)
+    .where('shortId', '==', friendShortId)
     .get()
 
   if (friendsResult.size !== 1) {
     throw new functions.https.HttpsError(
       'invalid-argument',
-      'Friend not found with id ' + friendId
+      'Friend not found with short id ' + friendShortId
     )
   }
 
@@ -45,74 +45,39 @@ module.exports = async (data, context) => {
     .doc(userId)
     .get()
 
-  await db
+  const sentFriendRequest = await db
     .collection('users')
     .doc(userId)
     .collection('friends')
     .doc(friend.id)
-    .create({
+    .get()
+
+  if (sentFriendRequest.exists) {
+    throw new functions.https.HttpsError(
+      'invalid-argument',
+      'Friend already exists'
+    )
+  }
+
+  await Promise.all([
+    sentFriendRequest.create({
       state: 'request-sent',
       friendId: friend.id,
       friendName: friend.data().playerName
-    })
-
-  await db
-    .collection('users')
-    .doc(friend.id)
-    .collection('friends')
-    .doc(userId)
-    .create({
-      state: 'pending-approval',
-      friendId: userId,
-      friendName: user.data().playerName
-    })
+    }),
+    db
+      .collection('users')
+      .doc(friend.id)
+      .collection('friends')
+      .doc(userId)
+      .create({
+        state: 'pending-approval',
+        friendId: userId,
+        friendName: user.data().playerName
+      })
+  ])
 
   return {
     success: true
   }
-
-  // await checkForConflictingPlayerName(userId, playerName)
-
-  // const profileRef = db.collection('users').doc(userId)
-  // await profileRef.update({
-  //   playerName,
-  //   playerName_lowerCase: playerName.toLowerCase()
-  // })
-
-  // await updateUserTopScorePlayerNames(userId, playerName)
-
-  // return profileRef.get().then(r => r.data())
-}
-
-async function updateUserTopScorePlayerNames(userId, playerName) {
-  const hiscoresSnapshot = await db
-    .collection('hiscores')
-    .where('user', '==', userId)
-    .get()
-
-  for (const hiscore of hiscoresSnapshot.docs) {
-    console.log('updating hiscore', hiscore.id, 'player name to ', playerName)
-    await db
-      .collection('hiscores')
-      .doc(hiscore.id)
-      .update({
-        playerName
-      })
-  }
-}
-
-async function checkForConflictingPlayerName(userId, playerName) {
-  const usersWithSamePlayerName = await db
-    .collection('users')
-    .where('playerName_lowerCase', '==', playerName.toLowerCase())
-    .get()
-
-  usersWithSamePlayerName.docs.forEach(userWithSamePlayerName => {
-    if (userWithSamePlayerName.id !== userId) {
-      throw new functions.https.HttpsError(
-        'failed-precondition',
-        `Name ${playerName} is already reserved`
-      )
-    }
-  })
 }

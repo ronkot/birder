@@ -9,6 +9,7 @@ import {Typography} from '@material-ui/core'
 
 import {updateProfile} from './ProfileActions'
 import styles from './Profile.module.css'
+import {selectProfile} from '../selectors'
 
 const Profile = ({user}) => {
   async function onSubmit(values, actions) {
@@ -87,7 +88,7 @@ const Profile = ({user}) => {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.firebase.profile
+  user: selectProfile(state)
 })
 
 export default connect(mapStateToProps)(Profile)

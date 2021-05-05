@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {connect} from 'react-redux'
 import {Formik} from 'formik'
 import TextField from '@material-ui/core/TextField'
@@ -9,18 +9,20 @@ import {Typography} from '@material-ui/core'
 import {compose} from 'redux'
 
 import {listenFriends} from '../listeners'
-import {sendFriendRequest} from './FriendActions'
+import {sendFriendRequest, approveFriendRequest} from './FriendActions'
 import styles from './Friends.module.css'
 import {
   selectUser,
+  selectProfile,
   selectPendingFriendRequests,
-  selectSentFriendRequests
+  selectSentFriendRequests,
+  selectApprovedFriends
 } from '../selectors'
-import {ConfirmButton} from '../common/Button/Button'
+import {ConfirmButton, PrimaryButton} from '../common/Button/Button'
 
 async function onSubmitSendFriendRequest(values, actions) {
   try {
-    await sendFriendRequest(values.friendId)
+    await sendFriendRequest(values.friendShortId)
     actions.resetForm()
   } catch (err) {
     alert(err.message)
@@ -34,14 +36,22 @@ async function removeFriend(friendId) {
   console.log('Remove friend', friendId)
 }
 
-const Friends = ({user, sentFriendRequests, pendingFriendRequests}) => {
+const Friends = ({
+  profile,
+  sentFriendRequests,
+  pendingFriendRequests,
+  approvedFriends
+}) => {
   return (
     <div>
       <h1>Kaverit</h1>
 
       <Paper className={styles.paper}>
+        <Typography variant="body1">
+          Oma kaveritunnus: {profile.shortId}
+        </Typography>
         <Formik
-          initialValues={{friendId: ''}}
+          initialValues={{friendShortId: ''}}
           onSubmit={onSubmitSendFriendRequest}
         >
           {({
@@ -58,9 +68,9 @@ const Friends = ({user, sentFriendRequests, pendingFriendRequests}) => {
               <Grid container spacing={16} alignItems="center">
                 <Grid item>
                   <TextField
-                    value={values.friendId}
+                    value={values.friendShortId}
                     onChange={(...args) => {
-                      setFieldTouched('friendId')
+                      setFieldTouched('friendShortId')
                       handleChange(...args)
                     }}
                     onBlur={handleBlur}
@@ -68,7 +78,7 @@ const Friends = ({user, sentFriendRequests, pendingFriendRequests}) => {
                     margin="normal"
                     variant="outlined"
                     placeholder="abc123"
-                    name="friendId"
+                    name="friendShortId"
                   />
                 </Grid>
                 <Grid item>
@@ -76,7 +86,9 @@ const Friends = ({user, sentFriendRequests, pendingFriendRequests}) => {
                     variant="contained"
                     color="primary"
                     type="submit"
-                    disabled={!touched.friendId || !isValid || isSubmitting}
+                    disabled={
+                      !touched.friendShortId || !isValid || isSubmitting
+                    }
                   >
                     Lähetä kaveripyyntö
                   </Button>
@@ -93,23 +105,76 @@ const Friends = ({user, sentFriendRequests, pendingFriendRequests}) => {
           <Grid item>
             <Typography variant="display1">Lähetetyt pyynnöt</Typography>
           </Grid>
-          {sentFriendRequests.map((sentRequest) => (
-            <>
+          {sentFriendRequests.map((friendRequest) => (
+            <Fragment key={friendRequest.friendId}>
               <Grid item>
                 <Typography variant="body1">
-                  {sentRequest.friendName}
+                  {friendRequest.friendName}
                 </Typography>
               </Grid>
               <Grid item>
                 <ConfirmButton
-                  onClick={() => removeFriend(sentRequest.friendId)}
+                  onClick={() => removeFriend(friendRequest.friendId)}
                   renderContent={({state}) => {
                     if (state === 'initial') return 'Poista'
                     else if (state === 'confirm') return 'Oletko varma?'
                   }}
                 />
               </Grid>
-            </>
+            </Fragment>
+          ))}
+        </Grid>
+
+        <Grid container spacing={16} alignItems="center">
+          <Grid item>
+            <Typography variant="display1">Saapuneet pyynnöt</Typography>
+          </Grid>
+          {pendingFriendRequests.map((friendRequest) => (
+            <Fragment key={friendRequest.friendId}>
+              <Grid item>
+                <Typography variant="body1">
+                  {friendRequest.friendName}
+                </Typography>
+              </Grid>
+              <Grid item>
+                <PrimaryButton
+                  onClick={() => approveFriendRequest(friendRequest.friendId)}
+                >
+                  Hyväksy
+                </PrimaryButton>
+              </Grid>
+              <Grid item>
+                <ConfirmButton
+                  onClick={() => removeFriend(friendRequest.friendId)}
+                  renderContent={({state}) => {
+                    if (state === 'initial') return 'Poista'
+                    else if (state === 'confirm') return 'Oletko varma?'
+                  }}
+                />
+              </Grid>
+            </Fragment>
+          ))}
+        </Grid>
+
+        <Grid container spacing={16} alignItems="center">
+          <Grid item>
+            <Typography variant="display1">Kaverit</Typography>
+          </Grid>
+          {approvedFriends.map((friend) => (
+            <Fragment key={friend.friendId}>
+              <Grid item>
+                <Typography variant="body1">{friend.friendName}</Typography>
+              </Grid>
+              <Grid item>
+                <ConfirmButton
+                  onClick={() => removeFriend(friend.friendId)}
+                  renderContent={({state}) => {
+                    if (state === 'initial') return 'Poista'
+                    else if (state === 'confirm') return 'Oletko varma?'
+                  }}
+                />
+              </Grid>
+            </Fragment>
           ))}
         </Grid>
       </Paper>
@@ -120,11 +185,14 @@ const Friends = ({user, sentFriendRequests, pendingFriendRequests}) => {
 export default compose(
   connect(
     (state) => {
+      const profile = selectProfile(state)
       const user = selectUser(state)
       return {
         user,
+        profile,
         sentFriendRequests: selectSentFriendRequests(state),
-        pendingFriendRequests: selectPendingFriendRequests(state)
+        pendingFriendRequests: selectPendingFriendRequests(state),
+        approvedFriends: selectApprovedFriends(state)
       }
     },
     (dispatch) => ({
