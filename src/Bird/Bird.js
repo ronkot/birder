@@ -4,7 +4,7 @@ import {compose, bindActionCreators} from 'redux'
 import moment from 'moment'
 
 import {
-  selectFindings,
+  selectOwnFindings,
   selectBirds,
   selectCoordinateSuggestions
 } from '../selectors'
@@ -123,7 +123,7 @@ class Bird extends PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const findings = selectFindings(state)
+  const findings = selectOwnFindings(state)
   return {
     bird: selectBirds(state).find((b) => b.id === ownProps.match.params.id),
     finding: findings.find(

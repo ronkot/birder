@@ -14,8 +14,13 @@ service cloud.firestore {
     }
 
     match /findings/{findingId} {
-      allow read, delete: if request.auth.uid != null
-                          && resource.data.user == request.auth.uid;
+      allow read: if request.auth.uid != null
+                  && (
+                    resource.data.user == request.auth.uid
+                    || get(/databases/$(database)/documents/users/$(resource.data.user)/friends/$(request.auth.uid)).data.state == "approved"
+                  );
+      allow delete: if request.auth.uid != null
+                    && resource.data.user == request.auth.uid;
       allow create, update: if request.resource.data.user == request.auth.uid;
     }
 

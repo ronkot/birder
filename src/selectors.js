@@ -18,20 +18,28 @@ export function selectProfile(state) {
   return state.firebase.profile
 }
 
-export function selectFindings(state) {
+export function selectOwnFindings(state) {
   return getVal(state.firestore.ordered, `findings`, [])
 }
-export function selectCurrentYearFindings(state) {
+
+export function selectFriendFindings(state) {
+  const birderId = 'BCmYrAPPCEO40TwqZP8OuSTv9HY2'
+  return getVal(state.firestore.ordered, `findings`, []).filter(
+    (finding) => finding.user !== 'birderId'
+  )
+}
+
+export function selectCurrentYearOwnFindings(state) {
   const selectedYear = state.year
   return selectedYear === 'all'
-    ? selectFindings(state)
-    : selectFindings(state).filter(
+    ? selectOwnFindings(state)
+    : selectOwnFindings(state).filter(
         (finding) => new Date(finding.date).getFullYear() === selectedYear
       )
 }
 
 export function selectCoordinateSuggestions(state) {
-  const findings = selectCurrentYearFindings(state).filter(
+  const findings = selectCurrentYearOwnFindings(state).filter(
     (finding) => finding.place?.type === 'coordinates'
   )
   const birds = selectBirds(state)
@@ -54,7 +62,7 @@ export function selectBirdsSortedByName(state) {
 }
 
 export function selectFoundBirds(state) {
-  const findings = selectFindings(state)
+  const findings = selectOwnFindings(state)
   const birds = selectBirds(state)
   return birds.filter((bird) =>
     findings.find((finding) => finding.bird === bird.id)
@@ -110,7 +118,7 @@ export function getYear(state) {
 }
 
 export function selectAchievements(state) {
-  const currentYearFindings = selectCurrentYearFindings(state)
+  const currentYearFindings = selectCurrentYearOwnFindings(state)
   const birds = selectBirdsSortedByName(state)
   const currentStars = currentYearFindings
     .map((f) => birds.find((b) => b.id === f.bird))

@@ -5,7 +5,7 @@ import {compose} from 'redux'
 import {listenFindings, listenFriends} from '../listeners'
 import styles from './Birdex.module.css'
 import {
-  selectCurrentYearFindings,
+  selectCurrentYearOwnFindings,
   selectBirdsSortedByName,
   selectUser,
   selectAllFriends
@@ -162,7 +162,7 @@ export default compose(
       return {
         user,
         birds: selectBirdsSortedByName(state),
-        findings: selectCurrentYearFindings(state),
+        findings: selectCurrentYearOwnFindings(state),
         friends: selectAllFriends(state),
         scrollPosition: state.birdexScrollPosition,
         searchTerm: state.birdexSearchTerm,

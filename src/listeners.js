@@ -35,6 +35,18 @@ export const listenFindings = firestoreConnect((props, store) => {
   ]
 })
 
+export const listenFriendFindings = firestoreConnect((props, store) => {
+  const jaakkoId = 'hEq6CZndvDcc2UBJjeoKPklyNDk2'
+  const where = [['user', '==', jaakkoId]]
+
+  return [
+    {
+      collection: 'findings',
+      where
+    }
+  ]
+})
+
 export const listenHiScores = firestoreConnect((props) => {
   const year = props.year
   const where = []

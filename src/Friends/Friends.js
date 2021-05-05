@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button'
 import {Typography} from '@material-ui/core'
 import {compose} from 'redux'
 
-import {listenFriends} from '../listeners'
+import {listenFriends, listenFriendFindings} from '../listeners'
 import {sendFriendRequest, approveFriendRequest} from './FriendActions'
 import styles from './Friends.module.css'
 import {
@@ -16,7 +16,8 @@ import {
   selectProfile,
   selectPendingFriendRequests,
   selectSentFriendRequests,
-  selectApprovedFriends
+  selectApprovedFriends,
+  selectFriendFindings
 } from '../selectors'
 import {ConfirmButton, PrimaryButton} from '../common/Button/Button'
 
@@ -40,8 +41,10 @@ const Friends = ({
   profile,
   sentFriendRequests,
   pendingFriendRequests,
-  approvedFriends
+  approvedFriends,
+  friendFindings
 }) => {
+  console.log('friend findings', friendFindings)
   return (
     <div>
       <h1>Kaverit</h1>
@@ -192,7 +195,8 @@ export default compose(
         profile,
         sentFriendRequests: selectSentFriendRequests(state),
         pendingFriendRequests: selectPendingFriendRequests(state),
-        approvedFriends: selectApprovedFriends(state)
+        approvedFriends: selectApprovedFriends(state),
+        friendFindings: selectFriendFindings(state)
       }
     },
     (dispatch) => ({
@@ -202,5 +206,6 @@ export default compose(
       // setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter))
     })
   ),
-  listenFriends
+  listenFriends,
+  listenFriendFindings
 )(Friends)
