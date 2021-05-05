@@ -67,6 +67,18 @@ export function selectAllFriends(state) {
   return state.firestore.ordered[`users/${user.uid}/friends`] || []
 }
 
+export function selectSentFriendRequests(state) {
+  return selectAllFriends(state).filter(
+    (friend) => friend.state === 'request-sent'
+  )
+}
+
+export function selectPendingFriendRequests(state) {
+  return selectAllFriends(state).filter(
+    (friend) => friend.state === 'pending-approval'
+  )
+}
+
 export function selectLatestFindings(state) {
   const latestFindings = getVal(state.firestore.ordered, `latestFindings`, [])
   const year = getYear(state)

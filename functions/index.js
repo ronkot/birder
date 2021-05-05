@@ -5,9 +5,11 @@ admin.initializeApp()
 
 const topScores = require('./top-scores')
 const updateProfile = require('./update-profile')
+const sendFriendRequest = require('./send-friend-request')
 
 exports.updateHiscores = functions.firestore
   .document('findings/{findingId}')
   .onWrite(topScores)
 
 exports.updateProfile = functions.https.onCall(updateProfile)
+exports.sendFriendRequest = functions.https.onCall(sendFriendRequest)

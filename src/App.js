@@ -21,6 +21,7 @@ import About from './About/About'
 import history from './history'
 import SideMenu from './SideMenu/SideMenu'
 import {setMenuState} from './SideMenu/SideMenuRedux'
+import Friends from './Friends/Friends'
 
 class App extends Component {
   render() {
@@ -83,6 +84,7 @@ class SignedInContent extends Component {
             <Route exact path="/achievements/:id" component={Achievement} />
             <Route exact path="/stats" component={Stats} />
             <Route exact path="/stats/hi-scores" component={HiScores} />
+            <Route exact path="/friends" component={Friends} />
             <Route
               exact
               path="/stats/latest-findings"

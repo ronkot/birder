@@ -5,10 +5,10 @@ import TextField from '@material-ui/core/TextField'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
+import {Typography} from '@material-ui/core'
 
 import {updateProfile} from './ProfileActions'
 import styles from './Profile.module.css'
-import {Typography} from '@material-ui/core'
 
 const Profile = ({user}) => {
   async function onSubmit(values, actions) {
