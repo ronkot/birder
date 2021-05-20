@@ -6,9 +6,27 @@ import countBy from 'lodash/countBy'
 import sortBy from 'lodash/sortBy'
 import minBy from 'lodash/minBy'
 
+import {ViewStates} from './AppRedux'
+
 const bronzeAchievement = '/img/bronze.png'
 const silverchievement = '/img/silver.png'
 const goldAchievement = '/img/gold.png'
+
+export function selectAppState(state) {
+  return state.app
+}
+
+export function selectFollowedFriendName(state) {
+  const appState = selectAppState(state)
+  if (appState.viewType === ViewStates.own) {
+    return ''
+  }
+  const friends = selectAllFriends(state)
+  const followedFriend = friends.find(
+    (friend) => friend.friendId === appState.friendId
+  )
+  return followedFriend ? followedFriend.friendName : ''
+}
 
 export function selectUser(state) {
   return state.firebase.auth
@@ -19,13 +37,16 @@ export function selectProfile(state) {
 }
 
 export function selectOwnFindings(state) {
-  return getVal(state.firestore.ordered, `findings`, [])
+  const user = selectUser(state)
+  return getVal(state.firestore.ordered, `findings`, []).filter(
+    (finding) => finding.user === user.uid
+  )
 }
 
-export function selectFriendFindings(state) {
-  const birderId = 'BCmYrAPPCEO40TwqZP8OuSTv9HY2'
+export function selectFriendFindings(state, friendId) {
+  console.log('selectFriendFindings', friendId)
   return getVal(state.firestore.ordered, `findings`, []).filter(
-    (finding) => finding.user !== 'birderId'
+    (finding) => finding.user !== friendId
   )
 }
 
@@ -36,6 +57,16 @@ export function selectCurrentYearOwnFindings(state) {
     : selectOwnFindings(state).filter(
         (finding) => new Date(finding.date).getFullYear() === selectedYear
       )
+}
+
+export function selectFindingsToMatchViewType(state) {
+  const appState = selectAppState(state)
+  console.log('selector selectFindingsToMatchViewType', appState)
+  if (appState.viewType === ViewStates.own) {
+    return selectOwnFindings(state)
+  } else {
+    return selectFriendFindings(state, appState.friendId)
+  }
 }
 
 export function selectCoordinateSuggestions(state) {

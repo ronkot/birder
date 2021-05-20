@@ -11,6 +11,7 @@ import {
 } from './Birdex/BirdexRedux'
 import {isMenuOpen} from './SideMenu/SideMenuRedux'
 import {currentYear} from './utils'
+import {appReducer} from './AppRedux'
 
 export const initialState = {
   birds,
@@ -27,13 +28,14 @@ export const initialState = {
 export default combineReducers({
   firebase: firebaseReducer,
   firestore: firestoreReducer,
-  birds: (state = birds) => state,
+  birds: (state = birds) => state, // TODO: Move birds to firestore
   birdexScrollPosition: scrollPosition,
   birdexSearchTerm: searchTerm,
   birdexViewType: viewType,
   birdexVisibilityFilter: visibilityFilter,
   isMenuOpen,
-  year
+  year,
+  app: appReducer
 })
 
 // TODO: Move to own file

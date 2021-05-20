@@ -1,7 +1,7 @@
 import {firestoreConnect} from 'react-redux-firebase'
 import moment from 'moment'
 
-import {selectUser} from './selectors'
+import {selectUser, selectAppState} from './selectors'
 
 export const listenFindings = firestoreConnect((props, store) => {
   const year = props.year
@@ -36,8 +36,12 @@ export const listenFindings = firestoreConnect((props, store) => {
 })
 
 export const listenFriendFindings = firestoreConnect((props, store) => {
-  const jaakkoId = 'hEq6CZndvDcc2UBJjeoKPklyNDk2'
-  const where = [['user', '==', jaakkoId]]
+  const appState = selectAppState(store.getState())
+  console.log('sore', selectAppState(store.getState()))
+
+  const where = [['user', '==', appState.friendId]]
+
+  console.log('listenFriendFindings', where)
 
   return [
     {

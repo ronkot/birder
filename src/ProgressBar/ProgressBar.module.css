@@ -17,7 +17,7 @@
 .progressBar {
   flex: 1;
   height: 16px;
-  background: var(--color-blue-darkest);
+  background: var(--color-primary);
   border-radius: 50px;
 }
 
@@ -35,4 +35,3 @@
   font-size: 12px;
   font-weight: bolder;
 }
-

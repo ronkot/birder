@@ -17,9 +17,12 @@ import {
   selectPendingFriendRequests,
   selectSentFriendRequests,
   selectApprovedFriends,
-  selectFriendFindings
+  selectFriendFindings,
+  selectAppState,
+  selectFindingsToMatchViewType
 } from '../selectors'
 import {ConfirmButton, PrimaryButton} from '../common/Button/Button'
+import {viewFriend} from '../AppRedux'
 
 async function onSubmitSendFriendRequest(values, actions) {
   try {
@@ -42,9 +45,14 @@ const Friends = ({
   sentFriendRequests,
   pendingFriendRequests,
   approvedFriends,
-  friendFindings
+  friendFindings,
+  appState,
+  viewFriend,
+  viewTypeFindings
 }) => {
   console.log('friend findings', friendFindings)
+  console.log('app state', appState)
+  console.log('view type findings', viewTypeFindings)
   return (
     <div>
       <h1>Kaverit</h1>
@@ -169,6 +177,11 @@ const Friends = ({
                 <Typography variant="body1">{friend.friendName}</Typography>
               </Grid>
               <Grid item>
+                <Button onClick={() => viewFriend(friend.friendId)}>
+                  Seuraa
+                </Button>
+              </Grid>
+              <Grid item>
                 <ConfirmButton
                   onClick={() => removeFriend(friend.friendId)}
                   renderContent={({state}) => {
@@ -188,18 +201,19 @@ const Friends = ({
 export default compose(
   connect(
     (state) => {
-      const profile = selectProfile(state)
-      const user = selectUser(state)
       return {
-        user,
-        profile,
+        user: selectUser(state),
+        profile: selectProfile(state),
         sentFriendRequests: selectSentFriendRequests(state),
         pendingFriendRequests: selectPendingFriendRequests(state),
         approvedFriends: selectApprovedFriends(state),
-        friendFindings: selectFriendFindings(state)
+        friendFindings: selectFriendFindings(state),
+        appState: selectAppState(state),
+        viewTypeFindings: selectFindingsToMatchViewType(state)
       }
     },
     (dispatch) => ({
+      viewFriend: (friendId) => dispatch(viewFriend(friendId))
       // setScrollPosition: (position) => dispatch(setScrollPosition(position)),
       // setSearchTerm: (term) => dispatch(setSearchTerm(term)),
       // setViewType: (type) => dispatch(setViewType(type)),

@@ -2,7 +2,7 @@
   height: 55px;
   width: 100%;
   bottom: 0;
-  background: var(--color-blue-darkest);
+  background: var(--color-primary);
   display: grid;
   grid-template-columns: 1fr min-content;
   border-bottom: 1px solid var(--color-blue-medium);
@@ -28,5 +28,5 @@
 }
 
 .activeLink {
-  color: var(--color-blue-light);
+  color: var(--color-background);
 }

@@ -15,7 +15,7 @@
 }
 
 .buttonGroupButtonActive {
-  background: var(--color-blue-darkest);
+  background: var(--color-primary);
 }
 
 .buttonGroupButton:first-child {

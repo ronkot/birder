@@ -22,6 +22,7 @@ import history from './history'
 import SideMenu from './SideMenu/SideMenu'
 import {setMenuState} from './SideMenu/SideMenuRedux'
 import Friends from './Friends/Friends'
+import {selectFollowedFriendName} from './selectors'
 
 class App extends Component {
   render() {
@@ -76,6 +77,20 @@ class SignedInContent extends Component {
         }}
       >
         <div className="appContent">
+          {this.props.followedFriendName && (
+            <div
+              style={{
+                margin: '-20px -20px 20px -20px',
+                padding: '10px',
+                fontSize: '13px',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                backgroundColor: 'var(--color-blue-dark)'
+              }}
+            >
+              Katsellaan kaveria {this.props.followedFriendName}
+            </div>
+          )}
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/birdex" />} />
             <Route exact path="/birdex" component={Birdex} />
@@ -101,6 +116,7 @@ class SignedInContent extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  followedFriendName: selectFollowedFriendName(state),
   user: state.firebase.profile,
   initialized: state.initialized,
   isMenuOpen: state.isMenuOpen

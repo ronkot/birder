@@ -5,10 +5,10 @@
   --color-gray-very-light: #eee;
   --color-gray-light: #aaa;
   --color-gray: #555;
-  --color-blue-light: #80bd9e;
+  --color-background: #80bd9e;
   --color-blue-medium: #7ebfc5;
   --color-blue-dark: #55a2b4;
-  --color-blue-darkest: #3d7582;
+  --color-primary: #3d7582;
   --color-highlight: yellow;
 }
 
@@ -20,7 +20,7 @@ body {
   min-height: 100vh;
   font-family: 'Montserrat  ', sans-serif;
   color: var(--color-white);
-  background-color: var(--color-blue-light);
+  background-color: var(--color-background);
 }
 
 a {
@@ -60,7 +60,7 @@ nav > a:not(:first-child) {
 }
 
 nav > a.active {
-  background-color: var(--color-blue-darkest);
+  background-color: var(--color-primary);
 }
 
 input {
