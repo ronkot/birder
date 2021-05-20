@@ -4618,7 +4618,7 @@ module.exports = [
     nameLatin: 'Limnodromus scolopaceus',
     nameEn: 'Long-billed Dowitcher',
     rarity: 5,
-    photo: 'tundrakurppelo.jpeg',
+    photo: 'tundrakurppelo.jpg',
     photographer: 'Juho Tirkkonen',
     detectLink: 'https://fi.wikipedia.org/wiki/Tundrakurppelo'
   },
@@ -4688,7 +4688,7 @@ module.exports = [
     nameLatin: 'Abrornis humei',
     nameEn: '',
     rarity: 5,
-    photo: 'kashmirinuunilintu.jpeg',
+    photo: 'kashmirinuunilintu.jpg',
     photographer: 'Juho Tirkkonen',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Kashmirinuunilintu'
   },
@@ -4719,5 +4719,47 @@ module.exports = [
     photo: 'ohotanlokki.jpg',
     photographer: 'Petri Päivärinta',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Ohotanlokki'
+  },
+  {
+    id: 'b-338',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Muscicapidae',
+    familyFi: 'Siepot',
+    nameFi: 'Sepelsieppo',
+    nameLatin: 'Ficedula albicollis',
+    nameEn: 'Collared Flycatcher',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.wikipedia.org/wiki/Sepelsieppo'
+  },
+  {
+    id: 'b-339',
+    orderLatin: 'Gruiformes',
+    orderFi: 'Kurkilinnut',
+    familyLatin: 'Rallidae',
+    familyFi: 'Rantakanat',
+    nameFi: 'Pikkuhuitti',
+    nameLatin: 'Zapornia parva',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Pikkuhuitti'
+  },
+  {
+    id: 'b-340',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Sternidae',
+    familyFi: 'Tiirat',
+    nameFi: 'Valkosiipitiira',
+    nameLatin: 'Chlidonias leucopterus',
+    nameEn: 'White-winged tern',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.wikipedia.org/wiki/Valkosiipitiira'
   }
 ]
