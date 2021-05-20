@@ -1,5 +1,6 @@
 import React from 'react'
 import {Map, TileLayer, Marker, Popup, ScaleControl} from 'react-leaflet'
+import MarkerClusterGroup from 'react-leaflet-markercluster'
 import L from 'leaflet'
 import moment from 'moment'
 
@@ -49,30 +50,32 @@ export class StaticMap extends React.Component {
           attribution='&amp;copy <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {this.props.findings.map((finding) => {
-          const {
-            date,
-            bird,
-            place: {coordinates}
-          } = finding
-          const leafletCoordinates = {
-            lat: coordinates.latitude,
-            lng: coordinates.longitude
-          }
-          return (
-            <Marker
-              key={finding.id}
-              position={leafletCoordinates}
-              icon={BirdIcon(bird)}
-            >
-              <Popup direction="right" offset={[-8, -2]} opacity={1}>
-                <span>
-                  {bird.nameFi} {moment(date).format('L')}
-                </span>
-              </Popup>
-            </Marker>
-          )
-        })}
+        <MarkerClusterGroup>
+          {this.props.findings.map((finding) => {
+            const {
+              date,
+              bird,
+              place: {coordinates}
+            } = finding
+            const leafletCoordinates = {
+              lat: coordinates.latitude,
+              lng: coordinates.longitude
+            }
+            return (
+              <Marker
+                key={finding.id}
+                position={leafletCoordinates}
+                icon={BirdIcon(bird)}
+              >
+                <Popup direction="right" offset={[-8, -2]} opacity={1}>
+                  <span>
+                    {bird.nameFi} {moment(date).format('L')}
+                  </span>
+                </Popup>
+              </Marker>
+            )
+          })}
+        </MarkerClusterGroup>
 
         <ScaleControl />
       </Map>

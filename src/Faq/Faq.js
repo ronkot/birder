@@ -15,7 +15,10 @@ export function ChangeLog() {
         <Typography>
           <Release
             release="0.18.0"
-            notes={['Lisätty Sepelsieppo, Pikkuhuitti ja Valkosiipitiira']}
+            notes={[
+              'Kartta näyttää nyt fiksusti päällekäiset merkinnät',
+              'Lisätty Sepelsieppo, Pikkuhuitti ja Valkosiipitiira'
+            ]}
           />
           <Release
             release="0.17.0"
