@@ -16,9 +16,13 @@ export function selectAppState(state) {
   return state.app
 }
 
+export function selectIsWatchingFriend(state) {
+  return selectAppState(state).view === ViewStates.friends
+}
+
 export function selectFollowedFriendName(state) {
   const appState = selectAppState(state)
-  if (appState.viewType === ViewStates.own) {
+  if (appState.view === ViewStates.own) {
     return ''
   }
   const friends = selectAllFriends(state)
@@ -43,18 +47,20 @@ export function selectOwnFindings(state) {
   )
 }
 
-export function selectFriendFindings(state, friendId) {
+export function selectFriendFindings(state) {
+  const appState = selectAppState(state)
+  const {friendId} = appState
   console.log('selectFriendFindings', friendId)
   return getVal(state.firestore.ordered, `findings`, []).filter(
-    (finding) => finding.user !== friendId
+    (finding) => finding.user === friendId
   )
 }
 
-export function selectCurrentYearOwnFindings(state) {
+export function selectCurrentYearFindingsForViewType(state) {
   const selectedYear = state.year
   return selectedYear === 'all'
-    ? selectOwnFindings(state)
-    : selectOwnFindings(state).filter(
+    ? selectFindingsToMatchViewType(state)
+    : selectFindingsToMatchViewType(state).filter(
         (finding) => new Date(finding.date).getFullYear() === selectedYear
       )
 }
@@ -62,15 +68,15 @@ export function selectCurrentYearOwnFindings(state) {
 export function selectFindingsToMatchViewType(state) {
   const appState = selectAppState(state)
   console.log('selector selectFindingsToMatchViewType', appState)
-  if (appState.viewType === ViewStates.own) {
+  if (appState.view === ViewStates.own) {
     return selectOwnFindings(state)
   } else {
-    return selectFriendFindings(state, appState.friendId)
+    return selectFriendFindings(state)
   }
 }
 
 export function selectCoordinateSuggestions(state) {
-  const findings = selectCurrentYearOwnFindings(state).filter(
+  const findings = selectCurrentYearFindingsForViewType(state).filter(
     (finding) => finding.place?.type === 'coordinates'
   )
   const birds = selectBirds(state)
@@ -149,7 +155,7 @@ export function getYear(state) {
 }
 
 export function selectAchievements(state) {
-  const currentYearFindings = selectCurrentYearOwnFindings(state)
+  const currentYearFindings = selectCurrentYearFindingsForViewType(state)
   const birds = selectBirdsSortedByName(state)
   const currentStars = currentYearFindings
     .map((f) => birds.find((b) => b.id === f.bird))

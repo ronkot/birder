@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button'
 import {Typography} from '@material-ui/core'
 import {compose} from 'redux'
 
-import {listenFriends, listenFriendFindings} from '../listeners'
+import {listenFriends} from '../listeners'
 import {sendFriendRequest, approveFriendRequest} from './FriendActions'
 import styles from './Friends.module.css'
 import {
@@ -16,10 +16,7 @@ import {
   selectProfile,
   selectPendingFriendRequests,
   selectSentFriendRequests,
-  selectApprovedFriends,
-  selectFriendFindings,
-  selectAppState,
-  selectFindingsToMatchViewType
+  selectApprovedFriends
 } from '../selectors'
 import {ConfirmButton, PrimaryButton} from '../common/Button/Button'
 import {viewFriend} from '../AppRedux'
@@ -45,14 +42,9 @@ const Friends = ({
   sentFriendRequests,
   pendingFriendRequests,
   approvedFriends,
-  friendFindings,
-  appState,
   viewFriend,
   viewTypeFindings
 }) => {
-  console.log('friend findings', friendFindings)
-  console.log('app state', appState)
-  console.log('view type findings', viewTypeFindings)
   return (
     <div>
       <h1>Kaverit</h1>
@@ -206,20 +198,12 @@ export default compose(
         profile: selectProfile(state),
         sentFriendRequests: selectSentFriendRequests(state),
         pendingFriendRequests: selectPendingFriendRequests(state),
-        approvedFriends: selectApprovedFriends(state),
-        friendFindings: selectFriendFindings(state),
-        appState: selectAppState(state),
-        viewTypeFindings: selectFindingsToMatchViewType(state)
+        approvedFriends: selectApprovedFriends(state)
       }
     },
     (dispatch) => ({
       viewFriend: (friendId) => dispatch(viewFriend(friendId))
-      // setScrollPosition: (position) => dispatch(setScrollPosition(position)),
-      // setSearchTerm: (term) => dispatch(setSearchTerm(term)),
-      // setViewType: (type) => dispatch(setViewType(type)),
-      // setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter))
     })
   ),
-  listenFriends,
-  listenFriendFindings
+  listenFriends
 )(Friends)
