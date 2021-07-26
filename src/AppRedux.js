@@ -36,6 +36,7 @@ export const viewFriend = (friendId) => (dispatch) => {
 }
 
 export function viewOwn() {
+  document.documentElement.style.setProperty('--color-background', '#80bd9e')
   return {
     type: VIEW_OWN
   }

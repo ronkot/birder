@@ -23,6 +23,7 @@ import SideMenu from './SideMenu/SideMenu'
 import {setMenuState} from './SideMenu/SideMenuRedux'
 import Friends from './Friends/Friends'
 import {selectFollowedFriendName} from './selectors'
+import {viewOwn} from './AppRedux'
 
 class App extends Component {
   render() {
@@ -88,7 +89,10 @@ class SignedInContent extends Component {
                 backgroundColor: 'var(--color-blue-dark)'
               }}
             >
-              Katsellaan kaveria {this.props.followedFriendName}
+              Katsellaan kaveria {this.props.followedFriendName}. &nbsp;{' '}
+              <b onClick={this.props.stopWatching} style={{cursor: 'pointer'}}>
+                Takaisin omiin
+              </b>
             </div>
           )}
           <Switch>
@@ -123,7 +127,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  setMenuState: (state) => dispatch(setMenuState(state))
+  setMenuState: (state) => dispatch(setMenuState(state)),
+  stopWatching: () => dispatch(viewOwn())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

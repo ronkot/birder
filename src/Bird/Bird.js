@@ -4,9 +4,10 @@ import {compose, bindActionCreators} from 'redux'
 import moment from 'moment'
 
 import {
-  selectOwnFindings,
   selectBirds,
-  selectCoordinateSuggestions
+  selectCoordinateSuggestions,
+  selectCurrentYearFindingsForViewType,
+  selectIsWatchingFriend
 } from '../selectors'
 import {listenFindings} from '../listeners'
 import {saveFinding, removeFinding} from './BirdActions'
@@ -23,7 +24,9 @@ class Bird extends PureComponent {
   render() {
     if (this.state.editModalOpen) return this.renderForm()
 
-    const {bird} = this.props
+    const {bird, isWatching} = this.props
+
+    console.log({bird, isWatching})
     return (
       <div className={styles.bird}>
         <div className={styles.birdInfo}>
@@ -48,9 +51,11 @@ class Bird extends PureComponent {
           )}
           {this.props.finding && this.renderFound()}
 
-          <PrimaryButton onClick={this.openEditModal}>
-            {this.props.finding ? 'Muokkaa havaintoa' : 'Lisää havainto'}
-          </PrimaryButton>
+          {!isWatching && (
+            <PrimaryButton onClick={this.openEditModal}>
+              {this.props.finding ? 'Muokkaa havaintoa' : 'Lisää havainto'}
+            </PrimaryButton>
+          )}
         </div>
       </div>
     )
@@ -123,8 +128,9 @@ class Bird extends PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const findings = selectOwnFindings(state)
+  const findings = selectCurrentYearFindingsForViewType(state)
   return {
+    isWatching: selectIsWatchingFriend(state),
     bird: selectBirds(state).find((b) => b.id === ownProps.match.params.id),
     finding: findings.find(
       (finding) => finding.bird === ownProps.match.params.id

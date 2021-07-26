@@ -2,37 +2,52 @@ import {firestoreConnect} from 'react-redux-firebase'
 import moment from 'moment'
 
 import {selectUser, selectAppState} from './selectors'
+import {ViewStates} from './AppRedux'
 
 export const listenFindings = firestoreConnect((props, store) => {
-  const year = props.year
-  const nextYear = year + 1
-  const user = selectUser(store.getState())
-  const where = [['user', '==', user.uid]]
-  if (year !== 'all') {
-    where.push([
-      'date',
-      '>=',
-      moment()
-        .year(year)
-        .startOf('year')
-        .toISOString()
-    ])
-    where.push([
-      'date',
-      '<',
-      moment()
-        .year(nextYear)
-        .startOf('year')
-        .toISOString()
-    ])
-  }
-
-  return [
-    {
-      collection: 'findings',
-      where
+  const appState = selectAppState(store.getState())
+  if (appState.view === ViewStates.own) {
+    const year = props.year
+    const nextYear = year + 1
+    const user = selectUser(store.getState())
+    const where = [['user', '==', user.uid]]
+    if (year !== 'all') {
+      where.push([
+        'date',
+        '>=',
+        moment()
+          .year(year)
+          .startOf('year')
+          .toISOString()
+      ])
+      where.push([
+        'date',
+        '<',
+        moment()
+          .year(nextYear)
+          .startOf('year')
+          .toISOString()
+      ])
     }
-  ]
+
+    return [
+      {
+        collection: 'findings',
+        where
+      }
+    ]
+  } else {
+    const where = [['user', '==', appState.friendId]]
+
+    console.log('listenFriendFindings', where)
+
+    return [
+      {
+        collection: 'findings',
+        where
+      }
+    ]
+  }
 })
 
 export const listenFriendFindings = firestoreConnect((props, store) => {

@@ -50,9 +50,8 @@ module.exports = async (data, context) => {
     .doc(userId)
     .collection('friends')
     .doc(friend.id)
-    .get()
 
-  if (sentFriendRequest.exists) {
+  if ((await sentFriendRequest.get()).exists) {
     throw new functions.https.HttpsError(
       'invalid-argument',
       'Friend already exists'
