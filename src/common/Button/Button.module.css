@@ -25,3 +25,9 @@
   background: red;
   color: var(--color-white);
 }
+
+.small {
+  padding: 10px 15px 10px 15px;
+  min-width: 0;
+  font-weight: normal;
+}

@@ -57,13 +57,14 @@ module.exports = async (data, context) => {
       'Friend already exists'
     )
   }
-
   await Promise.all([
     sentFriendRequest.create({
       state: 'request-sent',
       friendId: friend.id,
-      friendName: friend.data().playerName
+      friendName:
+        friend.get('playerName') || `Käyttäjä ${friend.get('shortId')}`
     }),
+
     db
       .collection('users')
       .doc(friend.id)
@@ -72,7 +73,7 @@ module.exports = async (data, context) => {
       .create({
         state: 'pending-approval',
         friendId: userId,
-        friendName: user.data().playerName
+        friendName: user.get('playerName') || `Käyttäjä ${user.get('shortId')}`
       })
   ])
 

@@ -6,7 +6,9 @@ export class BasicButton extends PureComponent {
   render() {
     return (
       <div
-        className={`${styles.button} ${styles.basic}`}
+        className={`${styles.button} ${styles.basic} ${
+          this.props.small ? styles.small : ''
+        }`}
         onClick={this.props.onClick}
       >
         {this.props.children}
@@ -19,7 +21,10 @@ export class PrimaryButton extends PureComponent {
   render() {
     return (
       <div
-        className={`${styles.button} ${styles.primary}`}
+        className={`${styles.button} ${styles.primary} ${
+          this.props.small ? styles.small : ''
+        }`}
+        style={this.props.style}
         onClick={this.props.onClick}
       >
         {this.props.children}
@@ -32,7 +37,9 @@ export class SecondaryButton extends PureComponent {
   render() {
     return (
       <div
-        className={`${styles.button} ${styles.secondary}`}
+        className={`${styles.button} ${styles.secondary} ${
+          this.props.small ? styles.small : ''
+        }`}
         onClick={this.props.onClick}
       >
         {this.props.children}
@@ -45,7 +52,9 @@ export class AlertButton extends PureComponent {
   render() {
     return (
       <div
-        className={`${styles.button} ${styles.alert}`}
+        className={`${styles.button} ${styles.alert} ${
+          this.props.small ? styles.small : ''
+        }`}
         onClick={this.props.onClick}
       >
         {this.props.children}
@@ -72,7 +81,9 @@ export class ConfirmButton extends PureComponent {
   render() {
     return (
       <div
-        className={`${styles.button} ${styles.alert}`}
+        className={`${styles.button} ${styles.alert} ${
+          this.props.small ? styles.small : ''
+        }`}
         onClick={this.onClick}
       >
         {this.props.renderContent({state: this.state.state})}

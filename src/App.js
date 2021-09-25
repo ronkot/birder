@@ -1,6 +1,7 @@
 import React, {Component, PureComponent} from 'react'
 import {Router, Route, Switch, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {Toaster} from 'react-hot-toast'
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 import Sidebar from 'react-sidebar'
@@ -38,6 +39,7 @@ class App extends Component {
     }
     return (
       <Router history={history}>
+        <Toaster />
         <div className="app">{renderContent()}</div>
       </Router>
     )
