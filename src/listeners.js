@@ -39,8 +39,6 @@ export const listenFindings = firestoreConnect((props, store) => {
   } else {
     const where = [['user', '==', appState.friendId]]
 
-    console.log('listenFriendFindings', where)
-
     return [
       {
         collection: 'findings',
@@ -55,8 +53,6 @@ export const listenFriendFindings = firestoreConnect((props, store) => {
   console.log('sore', selectAppState(store.getState()))
 
   const where = [['user', '==', appState.friendId]]
-
-  console.log('listenFriendFindings', where)
 
   return [
     {
@@ -95,7 +91,6 @@ export const listenLatestFindings = firestoreConnect((props) => {
 })
 
 export const listenFriends = firestoreConnect((props) => {
-  console.log('listenFriends', `users/${props.user.uid}/friends`)
   return [
     {
       collection: `users/${props.user.uid}/friends`

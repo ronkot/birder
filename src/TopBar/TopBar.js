@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import {compose} from 'redux'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import {Select} from '@material-ui/core'
@@ -7,9 +8,15 @@ import styles from './TopBar.module.css'
 import {setMenuState} from '../SideMenu/SideMenuRedux'
 import {setYear} from '../reducers'
 import {currentYear} from '../utils'
+import {selectPendingFriendRequestsCount, selectUser} from '../selectors'
+import {listenFriends} from '../listeners'
 
 class TopBar extends PureComponent {
   render() {
+    console.log(
+      'this.props.pendingFriendRequestsCount',
+      this.props.pendingFriendRequestsCount
+    )
     return (
       <div className={styles.topBar}>
         <div className={styles.content}>
@@ -35,6 +42,19 @@ class TopBar extends PureComponent {
           onClick={() => this.props.setMenuState(true)}
         >
           <i className="fas fa-bars" />
+          {this.props.pendingFriendRequestsCount > 0 && (
+            <div
+              style={{
+                width: '13px',
+                height: '12px',
+                borderRadius: '100%',
+                position: 'absolute',
+                right: '7px',
+                bottom: '17px',
+                background: 'red'
+              }}
+            />
+          )}
         </div>
       </div>
     )
@@ -59,7 +79,9 @@ class TopBar extends PureComponent {
 
 const mapStateToProps = (state) => ({
   year: state.year,
-  isMenuOpen: state.isMenuOpen
+  isMenuOpen: state.isMenuOpen,
+  pendingFriendRequestsCount: selectPendingFriendRequestsCount(state),
+  user: selectUser(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -67,7 +89,7 @@ const mapDispatchToProps = (dispatch) => ({
   setYear: (year) => dispatch(setYear(year))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  listenFriends
 )(TopBar)

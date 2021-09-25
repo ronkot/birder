@@ -22,6 +22,8 @@ module.exports = async (data, context) => {
 
   const userId = context.auth.uid
 
+  console.log('User', userId, 'wants to remove friend', friendId)
+
   await Promise.all([
     db
       .collection('users')

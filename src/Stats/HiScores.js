@@ -10,8 +10,14 @@ import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Paper from '@material-ui/core/Paper'
 
-import {selectUser, selectHiscores, selectBirds} from '../selectors'
-import {listenHiScores} from '../listeners'
+import {
+  selectUser,
+  selectHiscores,
+  selectBirds,
+  selectApprovedFriends
+} from '../selectors'
+import {listenHiScores, listenFriends} from '../listeners'
+import {viewFriend} from '../AppRedux'
 
 class Hiscores extends Component {
   componentDidMount() {
@@ -50,6 +56,8 @@ class HiScores extends Component {
 
   render() {
     const allTimeStats = this.props.year === 'all'
+    const friendIds = this.props.friends.map((friend) => friend.friendId)
+    const isFriend = (id) => friendIds.includes(id)
     return (
       <div>
         <h2>Pinnat</h2>
@@ -85,9 +93,25 @@ class HiScores extends Component {
                 [this.state.sortDirection],
                 this.props.hiscores
               ).map((score, i) => (
-                <TableRow key={i} selected={this.props.user.uid === score.user}>
+                <TableRow
+                  style={{
+                    background: isFriend(score.user)
+                      ? 'lightgreen'
+                      : this.props.user.uid === score.user
+                      ? 'lightblue'
+                      : 'white'
+                  }}
+                  key={i}
+                >
                   <TableCell component="th" scope="row">
-                    {i + 1}. {score.playerName || ''}
+                    {i + 1}. {score.playerName || ''}{' '}
+                    {isFriend(score.user) && (
+                      <i
+                        onClick={() => this.props.viewFriend(score.user)}
+                        style={{cursor: 'pointer'}}
+                        className="fa fa-eye"
+                      />
+                    )}
                   </TableCell>
                   {allTimeStats && <TableCell>{score.year}</TableCell>}
                   <TableCell>{score.findings}</TableCell>
@@ -103,11 +127,18 @@ class HiScores extends Component {
 }
 
 export default compose(
-  connect((state) => ({
-    user: selectUser(state),
-    hiscores: selectHiscores(state),
-    birds: selectBirds(state),
-    year: state.year
-  })),
-  listenHiScores
+  connect(
+    (state) => ({
+      user: selectUser(state),
+      hiscores: selectHiscores(state),
+      birds: selectBirds(state),
+      year: state.year,
+      friends: selectApprovedFriends(state)
+    }),
+    (dispatch) => ({
+      viewFriend: (friendId) => dispatch(viewFriend(friendId))
+    })
+  ),
+  listenHiScores,
+  listenFriends
 )(Hiscores)

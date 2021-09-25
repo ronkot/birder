@@ -6,6 +6,7 @@ import auth from '../firebase/auth'
 import styles from './SideMenu.module.css'
 import {closeMenu} from './SideMenuRedux'
 import version from '../version'
+import {selectPendingFriendRequestsCount} from '../selectors'
 
 class SideMenu extends PureComponent {
   render() {
@@ -48,8 +49,24 @@ class SideMenu extends PureComponent {
             to="/friends"
             onClick={this.props.closeMenu}
             activeClassName={styles.activeLink}
+            style={{position: 'relative'}}
           >
             Kaverit
+            {this.props.pendingFriendRequestsCount > 0 && (
+              <div
+                style={{
+                  width: '22px',
+                  height: '22px',
+                  borderRadius: '100%',
+                  position: 'absolute',
+                  right: '-7px',
+                  bottom: '1px',
+                  background: 'red'
+                }}
+              >
+                {this.props.pendingFriendRequestsCount}
+              </div>
+            )}
           </NavLink>
           <NavLink
             to="/profile"
@@ -85,7 +102,8 @@ class SideMenu extends PureComponent {
 
 const mapStateToProps = (state) => ({
   user: state.firebase.profile,
-  isMenuOpen: state.isMenuOpen
+  isMenuOpen: state.isMenuOpen,
+  pendingFriendRequestsCount: selectPendingFriendRequestsCount(state)
 })
 const mapDispatchToProps = (dispatch) => ({
   closeMenu: () => dispatch(closeMenu())

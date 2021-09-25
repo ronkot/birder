@@ -11,8 +11,14 @@ import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Paper from '@material-ui/core/Paper'
 
-import {selectUser, selectLatestFindings, selectBirds} from '../selectors'
-import {listenLatestFindings} from '../listeners'
+import {
+  selectUser,
+  selectLatestFindings,
+  selectBirds,
+  selectApprovedFriends
+} from '../selectors'
+import {listenLatestFindings, listenFriends} from '../listeners'
+import {viewFriend} from '../AppRedux'
 
 class Stats extends Component {
   state = {
@@ -35,6 +41,9 @@ class Stats extends Component {
 
   render() {
     const allTimeStats = this.props.year === 'all'
+
+    const friendIds = this.props.friends.map((friend) => friend.friendId)
+    const isFriend = (id) => friendIds.includes(id)
 
     const latestFindingsWithBirds = this.props.latestFindings.map(
       (latestFinding) => {
@@ -93,7 +102,13 @@ class Stats extends Component {
               ).map((latestFinding, i) => (
                 <TableRow
                   key={i}
-                  selected={this.props.user.uid === latestFinding.user}
+                  style={{
+                    background: isFriend(latestFinding.user)
+                      ? 'lightgreen'
+                      : this.props.user.uid === latestFinding.user
+                      ? 'lightblue'
+                      : 'white'
+                  }}
                 >
                   <TableCell>{latestFinding.birdNameFi}</TableCell>
                   <TableCell>
@@ -101,7 +116,18 @@ class Stats extends Component {
                       allTimeStats ? 'L' : 'DD.MM'
                     )}
                   </TableCell>
-                  <TableCell>{latestFinding.playerName}</TableCell>
+                  <TableCell>
+                    {latestFinding.playerName}{' '}
+                    {isFriend(latestFinding.user) && (
+                      <i
+                        onClick={() =>
+                          this.props.viewFriend(latestFinding.user)
+                        }
+                        style={{cursor: 'pointer'}}
+                        className="fa fa-eye"
+                      />
+                    )}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -113,11 +139,18 @@ class Stats extends Component {
 }
 
 export default compose(
-  connect((state) => ({
-    user: selectUser(state),
-    latestFindings: selectLatestFindings(state),
-    birds: selectBirds(state),
-    year: state.year
-  })),
-  listenLatestFindings
+  connect(
+    (state) => ({
+      user: selectUser(state),
+      latestFindings: selectLatestFindings(state),
+      birds: selectBirds(state),
+      year: state.year,
+      friends: selectApprovedFriends(state)
+    }),
+    (dispatch) => ({
+      viewFriend: (friendId) => dispatch(viewFriend(friendId))
+    })
+  ),
+  listenLatestFindings,
+  listenFriends
 )(Stats)

@@ -67,7 +67,6 @@ export function selectCurrentYearFindingsForViewType(state) {
 
 export function selectFindingsToMatchViewType(state) {
   const appState = selectAppState(state)
-  console.log('selector selectFindingsToMatchViewType', appState)
   if (appState.view === ViewStates.own) {
     return selectOwnFindings(state)
   } else {
@@ -112,7 +111,6 @@ export function selectHiscores(state) {
 
 export function selectAllFriends(state) {
   const user = selectUser(state)
-  console.log('selectAllFriends', user)
   return state.firestore.ordered[`users/${user.uid}/friends`] || []
 }
 
@@ -126,6 +124,10 @@ export function selectPendingFriendRequests(state) {
   return selectAllFriends(state).filter(
     (friend) => friend.state === 'pending-approval'
   )
+}
+
+export function selectPendingFriendRequestsCount(state) {
+  return selectPendingFriendRequests(state).length
 }
 
 export function selectApprovedFriends(state) {
