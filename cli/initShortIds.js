@@ -3,12 +3,12 @@ import env from '../src/env'
 const Firestore = require('@google-cloud/firestore')
 const _ = require('lodash')
 
-process.env.FIRESTORE_EMULATOR_HOST = 'localhost:8080'
+// process.env.FIRESTORE_EMULATOR_HOST = 'localhost:8080'
 
 const db = new Firestore({
-  projectId: 'foo'
-  // projectId: env.firebaseProjectId,
-  // keyFilename: env.firebaseCredentialsFile
+  // projectId: 'foo'
+  projectId: env.firebaseProjectId,
+  keyFilename: env.firebaseCredentialsFile
 })
 
 async function init() {
@@ -21,8 +21,7 @@ async function init() {
 
   for (const userId of userIds) {
     const update = {
-      shortId: generateShortId(),
-      jee: 'juu'
+      shortId: generateShortId()
     }
 
     console.log('Updating user', userId, 'short id to', update.shortId)
