@@ -51,7 +51,7 @@ const Friends = ({
     <div>
       <h1>Kaverit</h1>
 
-      <Paper className={styles.paper} style={{padding: 20}}>
+      <Paper style={{padding: 10}}>
         <Typography variant="body1">
           {!profile.shortId &&
             'Oman kaveritunnuksen luonnissa on tapahtunut virhe. Pahoittelemme tapahtunutta! Otathan yhteyttä birdergame@gmail.com.'}
@@ -171,37 +171,37 @@ const Friends = ({
         </Grid>
 
         <h2>Kaverit</h2>
-        <Grid container spacing={16} alignItems="center">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'auto auto auto',
+            gridRowGap: '10px'
+          }}
+        >
           {approvedFriends.length === 0 && 'Ei kavereita'}
           {approvedFriends.map((friend) => (
             <Fragment key={friend.friendId}>
-              <Grid item>
-                <Typography variant="body1" style={{marginRight: 20}}>
-                  <b>{friend.friendName}</b>
-                </Typography>
-              </Grid>
-              <Grid item>
-                <PrimaryButton
-                  small
-                  style={{marginRight: 10}}
-                  onClick={() => viewFriend(friend.friendId)}
-                >
-                  <i className="fa fa-eye" /> Katsele
-                </PrimaryButton>
-              </Grid>
-              <Grid item>
-                <ConfirmButton
-                  small
-                  onClick={() => removeFriend(friend.friendId)}
-                  renderContent={({state}) => {
-                    if (state === 'initial') return 'Poista'
-                    else if (state === 'confirm') return 'Oletko varma?'
-                  }}
-                />
-              </Grid>
+              <Typography variant="body1" style={{marginRight: 20}}>
+                <b>{friend.friendName}</b>
+              </Typography>
+              <PrimaryButton
+                small
+                style={{marginRight: 10}}
+                onClick={() => viewFriend(friend.friendId)}
+              >
+                <i className="fa fa-eye" /> Katsele
+              </PrimaryButton>
+              <ConfirmButton
+                small
+                onClick={() => removeFriend(friend.friendId)}
+                renderContent={({state}) => {
+                  if (state === 'initial') return 'Poista'
+                  else if (state === 'confirm') return 'Oletko varma?'
+                }}
+              />
             </Fragment>
           ))}
-        </Grid>
+        </div>
       </Paper>
     </div>
   )
