@@ -25,14 +25,15 @@ export function appReducer(state = initialState, action) {
   return state
 }
 
-export const viewFriend = (friendId) => (dispatch) => {
+export const viewFriend = (friendId, history) => (dispatch) => {
   document.documentElement.style.setProperty('--color-background', '#cacf7b')
-  return dispatch({
+  dispatch({
     type: VIEW_FRIEND,
     payload: {
       friendId
     }
   })
+  history.push('/birdex')
 }
 
 export function viewOwn() {

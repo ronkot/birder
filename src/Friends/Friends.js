@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 import {Typography} from '@material-ui/core'
 import {compose} from 'redux'
 import toast from 'react-hot-toast'
+import {withRouter} from 'react-router-dom'
 
 import {listenFriends} from '../listeners'
 import {
@@ -208,6 +209,7 @@ const Friends = ({
 }
 
 export default compose(
+  withRouter,
   connect(
     (state) => {
       return {
@@ -218,8 +220,8 @@ export default compose(
         approvedFriends: selectApprovedFriends(state)
       }
     },
-    (dispatch) => ({
-      viewFriend: (friendId) => dispatch(viewFriend(friendId))
+    (dispatch, ownProps) => ({
+      viewFriend: (friendId) => dispatch(viewFriend(friendId, ownProps.history))
     })
   ),
   listenFriends

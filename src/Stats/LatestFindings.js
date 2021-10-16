@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Paper from '@material-ui/core/Paper'
+import {withRouter} from 'react-router-dom'
 
 import {
   selectUser,
@@ -139,6 +140,7 @@ class Stats extends Component {
 }
 
 export default compose(
+  withRouter,
   connect(
     (state) => ({
       user: selectUser(state),
@@ -147,8 +149,8 @@ export default compose(
       year: state.year,
       friends: selectApprovedFriends(state)
     }),
-    (dispatch) => ({
-      viewFriend: (friendId) => dispatch(viewFriend(friendId))
+    (dispatch, ownProps) => ({
+      viewFriend: (friendId) => dispatch(viewFriend(friendId, ownProps.history))
     })
   ),
   listenLatestFindings,
