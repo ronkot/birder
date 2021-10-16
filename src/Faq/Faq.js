@@ -13,6 +13,13 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <Release
+            release="0.20.0"
+            notes={[
+              'Lisätty Tundravikla, Palsasirri, Lumihanhi, Isokihu, Hietakurki ja Siperianlepinkäinen.',
+              'Kaveritoimintoa paranneltu'
+            ]}
+          />
           <Release release="0.19.0" notes={['Kaveritoiminto']} />
           <Release
             release="0.18.0"
