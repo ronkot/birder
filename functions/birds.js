@@ -4845,5 +4845,19 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Siperianlepink%C3%A4inen'
+  },
+  {
+    id: 'b-347',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Laridae',
+    familyFi: 'Lokit',
+    nameFi: 'Mustanmerenlokki',
+    nameLatin: 'Ichthyaetus melanocephalus',
+    nameEn: '',
+    rarity: 5,
+    photo: '',
+    photographer: 'Pekka Nykänen',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Mustanmerenlokki'
   }
 ]
