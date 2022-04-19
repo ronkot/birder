@@ -13,6 +13,10 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <Release
+            release="0.21.1"
+            notes={['Korjattu Mustanmerenlokin valokuva.']}
+          />
           <Release release="0.21.0" notes={['Lisätty Mustanmerenlokki.']} />
           <Release
             release="0.20.0"

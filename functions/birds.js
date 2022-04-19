@@ -4856,7 +4856,7 @@ module.exports = [
     nameLatin: 'Ichthyaetus melanocephalus',
     nameEn: '',
     rarity: 5,
-    photo: '',
+    photo: 'mustanmerenlokki.jpg',
     photographer: 'Pekka Nykänen',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Mustanmerenlokki'
   }
