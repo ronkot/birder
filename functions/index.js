@@ -3,6 +3,10 @@ const admin = require('firebase-admin')
 
 admin.initializeApp()
 
+const functionOptions = {
+  maxInstances: 100
+}
+
 const topScores = require('./top-scores')
 const updateProfile = require('./update-profile')
 const sendFriendRequest = require('./send-friend-request')
@@ -11,17 +15,27 @@ const removeFriend = require('./remove-friend')
 const finalizeNewProfile = require('./finalize-new-profile')
 const backup = require('./backup')
 
-exports.updateHiscores = functions.firestore
-  .document('findings/{findingId}')
+exports.updateHiscores = functions
+  .runWith(functionOptions)
+  .firestore.document('findings/{findingId}')
   .onWrite(topScores)
 
-exports.finalizeNewProfile = functions.firestore
-  .document('users/{userId}')
+exports.finalizeNewProfile = functions
+  .runWith(functionOptions)
+  .firestore.document('users/{userId}')
   .onCreate(finalizeNewProfile)
 
-exports.updateProfile = functions.https.onCall(updateProfile)
-exports.sendFriendRequest = functions.https.onCall(sendFriendRequest)
-exports.approveFriendRequest = functions.https.onCall(approveFriendRequest)
-exports.removeFriend = functions.https.onCall(removeFriend)
+exports.updateProfile = functions
+  .runWith(functionOptions)
+  .https.onCall(updateProfile)
+exports.sendFriendRequest = functions
+  .runWith(functionOptions)
+  .https.onCall(sendFriendRequest)
+exports.approveFriendRequest = functions
+  .runWith(functionOptions)
+  .https.onCall(approveFriendRequest)
+exports.removeFriend = functions
+  .runWith(functionOptions)
+  .https.onCall(removeFriend)
 
 exports.backup = functions.pubsub.schedule('every monday 09:00').onRun(backup)
