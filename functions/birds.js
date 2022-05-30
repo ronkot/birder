@@ -4859,5 +4859,19 @@ module.exports = [
     photo: 'mustanmerenlokki.jpg',
     photographer: 'Pekka Nykänen',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Mustanmerenlokki'
+  },
+  {
+    id: 'b-348',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Alaudidae',
+    familyFi: 'Kiurut',
+    nameFi: 'Lyhytvarvaskiuru',
+    nameLatin: 'Calandrella brachydactyla',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Lyhytvarvaskiuru'
   }
 ]
