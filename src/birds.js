@@ -626,7 +626,7 @@ module.exports = [
     nameEn: 'Pallid Harrier',
     rarity: 4,
     photo: 'arosuohaukka.jpg',
-    photographer: 'Arvi Tyni',
+    photographer: 'Timo Saari',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/arosuohaukka'
   },
   {
@@ -4630,8 +4630,8 @@ module.exports = [
     nameLatin: 'Rissa tridactyla',
     nameEn: 'Black-legged Kittiwake',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'pikkukajava.jpg',
+    photographer: 'Timo Saari',
     detectLink: 'https://fi.wikipedia.org/wiki/Pikkukajava'
   },
   {
@@ -4871,5 +4871,19 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Lyhytvarvaskiuru'
+  },
+  {
+    id: 'b-349',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Muscicapidae',
+    familyFi: 'Siepot',
+    nameFi: 'Aavikkotasku',
+    nameLatin: 'Oenanthe deserti',
+    nameEn: '',
+    rarity: 5,
+    photo: 'aavikkotasku.jpg',
+    photographer: 'Anna-Maija Toppinen',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Aavikkotasku'
   }
 ]
