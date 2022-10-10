@@ -95,6 +95,8 @@ class Birdex extends PureComponent {
       ...new Set(this.props.findings.map((finding) => finding.bird))
     ].length
 
+    console.log(new Set(this.props.findings.map((finding) => finding.bird)))
+
     return (
       <div>
         <div className={styles.listStats}>

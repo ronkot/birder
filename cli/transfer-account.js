@@ -12,6 +12,10 @@ const fromId = ''
 
 const toId = ''
 
+// NOTE!! For some reason the previous time this script was used it didn't
+// export ALL findings (year 2019 findigs were missing). Remember to
+// double-check that all findings are exported!
+
 async function main() {
   const findings = await db
     .collection('findings')

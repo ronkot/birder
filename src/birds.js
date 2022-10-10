@@ -4885,5 +4885,19 @@ module.exports = [
     photo: 'aavikkotasku.jpg',
     photographer: 'Anna-Maija Toppinen',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Aavikkotasku'
+  },
+  {
+    id: 'b-350',
+    orderLatin: 'Anseriformes',
+    orderFi: 'Sorsalinnut',
+    familyLatin: 'Anatidae',
+    familyFi: 'Sorsat',
+    nameFi: 'Pikkukanadanhanhi',
+    nameLatin: 'Branta hutchinsii',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Pikkukanadanhanhi'
   }
 ]
