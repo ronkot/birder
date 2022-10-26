@@ -4899,5 +4899,19 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Pikkukanadanhanhi'
+  },
+  {
+    id: 'b-351',
+    orderLatin: 'Pelecaniformes',
+    orderFi: 'Pelikaanilinnut',
+    familyLatin: 'Phalacrocoracidae',
+    familyFi: 'Merimetsot',
+    nameFi: 'Pikkumerimetso',
+    nameLatin: 'Microcarbo pygmeus',
+    nameEn: '',
+    rarity: 5,
+    photo: 'pikkumerimetso.jpg',
+    photographer: 'Pekka Nykänen',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Pikkumerimetso'
   }
 ]

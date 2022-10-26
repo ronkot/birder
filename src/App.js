@@ -83,8 +83,8 @@ class SignedInContent extends Component {
           {this.props.followedFriendName && (
             <div
               style={{
-                margin: '-20px -20px 20px -20px',
-                padding: '10px',
+                margin: '-10px -20px 0px',
+                padding: '15px',
                 fontSize: '13px',
                 fontWeight: 'bold',
                 textAlign: 'center',

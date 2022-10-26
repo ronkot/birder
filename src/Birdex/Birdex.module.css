@@ -1,9 +1,10 @@
 .listStats {
   background-color: var(--color-blue-dark);
-  margin: -20px -20px 20px -20px;
+  margin: -10px -20px 20px -20px;
   padding: 10px;
   text-align: center;
   font-size: 13px;
+  font-weight: bold;
 }
 
 .birdGrid {
@@ -63,7 +64,7 @@
   grid-gap: 5px;
   margin-bottom: 20px;
   position: sticky;
-  top: -15px;
+  top: -7px;
   z-index: 1;
 }
 

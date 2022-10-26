@@ -13,10 +13,6 @@ import {listenFriends} from '../listeners'
 
 class TopBar extends PureComponent {
   render() {
-    console.log(
-      'this.props.pendingFriendRequestsCount',
-      this.props.pendingFriendRequestsCount
-    )
     return (
       <div className={styles.topBar}>
         <div className={styles.content}>
