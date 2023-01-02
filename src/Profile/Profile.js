@@ -40,9 +40,12 @@ const Profile = ({user, birds, findings}) => {
       'Nimi (lat)',
       'Lahko (lat)',
       'Heimo (lat)',
-      'Harvinaisuus (1-5)'
+      'Harvinaisuus (1-5)',
+      'Sijainti (lat)',
+      'Sijainti (lng)'
     ].join('\t')
     const lines = sortedFindings.map((f) => {
+      console.log(f)
       const bird = birds.find((b) => b.id === f.bird)
       return [
         new Date(f.date).toLocaleDateString('fi-FI'),
@@ -52,7 +55,9 @@ const Profile = ({user, birds, findings}) => {
         bird.nameLatin,
         bird.orderLatin,
         bird.familyLatin,
-        bird.rarity
+        bird.rarity,
+        f.place?.coordinates.latitude ?? '-',
+        f.place?.coordinates.longitude ?? '-'
       ].join('\t')
     })
     const data = [columns, ...lines].join('\n')
