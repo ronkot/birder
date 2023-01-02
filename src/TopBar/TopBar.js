@@ -13,6 +13,8 @@ import {listenFriends} from '../listeners'
 
 class TopBar extends PureComponent {
   render() {
+    const newFeature = true
+
     return (
       <div className={styles.topBar}>
         <div className={styles.content}>
@@ -38,19 +40,20 @@ class TopBar extends PureComponent {
           onClick={() => this.props.setMenuState(true)}
         >
           <i className="fas fa-bars" />
-          {this.props.pendingFriendRequestsCount > 0 && (
-            <div
-              style={{
-                width: '13px',
-                height: '12px',
-                borderRadius: '100%',
-                position: 'absolute',
-                right: '7px',
-                bottom: '17px',
-                background: 'red'
-              }}
-            />
-          )}
+          {this.props.pendingFriendRequestsCount > 0 ||
+            (newFeature && (
+              <div
+                style={{
+                  width: '13px',
+                  height: '12px',
+                  borderRadius: '100%',
+                  position: 'absolute',
+                  right: '7px',
+                  bottom: '17px',
+                  background: 'red'
+                }}
+              />
+            ))}
         </div>
       </div>
     )

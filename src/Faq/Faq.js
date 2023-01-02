@@ -14,6 +14,10 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.24.0"
+            notes={['Omien havaintojen lataus CSV tiedostoon']}
+          />
+          <Release
             release="0.23.2"
             notes={[
               'Lisätty Pikkumerimetso. Kiitos kuvasta Pekka Nykänen 🙏',
