@@ -14,6 +14,12 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.24.1"
+            notes={[
+              'Lisätty useita puuttuvia lintujen kuvia. Kiitos kuvista Heikki Vuonokari 🙏'
+            ]}
+          />
+          <Release
             release="0.24.0"
             notes={['Omien havaintojen lataus CSV tiedostoon']}
           />

@@ -4506,8 +4506,8 @@ module.exports = [
     nameLatin: 'Saxicola maurus',
     nameEn: 'Siberian Stonechat',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'sepeltasku.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Sepeltasku'
   },
   {
@@ -4534,8 +4534,8 @@ module.exports = [
     nameLatin: 'Glareola pratincola',
     nameEn: 'Collared Pratincole',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'paaskykahlaaja.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.m.wikipedia.org/wiki/P%C3%A4%C3%A4skykahlaaja'
   },
   {
@@ -4702,8 +4702,8 @@ module.exports = [
     nameLatin: 'Galerida cristata',
     nameEn: 'Crested Lark',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'toyhtokiuru.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.m.wikipedia.org/wiki/T%C3%B6yht%C3%B6kiurut'
   },
   {
@@ -4730,8 +4730,8 @@ module.exports = [
     nameLatin: 'Ficedula albicollis',
     nameEn: 'Collared Flycatcher',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'sepelsieppo.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.wikipedia.org/wiki/Sepelsieppo'
   },
   {
@@ -4744,8 +4744,8 @@ module.exports = [
     nameLatin: 'Zapornia parva',
     nameEn: '',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'pikkuhuitti.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Pikkuhuitti'
   },
   {
@@ -4758,8 +4758,8 @@ module.exports = [
     nameLatin: 'Chlidonias leucopterus',
     nameEn: 'White-winged tern',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'valkosiipitiira.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.wikipedia.org/wiki/Valkosiipitiira'
   },
   {
@@ -4786,8 +4786,8 @@ module.exports = [
     nameLatin: 'Calidris melanotos',
     nameEn: '',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'palsasirri.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.wikipedia.org/wiki/Palsasirri'
   },
   {
@@ -4870,8 +4870,8 @@ module.exports = [
     nameLatin: 'Calandrella brachydactyla',
     nameEn: '',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'lyhytvarvaskiuru.jpg',
+    photographer: 'Heikki Vuonokari',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Lyhytvarvaskiuru'
   },
   {
