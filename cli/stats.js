@@ -11,7 +11,7 @@ const db = new Firestore({
   keyFilename: env.firebaseCredentialsFile
 })
 
-const YEAR = '2020'
+const YEAR = '2022'
 const FINDINGS_FILE = `findings-${YEAR}.json`
 const COORDINATES_FILE = `coordinates-${YEAR}.txt`
 
@@ -64,6 +64,22 @@ async function main() {
         item.place.coordinates._latitude
       ].join('\t')
     )
+
+  const byDay = _.groupBy(data, (f) =>
+    new Date(f.date).toLocaleDateString('fi-FI')
+  )
+  const accData = [['pvm', 'lkm']]
+  for (
+    let d = new Date(YEAR, 0, 1);
+    d <= new Date(YEAR, 11, 31);
+    d.setDate(d.getDate() + 1)
+  ) {
+    const date = d.toLocaleDateString('fi-FI')
+    const count = byDay[date]?.length ?? 0
+    accData.push([date, count])
+  }
+  const histogramCsv = accData.map((row) => row.join(',')).join('\n')
+  writeFileSync('histogram.csv', histogramCsv)
 
   console.log(`${heatMapCoordinates.length} logs with coordinate points`)
   writeFileSync(
