@@ -42,9 +42,32 @@ async function main() {
   const fs = require('fs')
   fs.writeFileSync('transferred-findings.json', JSON.stringify(all, null, 2))
 
+  console.log('Findigngs length:', all.length)
+
   console.log('Saving')
   await batch.commit()
   console.log('DONE')
+
+  await check()
+}
+
+async function check() {
+  const originalFindings = await db
+    .collection('findings')
+    .where('user', '=', fromId)
+    .get()
+
+  const newFindings = await db
+    .collection('findings')
+    .where('user', '=', toId)
+    .get()
+
+  if (
+    originalFindings.docs.length === 0 ||
+    originalFindings.docs.length !== newFindings.docs.length
+  ) {
+    throw new Error('Something went wrong')
+  }
 }
 
 main()
