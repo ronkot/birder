@@ -74,17 +74,6 @@ class SideMenu extends PureComponent {
             activeClassName={styles.activeLink}
           >
             Omat tiedot
-            <span
-              style={{
-                background: 'red',
-                color: 'white',
-                marginLeft: 10,
-                fontSize: 13,
-                padding: '2px 4px'
-              }}
-            >
-              Uusi
-            </span>
           </NavLink>
           <NavLink
             activeClassName={styles.activeLink}

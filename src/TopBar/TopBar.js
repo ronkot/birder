@@ -13,7 +13,7 @@ import {listenFriends} from '../listeners'
 
 class TopBar extends PureComponent {
   render() {
-    const newFeature = true
+    const newFeature = false
 
     return (
       <div className={styles.topBar}>
