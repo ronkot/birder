@@ -13,6 +13,7 @@ export function ChangeLog() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
+          <Release release="0.25.0" notes={['Lisätty Ruskosotka']} />
           <Release
             release="0.24.1"
             notes={[
