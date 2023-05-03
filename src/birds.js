@@ -4913,5 +4913,19 @@ module.exports = [
     photo: 'pikkumerimetso.jpg',
     photographer: 'Pekka Nykänen',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Pikkumerimetso'
+  },
+  {
+    id: 'b-352',
+    orderLatin: 'Anseriformes',
+    orderFi: 'Sorsalinnut',
+    familyLatin: 'Anatidae',
+    familyFi: 'Sorsat',
+    nameFi: 'Ruskosotka',
+    nameLatin: 'Aythya nyroca',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Ruskosotka'
   }
 ]
