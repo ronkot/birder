@@ -51,7 +51,7 @@ class Stats extends Component {
         const bird = this.props.birds.find((b) => b.id === latestFinding.bird)
         return {
           ...latestFinding,
-          birdNameFi: bird?.nameFi
+          birdNameFi: bird?.nameFi ?? ''
         }
       }
     )

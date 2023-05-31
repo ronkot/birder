@@ -4929,5 +4929,33 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Ruskosotka'
+  },
+  {
+    id: 'b-353',
+    orderLatin: 'Anseriformes',
+    orderFi: 'Sorsalinnut',
+    familyLatin: 'Anatidae',
+    familyFi: 'Sorsat',
+    nameFi: 'Amerikantukkasotka',
+    nameLatin: 'Aythya collaris',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Amerikantukkasotka'
+  },
+  {
+    id: 'b-354',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Scolopacidae',
+    familyFi: 'Kurpat',
+    nameFi: 'Keltajalkaviklo',
+    nameLatin: 'Tringa flavipes',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Keltajalkaviklo'
   }
 ]
