@@ -2853,8 +2853,8 @@ module.exports = [
     nameLatin: 'Anser erythropus',
     nameEn: 'Lesser White-fronted Goose',
     rarity: 5,
-    photo: 'kiljuhanhi.jpg',
-    photographer: 'pixabay.com',
+    photo: 'birderkuva.jpg',
+    photographer: '',
     detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kiljuhanhi'
   },
   {
@@ -4957,5 +4957,34 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Keltajalkaviklo'
+  },
+  {
+    id: 'b-355',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Charadriidae',
+    familyFi: 'Kurmitsat',
+    nameFi: 'Arohyyppä',
+    nameLatin: 'Vanellus gregarius',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Arohyypp%C3%A4'
+  },
+  {
+    id: 'b-356',
+    orderLatin: 'Coraciiformes',
+    orderFi: 'Säihkylinnut',
+    familyLatin: '',
+    familyFi: 'Mehiläissyöjät',
+    nameFi: 'Vihermehiläissyöjä',
+    nameLatin: 'Merops persicus',
+    nameEn: '',
+    rarity: 5,
+    photo: 'vihermehilaissyoja.jpg',
+    photographer: 'Veikka Meski',
+    detectLink:
+      'https://fi.m.wikipedia.org/wiki/Vihermehil%C3%A4issy%C3%B6j%C3%A4'
   }
 ]
