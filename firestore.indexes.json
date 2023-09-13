@@ -1,25 +1,47 @@
 {
   "indexes": [
     {
-      "collectionId": "findings",
+      "collectionGroup": "findings",
+      "queryScope": "COLLECTION",
       "fields": [
-        {"fieldPath": "user", "mode": "ASCENDING"},
-        {"fieldPath": "date", "mode": "ASCENDING"}
+        {
+          "fieldPath": "bird",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date",
+          "order": "ASCENDING"
+        }
       ]
     },
     {
-      "collectionId": "findings",
+      "collectionGroup": "findings",
+      "queryScope": "COLLECTION",
       "fields": [
-        {"fieldPath": "bird", "mode": "ASCENDING"},
-        {"fieldPath": "date", "mode": "ASCENDING"}
+        {
+          "fieldPath": "user",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date",
+          "order": "ASCENDING"
+        }
       ]
     },
     {
-      "collectionId": "latestFindings",
+      "collectionGroup": "latestFindings",
+      "queryScope": "COLLECTION",
       "fields": [
-        {"fieldPath": "bird", "mode": "ASCENDING"},
-        {"fieldPath": "year", "mode": "ASCENDING"}
+        {
+          "fieldPath": "bird",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "year",
+          "order": "ASCENDING"
+        }
       ]
     }
-  ]
+  ],
+  "fieldOverrides": []
 }
