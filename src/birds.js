@@ -4981,8 +4981,50 @@ module.exports = [
     nameEn: '',
     rarity: 5,
     photo: 'vihermehilaissyoja.jpg',
-    photographer: '',
+    photographer: 'Veikka Meski',
     detectLink:
       'https://fi.m.wikipedia.org/wiki/Vihermehil%C3%A4issy%C3%B6j%C3%A4'
+  },
+  {
+    id: 'b-357',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Scolopacidae',
+    familyFi: 'Kurpat',
+    nameFi: 'Valkoperäsirri',
+    nameLatin: '',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.wikipedia.org/wiki/Valkoper%C3%A4sirri'
+  },
+  {
+    id: 'b-358',
+    orderLatin: 'Procellariiformes',
+    orderFi: 'Ulappalinnut',
+    familyLatin: 'Procellariidae',
+    familyFi: 'Ulappaliitäjät',
+    nameFi: 'Isoliitäjä',
+    nameLatin: '',
+    nameEn: '',
+    rarity: 5,
+    photo: 'isoliitaja.jpg',
+    photographer: 'Arto Oksanen',
+    detectLink: 'https://fi.wikipedia.org/wiki/Isoliit%C3%A4j%C3%A4'
+  },
+  {
+    id: 'b-359',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Acrocephalidae',
+    familyFi: 'Kerttuset',
+    nameFi: 'Kenttäkerttunen',
+    nameLatin: '',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.wikipedia.org/wiki/Kentt%C3%A4kerttunen'
   }
 ]

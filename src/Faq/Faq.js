@@ -14,6 +14,12 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.28.0"
+            notes={[
+              'Lisätty valkoperäsirri, isoliitäjä ja kenttäkerttunen. Kiitos kuvasta Arto Oksanen 🙏'
+            ]}
+          />
+          <Release
             release="0.27.0"
             notes={[
               'Lisätty arohyyppä ja vihermehiläissyöjä. Kiitos kuvasta Veikka Meski 🙏'
