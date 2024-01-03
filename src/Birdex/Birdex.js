@@ -83,7 +83,7 @@ class Birdex extends PureComponent {
           bird.nameFi.match(re) ||
           bird.nameLatin.match(re) ||
           bird.nameEn.match(re) ||
-          finding?.notes.match(re)
+          (finding && finding.notes && finding.notes.match(re))
         )
       } catch (err) {
         // In case of invalid regex

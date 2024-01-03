@@ -14,7 +14,7 @@ import ButtonGroup from '../ButtonGroup/ButtonGroup'
 export default class EditBird extends PureComponent {
   state = {
     date: moment().year(this.props.year),
-    notes: undefined,
+    notes: '',
     dateSelectFocused: false,
     coordinates: null,
     locationActiveSelection: 'map'
@@ -38,7 +38,7 @@ export default class EditBird extends PureComponent {
 
     this.setState({
       date: moment(this.props.finding.date),
-      notes: this.props.finding.notes
+      notes: this.props.finding.notes || ''
     })
   }
 
