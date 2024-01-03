@@ -14,6 +14,7 @@ import ButtonGroup from '../ButtonGroup/ButtonGroup'
 export default class EditBird extends PureComponent {
   state = {
     date: moment().year(this.props.year),
+    notes: undefined,
     dateSelectFocused: false,
     coordinates: null,
     locationActiveSelection: 'map'
@@ -30,12 +31,15 @@ export default class EditBird extends PureComponent {
       this.setState({
         coordinates: {
           lat: this.props.finding.place.coordinates.latitude,
-          lng: this.props.finding.place.coordinates.longitude // TODO: Maybe use latitude & longitude instead of lat & lng !?
+          lng: this.props.finding.place.coordinates.longitude
         }
       })
     }
 
-    this.setState({date: moment(this.props.finding.date)})
+    this.setState({
+      date: moment(this.props.finding.date),
+      notes: this.props.finding.notes
+    })
   }
 
   onCoordinatesSelected = (coordinates) => {
@@ -43,10 +47,11 @@ export default class EditBird extends PureComponent {
   }
 
   saveFinding = () => {
-    const date = (this.state.date || moment.year(this.props.year)).toISOString() // TODO: This is a hack fix for sentry error: Cannot read property 'toISOString' of null
+    const date = (this.state.date || moment.year(this.props.year)).toISOString()
     this.props.onSaveFinding({
       id: this.props.finding ? this.props.finding.id : null,
       bird: this.props.bird,
+      notes: this.state.notes,
       date,
       place:
         this.state.locationActiveSelection === 'map' && this.state.coordinates
@@ -76,6 +81,12 @@ export default class EditBird extends PureComponent {
             id="date-input"
           />
         </div>
+        <label>Muistiinpanot</label>
+        <textarea
+          value={this.state.notes}
+          onChange={(e) => this.setState({notes: e.target.value})}
+          rows={5}
+        />
         <label>Sijainti</label>
         <ButtonGroup
           active={this.state.locationActiveSelection}

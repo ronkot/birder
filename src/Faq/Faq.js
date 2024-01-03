@@ -14,6 +14,14 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.29.0"
+            notes={[
+              'Havaintoihin voi lisätä muistiinpanoja',
+              'Havaintoja voi etsiä myös muistiinpanojen ja englanninkielisen nimen perusteella',
+              'Näytetään myös englanninkielinen nimi'
+            ]}
+          />
+          <Release
             release="0.28.0"
             notes={[
               'Lisätty valkoperäsirri, isoliitäjä ja kenttäkerttunen. Kiitos kuvasta Arto Oksanen 🙏'

@@ -1,7 +1,7 @@
 import firebase, {db} from '../firebase/firebase'
 import {selectUser} from '../selectors'
 
-export const saveFinding = ({id = null, bird, date, place}) => (
+export const saveFinding = ({id = null, bird, date, place, notes}) => (
   dispatch,
   getState
 ) => {
@@ -19,7 +19,8 @@ export const saveFinding = ({id = null, bird, date, place}) => (
     bird: bird.id,
     date,
     place,
-    user: user.uid
+    user: user.uid,
+    notes
   }
 
   if (id) {

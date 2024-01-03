@@ -120,10 +120,6 @@ class LocateButton extends Component {
       return
     }
 
-    if (permissionStatus.state === 'prompt') {
-      alert('Paikantaminen vaatii suostumuksen')
-    }
-
     this.setState({loading: true})
     try {
       const loc = await location.get(false, 30000)

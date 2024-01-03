@@ -24,19 +24,19 @@ class Bird extends PureComponent {
   render() {
     if (this.state.editModalOpen) return this.renderForm()
 
-    const {bird, isWatching} = this.props
+    const {bird, isWatching, finding} = this.props
 
-    console.log({bird, isWatching})
     return (
       <div className={styles.bird}>
         <div className={styles.birdInfo}>
           <img
-            className={!this.props.finding ? styles.notFound : undefined}
+            className={!finding ? styles.notFound : undefined}
             src={`/img/birds/${bird.photo}`}
             alt=""
           />
           <div className={styles.name}>{bird.nameFi}</div>
           <div className={styles.latinName}>{bird.nameLatin}</div>
+          <div className={styles.enName}>{bird.nameEn}</div>
           {this.renderRarity()}
           {bird.detectLink && (
             <a
@@ -49,11 +49,11 @@ class Bird extends PureComponent {
               <i className="fas fa-external-link-alt" />
             </a>
           )}
-          {this.props.finding && this.renderFound()}
+          {finding && this.renderFound()}
 
           {!isWatching && (
             <PrimaryButton onClick={this.openEditModal}>
-              {this.props.finding ? 'Muokkaa havaintoa' : 'Lisää havainto'}
+              {finding ? 'Muokkaa havaintoa' : 'Lisää havainto'}
             </PrimaryButton>
           )}
         </div>
@@ -85,6 +85,16 @@ class Bird extends PureComponent {
     return (
       <>
         <div className={styles.date}>Havaittu {moment(date).format('L')}</div>
+        {finding.notes && (
+          <div className={styles.notes}>
+            <i
+              class="fas fa-pen-alt"
+              style={{fontSize: 20, marginBottom: 10}}
+            ></i>
+            <br />
+            {finding.notes}
+          </div>
+        )}
         {place && place.type === 'coordinates' && (
           <StaticMap
             findings={[{...this.props.finding, bird: this.props.bird}]}

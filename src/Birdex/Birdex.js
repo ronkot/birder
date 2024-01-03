@@ -74,9 +74,24 @@ class Birdex extends PureComponent {
   render() {
     const matchSearchTerm = (bird) => {
       if (!this.props.searchTerm) return true
-      const re = new RegExp(this.props.searchTerm, 'i')
-      return bird.nameFi.match(re) || bird.nameLatin.match(re)
+      const finding = this.props.findings.find(
+        (finding) => finding.bird === bird.id
+      )
+      try {
+        const re = new RegExp(this.props.searchTerm, 'i')
+        return (
+          bird.nameFi.match(re) ||
+          bird.nameLatin.match(re) ||
+          bird.nameEn.match(re) ||
+          finding?.notes.match(re)
+        )
+      } catch (err) {
+        // In case of invalid regex
+        console.error(err)
+        return true
+      }
     }
+
     const matchVisiblityFilter = (bird) => {
       if (this.props.visibilityFilter === 'all') return true
       else if (this.props.visibilityFilter === 'seen')
@@ -94,8 +109,6 @@ class Birdex extends PureComponent {
     const uniqueFindings = [
       ...new Set(this.props.findings.map((finding) => finding.bird))
     ].length
-
-    console.log(new Set(this.props.findings.map((finding) => finding.bird)))
 
     return (
       <div>

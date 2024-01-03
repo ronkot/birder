@@ -16,7 +16,7 @@ export class BirdexSearch extends PureComponent {
           type="text"
           value={this.props.term}
           onChange={this.onChange}
-          placeholder="Nimi tai latinankielinen nimi"
+          placeholder="Hae"
         />
         <div className={styles.clearButton} onClick={this.onClear}>
           <i className="fas fa-times" />
