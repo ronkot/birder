@@ -48,10 +48,10 @@ async function main() {
   await batch.commit()
   console.log('DONE')
 
-  await check()
+  await checkFindingsUpdated()
 }
 
-async function check() {
+async function checkFindingsUpdated() {
   const originalFindings = await db
     .collection('findings')
     .where('user', '=', fromId)
@@ -61,6 +61,11 @@ async function check() {
     .collection('findings')
     .where('user', '=', toId)
     .get()
+
+  console.log({
+    originalFindingsCount: originalFindings.docs.length,
+    newFindingsCount: newFindings.docs.length
+  })
 
   if (
     originalFindings.docs.length === 0 ||
