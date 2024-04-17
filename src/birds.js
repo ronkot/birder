@@ -11,7 +11,7 @@ module.exports = [
     rarity: 1,
     photo: 'kyhmyjoutsen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kyhmyjoutsen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kyhmyjoutsen'
   },
   {
     id: 'b-2',
@@ -25,7 +25,7 @@ module.exports = [
     rarity: 3,
     photo: 'pikkujoutsen.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkujoutsen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkujoutsen'
   },
   {
     id: 'b-3',
@@ -39,7 +39,7 @@ module.exports = [
     rarity: 1,
     photo: 'laulujoutsen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/laulujoutsen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/laulujoutsen'
   },
   {
     id: 'b-4',
@@ -53,7 +53,7 @@ module.exports = [
     rarity: 2,
     photo: 'metsahanhi.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/metsahanhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/metsahanhi'
   },
   {
     id: 'b-5',
@@ -67,7 +67,7 @@ module.exports = [
     rarity: 2,
     photo: 'tundrahanhi.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tundrahanhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tundrahanhi'
   },
   {
     id: 'b-6',
@@ -81,7 +81,7 @@ module.exports = [
     rarity: 2,
     photo: 'merihanhi.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/merihanhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/merihanhi'
   },
   {
     id: 'b-7',
@@ -95,7 +95,7 @@ module.exports = [
     rarity: 2,
     photo: 'kanadanhanhi.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kanadanhanhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kanadanhanhi'
   },
   {
     id: 'b-8',
@@ -109,7 +109,7 @@ module.exports = [
     rarity: 1,
     photo: 'valkoposkihanhi.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/valkoposkihanhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/valkoposkihanhi'
   },
   {
     id: 'b-9',
@@ -123,7 +123,7 @@ module.exports = [
     rarity: 2,
     photo: 'haapana.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/haapana'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/haapana'
   },
   {
     id: 'b-10',
@@ -137,7 +137,7 @@ module.exports = [
     rarity: 3,
     photo: 'harmaasorsa.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/harmaasorsa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/harmaasorsa'
   },
   {
     id: 'b-11',
@@ -151,7 +151,7 @@ module.exports = [
     rarity: 2,
     photo: 'tavi.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tavi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tavi'
   },
   {
     id: 'b-12',
@@ -165,7 +165,7 @@ module.exports = [
     rarity: 1,
     photo: 'sinisorsa.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/sinisorsa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/sinisorsa'
   },
   {
     id: 'b-13',
@@ -179,7 +179,7 @@ module.exports = [
     rarity: 2,
     photo: 'jouhisorsa.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/jouhisorsa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/jouhisorsa'
   },
   {
     id: 'b-14',
@@ -193,7 +193,7 @@ module.exports = [
     rarity: 3,
     photo: 'lapasorsa.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lapasorsa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lapasorsa'
   },
   {
     id: 'b-15',
@@ -207,7 +207,7 @@ module.exports = [
     rarity: 3,
     photo: 'tukkasotka.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tukkasotka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tukkasotka'
   },
   {
     id: 'b-16',
@@ -221,7 +221,7 @@ module.exports = [
     rarity: 3,
     photo: 'haahka.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/haahka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/haahka'
   },
   {
     id: 'b-17',
@@ -235,7 +235,7 @@ module.exports = [
     rarity: 2,
     photo: 'alli.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/alli'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/alli'
   },
   {
     id: 'b-18',
@@ -249,7 +249,7 @@ module.exports = [
     rarity: 3,
     photo: 'mustalintu.jpg',
     photographer: 'Liam Sanchez',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustalintu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mustalintu'
   },
   {
     id: 'b-19',
@@ -263,7 +263,7 @@ module.exports = [
     rarity: 3,
     photo: 'pilkkasiipi.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pilkkasiipi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pilkkasiipi'
   },
   {
     id: 'b-20',
@@ -291,7 +291,7 @@ module.exports = [
     rarity: 1,
     photo: 'telkka.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'www.luontoportti.com/suomi/fi/linnut/telkka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/telkka'
   },
   {
     id: 'b-22',
@@ -305,7 +305,7 @@ module.exports = [
     rarity: 3,
     photo: 'uivelo.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/uivelo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/uivelo'
   },
   {
     id: 'b-23',
@@ -319,7 +319,7 @@ module.exports = [
     rarity: 2,
     photo: 'tukkakoskelo.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'www.luontoportti.com/suomi/fi/linnut/tukkakoskelo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tukkakoskelo'
   },
   {
     id: 'b-24',
@@ -333,7 +333,7 @@ module.exports = [
     rarity: 1,
     photo: 'isokoskelo.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/isokoskelo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/isokoskelo'
   },
   {
     id: 'b-25',
@@ -347,7 +347,7 @@ module.exports = [
     rarity: 3,
     photo: 'pyy.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pyy'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pyy'
   },
   {
     id: 'b-26',
@@ -361,7 +361,7 @@ module.exports = [
     rarity: 4,
     photo: 'riekko.jpg',
     photographer: 'Henrikki Hetemaa',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/riekko'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/riekko'
   },
   {
     id: 'b-27',
@@ -375,7 +375,7 @@ module.exports = [
     rarity: 5,
     photo: 'kiiruna.jpg',
     photographer: 'Henrikki Hetemaa',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kiiruna'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kiiruna'
   },
   {
     id: 'b-28',
@@ -389,7 +389,7 @@ module.exports = [
     rarity: 2,
     photo: 'teeri.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/teeri'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/teeri'
   },
   {
     id: 'b-29',
@@ -403,7 +403,7 @@ module.exports = [
     rarity: 3,
     photo: 'metso.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/metso'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/metso'
   },
   {
     id: 'b-30',
@@ -417,7 +417,7 @@ module.exports = [
     rarity: 4,
     photo: 'peltopyy.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/peltopyy'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/peltopyy'
   },
   {
     id: 'b-31',
@@ -431,7 +431,7 @@ module.exports = [
     rarity: 2,
     photo: 'fasaani.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/fasaani'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/fasaani'
   },
   {
     id: 'b-32',
@@ -445,7 +445,7 @@ module.exports = [
     rarity: 3,
     photo: 'kaakkuri.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kaakkuri'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kaakkuri'
   },
   {
     id: 'b-33',
@@ -459,7 +459,7 @@ module.exports = [
     rarity: 2,
     photo: 'kuikka.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kuikka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kuikka'
   },
   {
     id: 'b-34',
@@ -473,7 +473,7 @@ module.exports = [
     rarity: 2,
     photo: 'silkkiuikku.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/silkkiuikku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/silkkiuikku'
   },
   {
     id: 'b-35',
@@ -487,7 +487,7 @@ module.exports = [
     rarity: 2,
     photo: 'harkalintu.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/harkalintu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/harkalintu'
   },
   {
     id: 'b-36',
@@ -501,7 +501,7 @@ module.exports = [
     rarity: 3,
     photo: 'mustakurkku-uikku.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustakurkku-uikku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mustakurkku-uikku'
   },
   {
     id: 'b-37',
@@ -515,7 +515,7 @@ module.exports = [
     rarity: 2,
     photo: 'merimetso.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/merimetso'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/merimetso'
   },
   {
     id: 'b-38',
@@ -529,7 +529,7 @@ module.exports = [
     rarity: 3,
     photo: 'kaulushaikara.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kaulushaikara'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kaulushaikara'
   },
   {
     id: 'b-39',
@@ -543,7 +543,7 @@ module.exports = [
     rarity: 4,
     photo: 'jalohaikara.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/jalohaikara'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/jalohaikara'
   },
   {
     id: 'b-40',
@@ -557,7 +557,7 @@ module.exports = [
     rarity: 2,
     photo: 'harmaahaikara.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/harmaahaikara'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/harmaahaikara'
   },
   {
     id: 'b-41',
@@ -571,7 +571,7 @@ module.exports = [
     rarity: 3,
     photo: 'mehilaishaukka.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mehilaishaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mehilaishaukka'
   },
   {
     id: 'b-42',
@@ -585,7 +585,7 @@ module.exports = [
     rarity: 4,
     photo: 'haarahaukka.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/haarahaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/haarahaukka'
   },
   {
     id: 'b-43',
@@ -599,7 +599,7 @@ module.exports = [
     rarity: 2,
     photo: 'merikotka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/merikotka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/merikotka'
   },
   {
     id: 'b-44',
@@ -613,7 +613,7 @@ module.exports = [
     rarity: 2,
     photo: 'ruskosuohaukka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/ruskosuohaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/ruskosuohaukka'
   },
   {
     id: 'b-45',
@@ -627,7 +627,7 @@ module.exports = [
     rarity: 4,
     photo: 'arosuohaukka.jpg',
     photographer: 'Timo Saari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/arosuohaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/arosuohaukka'
   },
   {
     id: 'b-46',
@@ -641,7 +641,7 @@ module.exports = [
     rarity: 4,
     photo: 'niittysuohaukka.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/niittysuohaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/niittysuohaukka'
   },
   {
     id: 'b-47',
@@ -655,7 +655,7 @@ module.exports = [
     rarity: 3,
     photo: 'sinisuohaukka.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/sinisuohaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/sinisuohaukka'
   },
   {
     id: 'b-48',
@@ -669,7 +669,7 @@ module.exports = [
     rarity: 2,
     photo: 'kanahaukka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kanahaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kanahaukka'
   },
   {
     id: 'b-49',
@@ -683,7 +683,7 @@ module.exports = [
     rarity: 2,
     photo: 'varpushaukka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/varpushaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/varpushaukka'
   },
   {
     id: 'b-50',
@@ -697,7 +697,7 @@ module.exports = [
     rarity: 2,
     photo: 'hiirihaukka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/hiirihaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/hiirihaukka'
   },
   {
     id: 'b-51',
@@ -711,7 +711,7 @@ module.exports = [
     rarity: 3,
     photo: 'piekana.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/piekana'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/piekana'
   },
   {
     id: 'b-52',
@@ -725,7 +725,7 @@ module.exports = [
     rarity: 3,
     photo: 'maakotka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/maakotka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/maakotka'
   },
   {
     id: 'b-53',
@@ -739,7 +739,7 @@ module.exports = [
     rarity: 2,
     photo: 'kalasaaski.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/saaksi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/saaksi'
   },
   {
     id: 'b-54',
@@ -753,7 +753,7 @@ module.exports = [
     rarity: 2,
     photo: 'tuulihaukka.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tuulihaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tuulihaukka'
   },
   {
     id: 'b-55',
@@ -767,7 +767,7 @@ module.exports = [
     rarity: 4,
     photo: 'punajalkahaukka.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/punajalkahaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/punajalkahaukka'
   },
   {
     id: 'b-56',
@@ -781,7 +781,7 @@ module.exports = [
     rarity: 3,
     photo: 'ampuhaukka.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/ampuhaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/ampuhaukka'
   },
   {
     id: 'b-57',
@@ -795,7 +795,7 @@ module.exports = [
     rarity: 3,
     photo: 'muuttohaukka.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/muuttohaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/muuttohaukka'
   },
   {
     id: 'b-58',
@@ -809,7 +809,7 @@ module.exports = [
     rarity: 3,
     photo: 'nuolihaukka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/nuolihaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/nuolihaukka'
   },
   {
     id: 'b-59',
@@ -823,7 +823,7 @@ module.exports = [
     rarity: 2,
     photo: 'luhtakana.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/luhtakana'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/luhtakana'
   },
   {
     id: 'b-60',
@@ -837,7 +837,7 @@ module.exports = [
     rarity: 3,
     photo: 'luhtahuitti.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/luhtahuitti'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/luhtahuitti'
   },
   {
     id: 'b-61',
@@ -851,7 +851,7 @@ module.exports = [
     rarity: 2,
     photo: 'ruisraakka.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/ruisraakka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/ruisraakka'
   },
   {
     id: 'b-62',
@@ -865,7 +865,7 @@ module.exports = [
     rarity: 2,
     photo: 'liejukana.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/liejukana'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/liejukana'
   },
   {
     id: 'b-63',
@@ -879,7 +879,7 @@ module.exports = [
     rarity: 2,
     photo: 'nokikana.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/nokikana'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/nokikana'
   },
   {
     id: 'b-64',
@@ -893,7 +893,7 @@ module.exports = [
     rarity: 1,
     photo: 'kurki.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kurki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kurki'
   },
   {
     id: 'b-65',
@@ -907,7 +907,7 @@ module.exports = [
     rarity: 2,
     photo: 'meriharakka.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/meriharakka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/meriharakka'
   },
   {
     id: 'b-66',
@@ -921,7 +921,7 @@ module.exports = [
     rarity: 2,
     photo: 'kapustarinta.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kapustarinta'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kapustarinta'
   },
   {
     id: 'b-67',
@@ -935,7 +935,7 @@ module.exports = [
     rarity: 1,
     photo: 'toyhtohyyppa.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/toyhtohyyppa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/toyhtohyyppa'
   },
   {
     id: 'b-68',
@@ -949,7 +949,7 @@ module.exports = [
     rarity: 3,
     photo: 'tylli.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tylli'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tylli'
   },
   {
     id: 'b-69',
@@ -963,7 +963,7 @@ module.exports = [
     rarity: 3,
     photo: 'pikkutylli.jpg',
     photographer: 'Eetu Hurtig',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkutylli'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkutylli'
   },
   {
     id: 'b-70',
@@ -977,7 +977,7 @@ module.exports = [
     rarity: 3,
     photo: 'pikkukuovi.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkukuovi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkukuovi'
   },
   {
     id: 'b-71',
@@ -991,7 +991,7 @@ module.exports = [
     rarity: 2,
     photo: 'kuovi.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kuovi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kuovi'
   },
   {
     id: 'b-72',
@@ -1005,7 +1005,7 @@ module.exports = [
     rarity: 3,
     photo: 'mustapyrstokuiri.jpg',
     photographer: 'Henrikki Hetemaa',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustapyrstokuiri'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mustapyrstokuiri'
   },
   {
     id: 'b-73',
@@ -1019,7 +1019,7 @@ module.exports = [
     rarity: 3,
     photo: 'karikukko.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/karikukko'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/karikukko'
   },
   {
     id: 'b-74',
@@ -1033,7 +1033,7 @@ module.exports = [
     rarity: 2,
     photo: 'suokukko.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/suokukko'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/suokukko'
   },
   {
     id: 'b-75',
@@ -1047,7 +1047,7 @@ module.exports = [
     rarity: 3,
     photo: 'pulmussirri.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pulmussirri'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pulmussirri'
   },
   {
     id: 'b-76',
@@ -1061,7 +1061,7 @@ module.exports = [
     rarity: 3,
     photo: 'suosirri.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/suosirri'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/suosirri'
   },
   {
     id: 'b-77',
@@ -1075,7 +1075,7 @@ module.exports = [
     rarity: 2,
     photo: 'rantasipi.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/rantasipi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/rantasipi'
   },
   {
     id: 'b-78',
@@ -1089,7 +1089,7 @@ module.exports = [
     rarity: 2,
     photo: 'metsaviklo.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/metsaviklo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/metsaviklo'
   },
   {
     id: 'b-79',
@@ -1103,7 +1103,7 @@ module.exports = [
     rarity: 2,
     photo: 'valkoviklo.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/valkoviklo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/valkoviklo'
   },
   {
     id: 'b-80',
@@ -1117,7 +1117,7 @@ module.exports = [
     rarity: 3,
     photo: 'punajalkaviklo.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/punajalkaviklo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/punajalkaviklo'
   },
   {
     id: 'b-81',
@@ -1131,7 +1131,7 @@ module.exports = [
     rarity: 3,
     photo: 'jankakurppa.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/jankakurppa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/jankakurppa'
   },
   {
     id: 'b-82',
@@ -1145,7 +1145,7 @@ module.exports = [
     rarity: 2,
     photo: 'liro.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/liro'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/liro'
   },
   {
     id: 'b-83',
@@ -1159,7 +1159,7 @@ module.exports = [
     rarity: 2,
     photo: 'lehtokurppa.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lehtokurppa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lehtokurppa'
   },
   {
     id: 'b-84',
@@ -1173,7 +1173,7 @@ module.exports = [
     rarity: 2,
     photo: 'taivaanvuohi.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/taivaanvuohi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/taivaanvuohi'
   },
   {
     id: 'b-85',
@@ -1187,7 +1187,7 @@ module.exports = [
     rarity: 4,
     photo: 'tunturikihu.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tunturikihu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tunturikihu'
   },
   {
     id: 'b-86',
@@ -1201,7 +1201,7 @@ module.exports = [
     rarity: 3,
     photo: 'rayska.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/rayska'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/rayska'
   },
   {
     id: 'b-87',
@@ -1215,7 +1215,7 @@ module.exports = [
     rarity: 2,
     photo: 'kalatiira.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kalatiira'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kalatiira'
   },
   {
     id: 'b-88',
@@ -1229,7 +1229,7 @@ module.exports = [
     rarity: 2,
     photo: 'lapintiira.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lapintiira'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lapintiira'
   },
   {
     id: 'b-89',
@@ -1243,7 +1243,7 @@ module.exports = [
     rarity: 2,
     photo: 'pikkulokki.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkulokki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkulokki'
   },
   {
     id: 'b-90',
@@ -1257,7 +1257,7 @@ module.exports = [
     rarity: 1,
     photo: 'naurulokki.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/naurulokki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/naurulokki'
   },
   {
     id: 'b-91',
@@ -1271,7 +1271,7 @@ module.exports = [
     rarity: 1,
     photo: 'kalalokki.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kalalokki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kalalokki'
   },
   {
     id: 'b-92',
@@ -1285,7 +1285,7 @@ module.exports = [
     rarity: 2,
     photo: 'selkalokki.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/selkalokki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/selkalokki'
   },
   {
     id: 'b-93',
@@ -1299,7 +1299,7 @@ module.exports = [
     rarity: 1,
     photo: 'harmaalokki.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/harmaalokki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/harmaalokki'
   },
   {
     id: 'b-94',
@@ -1313,7 +1313,7 @@ module.exports = [
     rarity: 2,
     photo: 'merilokki.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/merilokki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/merilokki'
   },
   {
     id: 'b-95',
@@ -1327,7 +1327,7 @@ module.exports = [
     rarity: 1,
     photo: 'kesykyyhky.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kesykyyhky'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kesykyyhky'
   },
   {
     id: 'b-96',
@@ -1341,7 +1341,7 @@ module.exports = [
     rarity: 3,
     photo: 'uuttukyyhky.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/uuttukyyhky'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/uuttukyyhky'
   },
   {
     id: 'b-97',
@@ -1355,7 +1355,7 @@ module.exports = [
     rarity: 3,
     photo: 'turkinkyyhky.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/turkinkyyhky'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/turkinkyyhky'
   },
   {
     id: 'b-98',
@@ -1383,7 +1383,7 @@ module.exports = [
     rarity: 1,
     photo: 'sepelkyyhky.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/sepelkyyhky'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/sepelkyyhky'
   },
   {
     id: 'b-100',
@@ -1397,7 +1397,7 @@ module.exports = [
     rarity: 2,
     photo: 'kaki.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kaki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kaki'
   },
   {
     id: 'b-101',
@@ -1411,7 +1411,7 @@ module.exports = [
     rarity: 3,
     photo: 'huuhkaja.jpg',
     photographer: 'pixabay.com',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/huuhkaja'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/huuhkaja'
   },
   {
     id: 'b-102',
@@ -1425,7 +1425,7 @@ module.exports = [
     rarity: 3,
     photo: 'hiiripollo.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/hiiripollo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/hiiripollo'
   },
   {
     id: 'b-103',
@@ -1439,7 +1439,7 @@ module.exports = [
     rarity: 3,
     photo: 'varpuspollo.jpg',
     photographer: 'pixabay.com',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/varpuspollo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/varpuspollo'
   },
   {
     id: 'b-104',
@@ -1453,7 +1453,7 @@ module.exports = [
     rarity: 3,
     photo: 'lehtopollo.jpg',
     photographer: 'pixabay.com',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lehtopollo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lehtopollo'
   },
   {
     id: 'b-105',
@@ -1467,7 +1467,7 @@ module.exports = [
     rarity: 3,
     photo: 'viirupollo.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/viirupollo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/viirupollo'
   },
   {
     id: 'b-106',
@@ -1481,7 +1481,7 @@ module.exports = [
     rarity: 3,
     photo: 'lapinpollo.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lapinpollo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lapinpollo'
   },
   {
     id: 'b-107',
@@ -1495,7 +1495,7 @@ module.exports = [
     rarity: 3,
     photo: 'sarvipollo.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/sarvipollo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/sarvipollo'
   },
   {
     id: 'b-108',
@@ -1509,7 +1509,7 @@ module.exports = [
     rarity: 3,
     photo: 'suopollo.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/suopollo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/suopollo'
   },
   {
     id: 'b-109',
@@ -1523,7 +1523,7 @@ module.exports = [
     rarity: 3,
     photo: 'helmipollo.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/helmipollo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/helmipollo'
   },
   {
     id: 'b-110',
@@ -1537,7 +1537,7 @@ module.exports = [
     rarity: 2,
     photo: 'kehraaja.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kehraaja'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kehraaja'
   },
   {
     id: 'b-111',
@@ -1551,7 +1551,7 @@ module.exports = [
     rarity: 1,
     photo: 'tervapaasky.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tervapaasky'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tervapaasky'
   },
   {
     id: 'b-112',
@@ -1565,7 +1565,7 @@ module.exports = [
     rarity: 5,
     photo: 'kuningaskalastaja.jpg',
     photographer: 'pixabay.com',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kuningaskalastaja'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kuningaskalastaja'
   },
   {
     id: 'b-113',
@@ -1579,7 +1579,7 @@ module.exports = [
     rarity: 4,
     photo: 'harjalintu.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/harjalintu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/harjalintu'
   },
   {
     id: 'b-114',
@@ -1593,7 +1593,7 @@ module.exports = [
     rarity: 3,
     photo: 'kaenpiika.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kaenpiika'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kaenpiika'
   },
   {
     id: 'b-115',
@@ -1607,7 +1607,7 @@ module.exports = [
     rarity: 3,
     photo: 'harmaapaatikka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/harmaapaatikka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/harmaapaatikka'
   },
   {
     id: 'b-116',
@@ -1621,7 +1621,7 @@ module.exports = [
     rarity: 2,
     photo: 'palokarki.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/palokarki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/palokarki'
   },
   {
     id: 'b-117',
@@ -1635,7 +1635,7 @@ module.exports = [
     rarity: 1,
     photo: 'kapytikka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kapytikka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kapytikka'
   },
   {
     id: 'b-118',
@@ -1649,7 +1649,7 @@ module.exports = [
     rarity: 4,
     photo: 'valkoselkatikka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/valkoselkatikka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/valkoselkatikka'
   },
   {
     id: 'b-119',
@@ -1663,7 +1663,7 @@ module.exports = [
     rarity: 3,
     photo: 'pikkutikka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkutikka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkutikka'
   },
   {
     id: 'b-120',
@@ -1677,7 +1677,7 @@ module.exports = [
     rarity: 3,
     photo: 'pohjantikka.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pohjantikka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pohjantikka'
   },
   {
     id: 'b-121',
@@ -1691,7 +1691,7 @@ module.exports = [
     rarity: 2,
     photo: 'kiuru.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kiuru'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kiuru'
   },
   {
     id: 'b-122',
@@ -1705,7 +1705,7 @@ module.exports = [
     rarity: 3,
     photo: 'tormapaasky.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tormapaasky'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tormapaasky'
   },
   {
     id: 'b-123',
@@ -1719,7 +1719,7 @@ module.exports = [
     rarity: 2,
     photo: 'haarapaasky.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/haarapaasky'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/haarapaasky'
   },
   {
     id: 'b-124',
@@ -1733,7 +1733,7 @@ module.exports = [
     rarity: 2,
     photo: 'raystaspaasky.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/raystaspaasky'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/raystaspaasky'
   },
   {
     id: 'b-125',
@@ -1747,7 +1747,7 @@ module.exports = [
     rarity: 2,
     photo: 'metsakirvinen.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/metsakirvinen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/metsakirvinen'
   },
   {
     id: 'b-126',
@@ -1761,7 +1761,7 @@ module.exports = [
     rarity: 2,
     photo: 'niittykirvinen.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/niittykirvinen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/niittykirvinen'
   },
   {
     id: 'b-127',
@@ -1775,7 +1775,7 @@ module.exports = [
     rarity: 3,
     photo: 'keltavastarakki.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/keltavastarakki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/keltavastarakki'
   },
   {
     id: 'b-128',
@@ -1789,7 +1789,7 @@ module.exports = [
     rarity: 1,
     photo: 'vastarakki.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/vastarakki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/vastarakki'
   },
   {
     id: 'b-129',
@@ -1803,7 +1803,7 @@ module.exports = [
     rarity: 2,
     photo: 'tilhi.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tilhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tilhi'
   },
   {
     id: 'b-130',
@@ -1817,7 +1817,7 @@ module.exports = [
     rarity: 2,
     photo: 'koskikara.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/koskikara'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/koskikara'
   },
   {
     id: 'b-131',
@@ -1831,7 +1831,7 @@ module.exports = [
     rarity: 2,
     photo: 'peukaloinen.jpg',
     photographer: 'Liam Sanchez',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/peukaloinen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/peukaloinen'
   },
   {
     id: 'b-132',
@@ -1845,7 +1845,7 @@ module.exports = [
     rarity: 2,
     photo: 'rautiainen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/rautiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/rautiainen'
   },
   {
     id: 'b-133',
@@ -1859,7 +1859,7 @@ module.exports = [
     rarity: 1,
     photo: 'mustarastas.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustarastas'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mustarastas'
   },
   {
     id: 'b-134',
@@ -1873,7 +1873,7 @@ module.exports = [
     rarity: 1,
     photo: 'rakattirastas.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/rakattirastas'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/rakattirastas'
   },
   {
     id: 'b-135',
@@ -1887,7 +1887,7 @@ module.exports = [
     rarity: 2,
     photo: 'laulurastas.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/laulurastas'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/laulurastas'
   },
   {
     id: 'b-136',
@@ -1901,7 +1901,7 @@ module.exports = [
     rarity: 1,
     photo: 'punakylkirastas.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/punakylkirastas'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/punakylkirastas'
   },
   {
     id: 'b-137',
@@ -1915,7 +1915,7 @@ module.exports = [
     rarity: 2,
     photo: 'kulorastas.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kulorastas'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kulorastas'
   },
   {
     id: 'b-138',
@@ -1943,7 +1943,7 @@ module.exports = [
     rarity: 3,
     photo: 'kultarinta.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kultarinta'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kultarinta'
   },
   {
     id: 'b-140',
@@ -1957,7 +1957,7 @@ module.exports = [
     rarity: 3,
     photo: 'ruokokerttunen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/ruokokerttunen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/ruokokerttunen'
   },
   {
     id: 'b-141',
@@ -2013,7 +2013,7 @@ module.exports = [
     rarity: 3,
     photo: 'hernekerttu.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/hernekerttu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/hernekerttu'
   },
   {
     id: 'b-145',
@@ -2027,7 +2027,7 @@ module.exports = [
     rarity: 3,
     photo: 'pensaskerttu.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pensaskerttu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pensaskerttu'
   },
   {
     id: 'b-146',
@@ -2041,7 +2041,7 @@ module.exports = [
     rarity: 3,
     photo: 'lehtokerttu.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lehtokerttu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lehtokerttu'
   },
   {
     id: 'b-147',
@@ -2055,7 +2055,7 @@ module.exports = [
     rarity: 3,
     photo: 'mustapaakerttu.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustapaakerttu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mustapaakerttu'
   },
   {
     id: 'b-148',
@@ -2083,7 +2083,7 @@ module.exports = [
     rarity: 2,
     photo: 'tiltaltti.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tiltaltti'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tiltaltti'
   },
   {
     id: 'b-150',
@@ -2111,7 +2111,7 @@ module.exports = [
     rarity: 2,
     photo: 'pajulintu.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pajulintu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pajulintu'
   },
   {
     id: 'b-152',
@@ -2125,7 +2125,7 @@ module.exports = [
     rarity: 2,
     photo: 'hippiainen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/hippiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/hippiainen'
   },
   {
     id: 'b-153',
@@ -2139,7 +2139,7 @@ module.exports = [
     rarity: 2,
     photo: 'harmaasieppo.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/harmaasieppo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/harmaasieppo'
   },
   {
     id: 'b-154',
@@ -2167,7 +2167,7 @@ module.exports = [
     rarity: 2,
     photo: 'kirjosieppo.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kirjosieppo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kirjosieppo'
   },
   {
     id: 'b-156',
@@ -2181,7 +2181,7 @@ module.exports = [
     rarity: 1,
     photo: 'punarinta.jpg',
     photographer: 'pixabay.com',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/punarinta'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/punarinta'
   },
   {
     id: 'b-157',
@@ -2195,7 +2195,7 @@ module.exports = [
     rarity: 2,
     photo: 'satakieli.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/satakieli'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/satakieli'
   },
   {
     id: 'b-158',
@@ -2209,7 +2209,7 @@ module.exports = [
     rarity: 3,
     photo: 'sinirinta.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/sinirinta'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/sinirinta'
   },
   {
     id: 'b-159',
@@ -2223,7 +2223,7 @@ module.exports = [
     rarity: 4,
     photo: 'sinipyrsto.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/sinipyrsto'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/sinipyrsto'
   },
   {
     id: 'b-160',
@@ -2237,7 +2237,7 @@ module.exports = [
     rarity: 2,
     photo: 'leppalintu.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/leppalintu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/leppalintu'
   },
   {
     id: 'b-161',
@@ -2251,7 +2251,7 @@ module.exports = [
     rarity: 2,
     photo: 'pensastasku.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pensastasku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pensastasku'
   },
   {
     id: 'b-162',
@@ -2265,7 +2265,7 @@ module.exports = [
     rarity: 2,
     photo: 'kivitasku.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kivitasku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kivitasku'
   },
   {
     id: 'b-163',
@@ -2279,7 +2279,7 @@ module.exports = [
     rarity: 4,
     photo: 'viiksitimali.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/viiksitimali'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/viiksitimali'
   },
   {
     id: 'b-164',
@@ -2293,7 +2293,7 @@ module.exports = [
     rarity: 2,
     photo: 'pyrstotiainen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pyrstotiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pyrstotiainen'
   },
   {
     id: 'b-165',
@@ -2307,7 +2307,7 @@ module.exports = [
     rarity: 1,
     photo: 'sinitiainen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/sinitiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/sinitiainen'
   },
   {
     id: 'b-166',
@@ -2321,7 +2321,7 @@ module.exports = [
     rarity: 1,
     photo: 'talitiainen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/talitiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/talitiainen'
   },
   {
     id: 'b-167',
@@ -2335,7 +2335,7 @@ module.exports = [
     rarity: 2,
     photo: 'kuusitiainen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kuusitiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kuusitiainen'
   },
   {
     id: 'b-168',
@@ -2349,7 +2349,7 @@ module.exports = [
     rarity: 2,
     photo: 'toyhtotiainen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/toyhtotiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/toyhtotiainen'
   },
   {
     id: 'b-169',
@@ -2363,7 +2363,7 @@ module.exports = [
     rarity: 2,
     photo: 'homotiainen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/homotiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/homotiainen'
   },
   {
     id: 'b-170',
@@ -2377,7 +2377,7 @@ module.exports = [
     rarity: 2,
     photo: 'lapintiainen.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lapintiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lapintiainen'
   },
   {
     id: 'b-171',
@@ -2391,7 +2391,7 @@ module.exports = [
     rarity: 3,
     photo: 'pahkinanakkeli.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pahkinanakkeli'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pahkinanakkeli'
   },
   {
     id: 'b-172',
@@ -2405,7 +2405,7 @@ module.exports = [
     rarity: 2,
     photo: 'puukiipija.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/puukiipija'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/puukiipija'
   },
   {
     id: 'b-173',
@@ -2419,7 +2419,7 @@ module.exports = [
     rarity: 3,
     photo: 'pikkulepinkainen.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkulepinkainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkulepinkainen'
   },
   {
     id: 'b-174',
@@ -2433,7 +2433,7 @@ module.exports = [
     rarity: 2,
     photo: 'isolepinkainen.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/isolepinkainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/isolepinkainen'
   },
   {
     id: 'b-175',
@@ -2447,7 +2447,7 @@ module.exports = [
     rarity: 1,
     photo: 'narhi.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/narhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/narhi'
   },
   {
     id: 'b-176',
@@ -2461,7 +2461,7 @@ module.exports = [
     rarity: 3,
     photo: 'kuukkeli.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kuukkeli'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kuukkeli'
   },
   {
     id: 'b-177',
@@ -2475,7 +2475,7 @@ module.exports = [
     rarity: 1,
     photo: 'harakka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/harakka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/harakka'
   },
   {
     id: 'b-178',
@@ -2489,7 +2489,7 @@ module.exports = [
     rarity: 3,
     photo: 'pahkinahakki.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pahkinahakki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pahkinahakki'
   },
   {
     id: 'b-179',
@@ -2503,7 +2503,7 @@ module.exports = [
     rarity: 1,
     photo: 'naakka.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/naakka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/naakka'
   },
   {
     id: 'b-180',
@@ -2517,7 +2517,7 @@ module.exports = [
     rarity: 3,
     photo: 'mustavaris.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustavaris'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mustavaris'
   },
   {
     id: 'b-181',
@@ -2531,7 +2531,7 @@ module.exports = [
     rarity: 1,
     photo: 'varis.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/varis'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/varis'
   },
   {
     id: 'b-182',
@@ -2545,7 +2545,7 @@ module.exports = [
     rarity: 1,
     photo: 'korppi.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/korppi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/korppi'
   },
   {
     id: 'b-183',
@@ -2559,7 +2559,7 @@ module.exports = [
     rarity: 1,
     photo: 'kottarainen.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kottarainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kottarainen'
   },
   {
     id: 'b-184',
@@ -2573,7 +2573,7 @@ module.exports = [
     rarity: 2,
     photo: 'varpunen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/varpunen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/varpunen'
   },
   {
     id: 'b-185',
@@ -2587,7 +2587,7 @@ module.exports = [
     rarity: 1,
     photo: 'pikkuvarpunen.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkuvarpunen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkuvarpunen'
   },
   {
     id: 'b-186',
@@ -2601,7 +2601,7 @@ module.exports = [
     rarity: 1,
     photo: 'peippo.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/peippo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/peippo'
   },
   {
     id: 'b-187',
@@ -2615,7 +2615,7 @@ module.exports = [
     rarity: 1,
     photo: 'jarripeippo.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/jarripeippo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/jarripeippo'
   },
   {
     id: 'b-188',
@@ -2629,7 +2629,7 @@ module.exports = [
     rarity: 1,
     photo: 'viherpeippo.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/viherpeippo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/viherpeippo'
   },
   {
     id: 'b-189',
@@ -2643,7 +2643,7 @@ module.exports = [
     rarity: 2,
     photo: 'tikli.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tikli'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tikli'
   },
   {
     id: 'b-190',
@@ -2657,7 +2657,7 @@ module.exports = [
     rarity: 2,
     photo: 'vihervarpunen.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/vihervarpunen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/vihervarpunen'
   },
   {
     id: 'b-191',
@@ -2671,7 +2671,7 @@ module.exports = [
     rarity: 2,
     photo: 'hemppo.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/hemppo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/hemppo'
   },
   {
     id: 'b-192',
@@ -2685,7 +2685,7 @@ module.exports = [
     rarity: 1,
     photo: 'urpiainen.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/urpiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/urpiainen'
   },
   {
     id: 'b-193',
@@ -2699,7 +2699,7 @@ module.exports = [
     rarity: 4,
     photo: 'tundraurpiainen.jpg',
     photographer: 'Henrikki Hetemaa',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tundraurpiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tundraurpiainen'
   },
   {
     id: 'b-194',
@@ -2713,7 +2713,7 @@ module.exports = [
     rarity: 2,
     photo: 'pikkukapylintu.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkukapylintu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkukapylintu'
   },
   {
     id: 'b-195',
@@ -2727,7 +2727,7 @@ module.exports = [
     rarity: 3,
     photo: 'isokapylintu.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/isokapylintu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/isokapylintu'
   },
   {
     id: 'b-196',
@@ -2741,7 +2741,7 @@ module.exports = [
     rarity: 2,
     photo: 'punavarpunen.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/punavarpunen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/punavarpunen'
   },
   {
     id: 'b-197',
@@ -2755,7 +2755,7 @@ module.exports = [
     rarity: 1,
     photo: 'punatulkku.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/punatulkku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/punatulkku'
   },
   {
     id: 'b-198',
@@ -2769,7 +2769,7 @@ module.exports = [
     rarity: 3,
     photo: 'nokkavarpunen.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/nokkavarpunen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/nokkavarpunen'
   },
   {
     id: 'b-199',
@@ -2783,7 +2783,7 @@ module.exports = [
     rarity: 3,
     photo: 'pulmunen.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pulmunen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pulmunen'
   },
   {
     id: 'b-200',
@@ -2797,7 +2797,7 @@ module.exports = [
     rarity: 4,
     photo: 'lapinsirkku.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lapinsirkku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lapinsirkku'
   },
   {
     id: 'b-201',
@@ -2811,7 +2811,7 @@ module.exports = [
     rarity: 1,
     photo: 'keltasirkku.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/keltasirkku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/keltasirkku'
   },
   {
     id: 'b-202',
@@ -2825,7 +2825,7 @@ module.exports = [
     rarity: 2,
     photo: 'peltosirkku.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/peltosirkku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/peltosirkku'
   },
   {
     id: 'b-203',
@@ -2839,7 +2839,7 @@ module.exports = [
     rarity: 2,
     photo: 'pajusirkku.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pajusirkku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pajusirkku'
   },
   {
     id: 'b-204',
@@ -2851,9 +2851,9 @@ module.exports = [
     nameLatin: 'Anser erythropus',
     nameEn: 'Lesser White-fronted Goose',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kiljuhanhi'
+    photo: 'kiljuhanhi.jpg',
+    photographer: 'Mette Skyttä',
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kiljuhanhi'
   },
   {
     id: 'b-205',
@@ -2867,7 +2867,7 @@ module.exports = [
     rarity: 4,
     photo: 'ristisorsa.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/ristisorsa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/ristisorsa'
   },
   {
     id: 'b-206',
@@ -2895,7 +2895,7 @@ module.exports = [
     rarity: 4,
     photo: 'punasotka.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/punasotka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/punasotka'
   },
   {
     id: 'b-208',
@@ -2909,7 +2909,7 @@ module.exports = [
     rarity: 4,
     photo: 'lapasotka.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lapasotka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lapasotka'
   },
   {
     id: 'b-209',
@@ -2923,7 +2923,7 @@ module.exports = [
     rarity: 5,
     photo: 'pikku-uikku.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikku-uikku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikku-uikku'
   },
   {
     id: 'b-210',
@@ -2951,7 +2951,7 @@ module.exports = [
     rarity: 5,
     photo: 'pikkusirri.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkusirri'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkusirri'
   },
   {
     id: 'b-212',
@@ -2965,7 +2965,7 @@ module.exports = [
     rarity: 4,
     photo: 'lapinsirri.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'www.luontoportti.com/suomi/fi/linnut/lapinsirri'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lapinsirri'
   },
   {
     id: 'b-213',
@@ -2979,7 +2979,7 @@ module.exports = [
     rarity: 3,
     photo: 'punakuiri.jpg',
     photographer: 'Tapio Rasmus',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/punakuiri'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/punakuiri'
   },
   {
     id: 'b-214',
@@ -2993,7 +2993,7 @@ module.exports = [
     rarity: 3,
     photo: 'mustaviklo.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustaviklo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mustaviklo'
   },
   {
     id: 'b-215',
@@ -3007,7 +3007,7 @@ module.exports = [
     rarity: 4,
     photo: 'jankasirriainen.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/jankasirriainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/jankasirriainen'
   },
   {
     id: 'b-216',
@@ -3021,7 +3021,7 @@ module.exports = [
     rarity: 3,
     photo: 'vesipaasky.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/vesipaasky'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/vesipaasky'
   },
   {
     id: 'b-217',
@@ -3035,7 +3035,7 @@ module.exports = [
     rarity: 4,
     photo: 'kerakurmitsa.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kerakurmitsa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kerakurmitsa'
   },
   {
     id: 'b-218',
@@ -3049,7 +3049,7 @@ module.exports = [
     rarity: 5,
     photo: 'heinakurppa.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kerakurmitsa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kerakurmitsa'
   },
   {
     id: 'b-219',
@@ -3063,7 +3063,7 @@ module.exports = [
     rarity: 3,
     photo: 'merikihu.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/merikihu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/merikihu'
   },
   {
     id: 'b-220',
@@ -3077,7 +3077,7 @@ module.exports = [
     rarity: 5,
     photo: 'pikkutiira.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkutiira'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkutiira'
   },
   {
     id: 'b-221',
@@ -3091,7 +3091,7 @@ module.exports = [
     rarity: 5,
     photo: 'mustatiira.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustatiira'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mustatiira'
   },
   {
     id: 'b-222',
@@ -3105,7 +3105,7 @@ module.exports = [
     rarity: 4,
     photo: 'riskila.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/riskila'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/riskila'
   },
   {
     id: 'b-223',
@@ -3119,7 +3119,7 @@ module.exports = [
     rarity: 4,
     photo: 'ruokki.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/ruokki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/ruokki'
   },
   {
     id: 'b-224',
@@ -3133,7 +3133,7 @@ module.exports = [
     rarity: 5,
     photo: 'tunturipollo.jpg',
     photographer: 'Eetu Hurtig',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tunturipollo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tunturipollo'
   },
   {
     id: 'b-225',
@@ -3147,7 +3147,7 @@ module.exports = [
     rarity: 4,
     photo: 'kangaskiuru.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kangaskiuru'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kangaskiuru'
   },
   {
     id: 'b-226',
@@ -3161,7 +3161,7 @@ module.exports = [
     rarity: 4,
     photo: 'tunturikiuru.jpg',
     photographer: 'Arvi Tyni',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tunturikiuru'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tunturikiuru'
   },
   {
     id: 'b-227',
@@ -3175,7 +3175,7 @@ module.exports = [
     rarity: 4,
     photo: 'lapinkirvinen.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lapinkirvinen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lapinkirvinen'
   },
   {
     id: 'b-228',
@@ -3189,7 +3189,7 @@ module.exports = [
     rarity: 4,
     photo: 'luotokirvinen.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/luotokirvinen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/luotokirvinen'
   },
   {
     id: 'b-229',
@@ -3203,7 +3203,8 @@ module.exports = [
     rarity: 4,
     photo: 'sitruunavastarakki.jpg',
     photographer: 'Kuutti Korhonen',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/sitruunavastarakki'
+    detectLink:
+      'https://www.luontoportti.com/suomi/fi/linnut/sitruunavastarakki'
   },
   {
     id: 'b-230',
@@ -3217,7 +3218,7 @@ module.exports = [
     rarity: 4,
     photo: 'virtavastarakki.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/virtavastarakki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/virtavastarakki'
   },
   {
     id: 'b-231',
@@ -3231,7 +3232,7 @@ module.exports = [
     rarity: 5,
     photo: 'sepelrastas.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/sepelrastas'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/sepelrastas'
   },
   {
     id: 'b-232',
@@ -3301,7 +3302,7 @@ module.exports = [
     rarity: 4,
     photo: 'viitatiainen.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/viitatiainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/viitatiainen'
   },
   {
     id: 'b-237',
@@ -3315,7 +3316,7 @@ module.exports = [
     rarity: 4,
     photo: 'kuhankeittaja.jpg',
     photographer: 'Liam Sanchez',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kuhankeittaja'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kuhankeittaja'
   },
   {
     id: 'b-238',
@@ -3329,7 +3330,7 @@ module.exports = [
     rarity: 5,
     photo: 'keltahemppo.jpg',
     photographer: 'Lasse Kokko',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/keltahemppo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/keltahemppo'
   },
   {
     id: 'b-239',
@@ -3343,7 +3344,7 @@ module.exports = [
     rarity: 5,
     photo: 'vuorihemppo.jpg',
     photographer: 'Kuutti Korhonen',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/vuorihemppo'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/vuorihemppo'
   },
   {
     id: 'b-240',
@@ -3358,7 +3359,7 @@ module.exports = [
     photo: 'kirjosiipikapylintu.jpg',
     photographer: 'Kari Isokivijärvi',
     detectLink:
-      'http://www.luontoportti.com/suomi/fi/linnut/kirjosiipikapylintu'
+      'https://www.luontoportti.com/suomi/fi/linnut/kirjosiipikapylintu'
   },
   {
     id: 'b-241',
@@ -3372,7 +3373,7 @@ module.exports = [
     rarity: 4,
     photo: 'pohjansirkku.jpg',
     photographer: 'Osmo Heikkala',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pohjansirkku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pohjansirkku'
   },
   {
     id: 'b-242',
@@ -3386,7 +3387,7 @@ module.exports = [
     rarity: 5,
     photo: 'pikkusirkku.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/pikkusirkku'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/pikkusirkku'
   },
   {
     id: 'b-243',
@@ -3400,7 +3401,7 @@ module.exports = [
     rarity: 5,
     photo: 'punakaulahanhi.jpg',
     photographer: 'pixabay.com',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/punakaulahanhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/punakaulahanhi'
   },
   {
     id: 'b-244',
@@ -3414,7 +3415,7 @@ module.exports = [
     rarity: 5,
     photo: 'sepelhanhi.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/sepelhanhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/sepelhanhi'
   },
   {
     id: 'b-245',
@@ -3428,7 +3429,7 @@ module.exports = [
     rarity: 5,
     photo: 'mandariinisorsa.jpg',
     photographer: 'Kuutti Korhonen',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mandariinisorsa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mandariinisorsa'
   },
   {
     id: 'b-246',
@@ -3540,7 +3541,7 @@ module.exports = [
     rarity: 5,
     photo: 'tunturihaukka.jpg',
     photographer: 'Hannu Majava',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tunturihaukka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tunturihaukka'
   },
   {
     id: 'b-254',
@@ -3582,7 +3583,7 @@ module.exports = [
     rarity: 5,
     photo: 'rantakurvi.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/rantakurvi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/rantakurvi'
   },
   {
     id: 'b-257',
@@ -3638,7 +3639,7 @@ module.exports = [
     rarity: 5,
     photo: 'idanuunilintu.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/idanuunilintu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/idanuunilintu'
   },
   {
     id: 'b-261',
@@ -3666,7 +3667,7 @@ module.exports = [
     rarity: 5,
     photo: 'hippiaisuunilintu.jpg',
     photographer: 'Kuutti Korhonen',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/hippiaisuunilintu'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/hippiaisuunilintu'
   },
   {
     id: 'b-263',
@@ -3750,7 +3751,7 @@ module.exports = [
     rarity: 5,
     photo: 'lyhytnokkahanhi.jpg',
     photographer: 'Jyri Lyytikäinen',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/lyhytnokkahanhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/lyhytnokkahanhi'
   },
   {
     id: 'b-269',
@@ -3764,7 +3765,7 @@ module.exports = [
     rarity: 5,
     photo: 'kattohaikara.jpg',
     photographer: 'Henrikki Hetemaa',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kattohaikara'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kattohaikara'
   },
   {
     id: 'b-270',
@@ -4226,7 +4227,7 @@ module.exports = [
     rarity: 3,
     photo: 'taviokuurna.jpg',
     photographer: 'Henrikki Hetemaa',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/taviokuurna'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/taviokuurna'
   },
   {
     id: 'b-303',
@@ -4240,7 +4241,7 @@ module.exports = [
     rarity: 5,
     photo: 'kuovisirri.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kuovisirri'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kuovisirri'
   },
   {
     id: 'b-304',
@@ -4268,7 +4269,7 @@ module.exports = [
     rarity: 5,
     photo: 'tundrakurmitsa.jpg',
     photographer: 'Heikki Vuonokari',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tundrakurmitsa'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tundrakurmitsa'
   },
   {
     id: 'b-306',
@@ -4352,7 +4353,7 @@ module.exports = [
     rarity: 5,
     photo: 'merisirri.jpg',
     photographer: 'Juho Tirkkonen',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/merisirri'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/merisirri'
   },
   {
     id: 'b-312',
@@ -4422,7 +4423,7 @@ module.exports = [
     rarity: 5,
     photo: 'tiibetinhanhi.jpg',
     photographer: 'Eino Hiekkanen',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/tiibetinhanhi'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/tiibetinhanhi'
   },
   {
     id: 'b-317',
@@ -4434,9 +4435,9 @@ module.exports = [
     nameLatin: 'Somateria spectabilis',
     nameEn: 'King Eider',
     rarity: 4,
-    photo: 'birderkuva.jpg',
-    photographer: '',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/kyhmyhaahka'
+    photo: 'kyhmyhaahka.jpg',
+    photographer: 'Mette Skyttä',
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kyhmyhaahka'
   },
   {
     id: 'b-318',
@@ -4464,7 +4465,7 @@ module.exports = [
     rarity: 5,
     photo: 'birderkuva.jpg',
     photographer: '',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/allihaahka'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/allihaahka'
   },
   {
     id: 'b-320',
@@ -4492,7 +4493,7 @@ module.exports = [
     rarity: 5,
     photo: 'mustahaikara.jpg',
     photographer: 'Terho Kaikkonen',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/mustahaikara'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/mustahaikara'
   },
   {
     id: 'b-322',
@@ -4520,7 +4521,7 @@ module.exports = [
     rarity: 4,
     photo: 'birderkuva.jpg',
     photographer: '',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/viiriainen'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/viiriainen'
   },
   {
     id: 'b-324',
@@ -4576,7 +4577,7 @@ module.exports = [
     rarity: 5,
     photo: 'isolokki.jpg',
     photographer: 'Terho Kaikkonen',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/isolokki'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/isolokki'
   },
   {
     id: 'b-328',
@@ -4590,7 +4591,7 @@ module.exports = [
     rarity: 5,
     photo: 'avosetti.jpg',
     photographer: 'Terho Kaikkonen',
-    detectLink: 'http://www.luontoportti.com/suomi/fi/linnut/avosetti'
+    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/avosetti'
   },
   {
     id: 'b-329',
@@ -4770,8 +4771,8 @@ module.exports = [
     nameLatin: 'Calidris subruficollis',
     nameEn: '',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'tundravikla.jpg',
+    photographer: 'Terho Kaikkonen',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Tundravikla'
   },
   {
@@ -4812,8 +4813,8 @@ module.exports = [
     nameLatin: 'Stercorarius skua',
     nameEn: '',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'isokihu.jpg',
+    photographer: 'Mette Skyttä',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Isokihu'
   },
   {
@@ -4938,8 +4939,8 @@ module.exports = [
     nameLatin: 'Aythya collaris',
     nameEn: '',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'amerikantukkasotka.jpg',
+    photographer: 'Mette Skyttä',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Amerikantukkasotka'
   },
   {
@@ -5026,5 +5027,19 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.wikipedia.org/wiki/Kentt%C3%A4kerttunen'
+  },
+  {
+    id: 'b-360',
+    orderLatin: '',
+    orderFi: '',
+    familyLatin: '',
+    familyFi: '',
+    nameFi: 'Suula',
+    nameLatin: 'Morus bassanus',
+    nameEn: '',
+    rarity: 5,
+    photo: 'suula.jpg',
+    photographer: 'Mette Skyttä',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Suula'
   }
 ]

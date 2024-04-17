@@ -14,6 +14,10 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.29.1"
+            notes={['Korjauksia lintujen lisätietolinkkeihin']}
+          />
+          <Release
             release="0.29.0"
             notes={[
               'Havaintoihin voi lisätä muistiinpanoja',
@@ -209,7 +213,7 @@ export function WhatIsBirder() {
               rel="noopener noreferrer"
               href="https://www.instagram.com/sikurisankari/"
             >
-              @sikurisankari
+              @jaakkokj
             </a>
             ).
           </p>
@@ -276,43 +280,57 @@ export function Functionalities() {
             "Tilastot" näkymässä pääset näkemään oman sijoituksesi Birder
             käyttäjien keskuudessa. Yhdestä havaitusta linnusta saa yhden
             "pinnan", eli pinnat kertovat kuinka monta eri lintulajia olet
-            vuosittain havainnut. Tilastosivu tulee kehittymään runsaasti
-            lähitulevaisuudessa.
+            vuosittain havainnut. Tilastosivu kertoo myös kunkin lintulajin
+            varhaisimman havaitsijan ja havainnon päivämäärän.
           </p>
 
           <p>
-            "Profiili" näkymän avulla voit halutessasi syöttää nimen tai
-            nimimerkin Birderiin. Nimimerkin avulla myös kaverisi pystyvät
-            seuraamaan lintuhavaintojesi kehittymistä.
+            ”Kaverit” näkymän avulla löydät oman kaveritunnuksesi, voit jakaa
+            tunnuksen toiselle Birder -käyttäjälle esim. tekstiviestillä. Voit
+            siis laittaa kaveripyyntöjä, kun tiedät kaverisi tunnuksen.
+            Hyväksytyn pyynnön jälkeen pääset tarkastelemaan kaverisi
+            lintuhavaintoja.
           </p>
 
-          <h4>Lintuhavainnon merkkaaminen</h4>
+          <p>
+            "Omat tiedot" näkymän avulla voit halutessasi syöttää nimen tai
+            nimimerkin Birderiin. Nimimerkin avulla myös kaverisi pystyvät
+            seuraamaan lintuhavaintojesi kehittymistä. Omat tiedot näkymän
+            kautta voit ladata lintuhavaintosi CSV-tiedostona, eli esimerkiksi
+            exceliin.
+          </p>
+
+          <p>
+            <b>Lintuhavainnon merkkaaminen</b>
+          </p>
 
           <p>
             Birderin ensimmäisestä versiosta löytyvät kaikki Suomessa yleisemmin
             tavattavat linnut. Lintuja haetaan "Pinnat" - näkymässä
             (kiikarisymboli) sijaitsevassa aakkosjärjestyksessä olevasta
-            luettelosta tai hakukentän avulla.
+            luettelosta tai hakukentän avulla. Kun valitset havaitsemasi linnun
+            luettelosta ja klikkaat "Lisää havainto", niin seuraavaksi avautuu
+            havainnon muokkausnäkymä. Tässä näkymässä merkataan ensimmäiseksi
+            havaintopäivämäärä, oletuksena on "tämä päivä", mutta voi merkata
+            myös menneisyydessä olevan havainnon.
           </p>
 
           <p>
-            Kun valitset havaitsemasi linnun luettelosta ja klikkaat "Lisää
-            havainto", niin seuraavaksi avautuu havainnon muokkausnäkymä. Tässä
-            näkymässä merkataan ensimmäiseksi havaintopäivämäärä, oletuksena on
-            "tämä päivä", mutta voi merkata myös menneisyydessä olevan
-            havainnon.
+            Voit lisätä havainnosta muistiinpanoja omin sanoin.
+            Muistiinpanokentässä oleva tieto on löydettävissä hakutoiminnon
+            avulla.
           </p>
 
           <p>
             Seuraavaksi voit lisätä linnun havaintopaikan. Havaintopaikka
-            merkataan kartalta. Klikkaamalla kartan vasemmassa yläreunassa
-            olevaa "ukkopainiketta", niin kartta kohdistuu puhelimen
-            sijaintipaikkaan. Muista pitää puhelimen GPS-sijainti päällä. Voit
-            myös merkata paikan vierittämällä ja zoomaamalla karttaa, sekä
-            täppäämällä havaintopaikan sormella karttaan. Sijainnin voi myös
-            jättää halutessaan laittamatta. Lopuksi havainto tallentetaan
-            "tallenna" -painikkeesta. Jokaista lintuhavaintoa voi jälkikäteen
-            muokata tai havainnon voi myös poistaa.
+            merkataan klikkaamalla ”käytä sijaintiani" -painiketta, niin kartta
+            kohdistuu puhelimen sijaintipaikkaan. Muista pitää puhelimen
+            GPS-sijainti päällä. Voit myös merkata paikan vierittämällä ja
+            zoomaamalla karttaa, sekä täppäämällä havaintopaikan sormella
+            karttaan. Sijainnin voi myös jättää halutessaan laittamatta. Lopuksi
+            havainto tallentetaan "tallenna" -painikkeesta. Jokaista
+            lintuhavaintoa voi jälkikäteen muokata tai havainnon voi myös
+            poistaa.
           </p>
         </Typography>
       </ExpansionPanelDetails>
@@ -341,7 +359,7 @@ export function HowToStart() {
             Koska Birder ei ole lintujentunnistukseen tarkoitettu sovellus, niin
             suosittelemme hyvän lintukirjan ja kiikareiden hankintaa. Myös
             lintujen valokuvaaminen ja kuvista myöhemmin tapahtuva tunnistaminen
-            on kätevä tapa oppia ja tunnistaa lintuja.{' '}
+            on kätevä tapa oppia ja tunnistaa lintuja.
           </p>
 
           <p>
@@ -391,6 +409,16 @@ export function HowToStart() {
             >
               tunnista yleisimmät linnut
             </a>
+          </p>
+
+          <p>
+            Muuttolintujen kevät -niminen sovellus tuntee 150 suomalaisen
+            lintulajin laulun. Sovellukseen nauhoitetaan muuttolinnun laulua.
+          </p>
+
+          <p>
+            Birdnet -niminen sovellus mainostaa tunnistavansa yli 3000 lajia
+            linnun laulun perusteella.
           </p>
         </Typography>
       </ExpansionPanelDetails>
