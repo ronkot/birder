@@ -14,6 +14,10 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.30.0"
+            notes={['Lisätty mustajalkatylli. Korjattu rikkinäisiä kuvia.']}
+          />
+          <Release
             release="0.29.1"
             notes={['Korjauksia lintujen lisätietolinkkeihin']}
           />

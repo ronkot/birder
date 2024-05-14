@@ -5043,5 +5043,19 @@ module.exports = [
     photo: 'suula.jpg',
     photographer: 'Mette Skyttä',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Suula'
+  },
+  {
+    id: 'b-361',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Charadriidae',
+    familyFi: 'Kurmitsat',
+    nameFi: 'Mustajalkatylli',
+    nameLatin: 'Charadrius alexandrinus',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.wikipedia.org/wiki/Mustajalkatylli'
   }
 ]
