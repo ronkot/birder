@@ -5040,7 +5040,7 @@ module.exports = [
     nameLatin: 'Morus bassanus',
     nameEn: '',
     rarity: 5,
-    photo: 'suula.jpg',
+    photo: 'birderkuva.jpg',
     photographer: 'Mette Skyttä',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Suula'
   },
@@ -5057,5 +5057,33 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.wikipedia.org/wiki/Mustajalkatylli'
+  },
+  {
+    id: 'b-362',
+    orderLatin: 'Anseriformes',
+    orderFi: 'Sorsalinnut',
+    familyLatin: 'Anatidae',
+    familyFi: 'Sorsat',
+    nameFi: 'Nokisorsa',
+    nameLatin: 'Anas rubripes',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.wikipedia.org/wiki/Nokisorsa'
+  },
+  {
+    id: 'b-363',
+    orderLatin: 'Anseriformes',
+    orderFi: 'Sorsalinnut',
+    familyLatin: 'Anatidae',
+    familyFi: 'Sorsat',
+    nameFi: 'Eskimohanhi',
+    nameLatin: 'Anser rossii',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.wikipedia.org/wiki/Eskimohanhi'
   }
 ]
