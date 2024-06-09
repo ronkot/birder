@@ -42,18 +42,18 @@ export function selectProfile(state) {
 
 export function selectOwnFindings(state) {
   const user = selectUser(state)
-  return getVal(state.firestore.ordered, `findings`, []).filter(
-    (finding) => finding.user === user.uid
-  )
+  return getVal(state.firestore.ordered, `findings`, [])
+    .filter((finding) => finding.user === user.uid)
+    .sort((a, b) => a.date.localeCompare(b.date))
 }
 
 export function selectFriendFindings(state) {
   const appState = selectAppState(state)
   const {friendId} = appState
   console.log('selectFriendFindings', friendId)
-  return getVal(state.firestore.ordered, `findings`, []).filter(
-    (finding) => finding.user === friendId
-  )
+  return getVal(state.firestore.ordered, `findings`, [])
+    .filter((finding) => finding.user === friendId)
+    .sort((a, b) => a.date.localeCompare(b.date))
 }
 
 export function selectCurrentYearFindingsForViewType(state) {
