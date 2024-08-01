@@ -5038,7 +5038,7 @@ module.exports = [
     nameLatin: 'Morus bassanus',
     nameEn: '',
     rarity: 5,
-    photo: 'birderkuva.jpg',
+    photo: 'suula.jpg',
     photographer: 'Mette Skyttä',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Suula'
   },
@@ -5083,5 +5083,61 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.wikipedia.org/wiki/Eskimohanhi'
+  },
+  {
+    id: 'b-364',
+    orderLatin: 'Passeriformes',
+    orderFi: 'Varpuslinnut',
+    familyLatin: 'Emberizidae',
+    familyFi: 'Sirkut',
+    nameFi: 'Pikkupajusirkku',
+    nameLatin: 'Schoeniclus pallasi',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Pikkupajusirkku'
+  },
+  {
+    id: 'b-365',
+    orderLatin: 'Charadriiformes',
+    orderFi: 'Rantalinnut',
+    familyLatin: 'Alcidae',
+    familyFi: 'Ruokit',
+    nameFi: 'Lunni',
+    nameLatin: 'Fratercula arctica',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Lunni'
+  },
+  {
+    id: 'b-366',
+    orderLatin: 'Pelecaniformes',
+    orderFi: 'Pelikaanilinnut',
+    familyLatin: 'Phalacrocoracidae',
+    familyFi: 'Merimetsot',
+    nameFi: 'Karimetso',
+    nameLatin: 'Phalacrocorax aristotelis',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/Karimetso'
+  },
+  {
+    id: 'b-367',
+    orderLatin: 'Ciconiiformes',
+    orderFi: 'Haikaralinnut',
+    familyLatin: 'Ardeidae',
+    familyFi: 'Haikarat',
+    nameFi: 'Rääkkähaikara',
+    nameLatin: 'Ardeola ralloides',
+    nameEn: '',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.m.wikipedia.org/wiki/R%C3%A4%C3%A4kk%C3%A4haikara'
   }
 ]
