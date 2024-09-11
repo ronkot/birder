@@ -3049,7 +3049,7 @@ module.exports = [
     rarity: 5,
     photo: 'heinakurppa.jpg',
     photographer: 'Kari Isokivijärvi',
-    detectLink: 'https://www.luontoportti.com/suomi/fi/linnut/kerakurmitsa'
+    detectLink: 'https://luontoportti.com/t/1684/heinakurppa'
   },
   {
     id: 'b-219',
@@ -5139,5 +5139,19 @@ module.exports = [
     photo: 'birderkuva.jpg',
     photographer: '',
     detectLink: 'https://fi.m.wikipedia.org/wiki/R%C3%A4%C3%A4kk%C3%A4haikara'
+  },
+  {
+    id: 'b-368',
+    orderLatin: 'Ciconiiformes',
+    orderFi: 'Haikaralinnut',
+    familyLatin: 'ciconiidae',
+    familyFi: 'Iiibikset',
+    nameFi: 'Pronssi-iibis',
+    nameLatin: 'Plegadis falcinellus',
+    nameEn: 'Glossy Ibis',
+    rarity: 5,
+    photo: 'birderkuva.jpg',
+    photographer: '',
+    detectLink: 'https://fi.wikipedia.org/wiki/Pronssi-iibis'
   }
 ]
