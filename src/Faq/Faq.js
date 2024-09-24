@@ -14,6 +14,10 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.35.0"
+            notes={['Lisätty graafi havaintojen vuotuisalle kertymiselle']}
+          />
+          <Release
             release="0.34.0"
             notes={['Lisätty pronssi-ibis. Korjattu heinäkurpan infolinkki. ']}
           />

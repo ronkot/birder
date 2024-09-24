@@ -13,6 +13,9 @@ import {isMenuOpen} from './SideMenu/SideMenuRedux'
 import {currentYear} from './utils'
 import {appReducer} from './AppRedux'
 
+// Move the SET_YEAR constant to the top of the file
+export const SET_YEAR = 'SET_YEAR'
+
 export const initialState = {
   birds,
 
@@ -23,6 +26,24 @@ export const initialState = {
   birdexVisibilityFilter: 'all', // [seen, unseen]
   isMenuOpen: false,
   year: currentYear()
+}
+
+// Define the year reducer
+function year(state = currentYear(), action) {
+  switch (action.type) {
+    case SET_YEAR:
+      return action.year
+    default:
+      return state
+  }
+}
+
+// Action creator for setting the year
+export function setYear(year) {
+  return {
+    type: SET_YEAR,
+    year: year === 'all' ? 'all' : +year
+  }
 }
 
 export default combineReducers({
@@ -37,20 +58,3 @@ export default combineReducers({
   year,
   app: appReducer
 })
-
-// TODO: Move to own file
-export const SET_YEAR = 'SET_YEAR'
-function year(state = currentYear(), action) {
-  switch (action.type) {
-    case SET_YEAR:
-      return action.year
-    default:
-      return state
-  }
-}
-export function setYear(year) {
-  return {
-    type: SET_YEAR,
-    year: year === 'all' ? 'all' : +year
-  }
-}
