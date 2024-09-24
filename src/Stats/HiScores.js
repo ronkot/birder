@@ -166,24 +166,26 @@ const CumulativeFindings = ({findings, activeYear}) => {
   }, [yearlyData])
 
   // Create an array of 12 months, each containing cumulative findings per year
-  const data = Array(12)
-    .fill(0)
-    .map((_, month) => {
-      // Initialize object for this month with month number
-      const monthData = {month: month + 1}
+  const data = useMemo(() => {
+    return Array(12)
+      .fill(0)
+      .map((_, month) => {
+        // Initialize object for this month with month number
+        const monthData = {month: month + 1}
 
-      // For each year, calculate cumulative findings up to this month
-      years.forEach((year) => {
-        let cumulative = 0
-        for (let i = 0; i <= month; i++) {
-          cumulative += yearlyData[year][i]
-        }
-        // Store cumulative value for this year and month
-        monthData[year] = cumulative
+        // For each year, calculate cumulative findings up to this month
+        years.forEach((year) => {
+          let cumulative = 0
+          for (let i = 0; i <= month; i++) {
+            cumulative += yearlyData[year][i]
+          }
+          // Store cumulative value for this year and month
+          monthData[year] = cumulative
+        })
+
+        return monthData
       })
-
-      return monthData
-    })
+  }, [yearlyData, years])
 
   const [enabledYears, setEnabledYears] = useState(
     activeYear === 'all' ? years : [activeYear.toString()]
@@ -200,10 +202,6 @@ const CumulativeFindings = ({findings, activeYear}) => {
       setEnabledYears([...enabledYears, year])
     }
   }
-
-  console.log({
-    enabledYears
-  })
 
   const colors = [
     '#1f77b4',
