@@ -236,7 +236,7 @@ const CumulativeFindings = ({findings, activeYear}) => {
       style={{
         marginBottom: 40,
         paddingTop: 30,
-        paddingRight: 20,
+        paddingRight: 0,
         paddingBottom: 20,
         paddingLeft: 0
       }}
@@ -260,7 +260,7 @@ const CumulativeFindings = ({findings, activeYear}) => {
             ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
             tickFormatter={(tick) => finnishMonths[tick - 1]}
           />
-          <YAxis />
+          <YAxis width={20} />
           <Tooltip />
           <Legend
             onClick={(e) => toggleYear(e.dataKey)}

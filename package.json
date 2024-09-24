@@ -33,6 +33,7 @@
     "start:bundler": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "npm run build && firebase deploy",
+    "deploy:hosting": "npm run build && firebase deploy --only hosting",
     "test": "react-scripts test",
     "start:emulator": "firebase emulators:start --import=./firestore-dev-data --export-on-exit"
   },
