@@ -14,6 +14,10 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.36.0"
+            notes={['Lisätty TOP-10 -lista varhaisista havainnoista']}
+          />
+          <Release
             release="0.35.0"
             notes={['Lisätty graafi havaintojen vuotuisalle kertymiselle']}
           />

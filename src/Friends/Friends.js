@@ -55,7 +55,7 @@ const Friends = ({
       <Paper style={{padding: 10}}>
         <Typography variant="body1">
           {!profile.shortId &&
-            'Oman kaveritunnuksen luonnissa on tapahtunut virhe. Pahoittelemme tapahtunutta! Otathan yhteyttä birdergame@gmail.com.'}
+            'Oman kaveritunnuksen luonnissa on tapahtunut virhe. Pahoittelumme!! Otathan yhteyttä birdergame@gmail.com.'}
           {profile.shortId && (
             <span>
               Oma kaveritunnus: <b>{profile.shortId}</b>

@@ -52,6 +52,28 @@ async function updateUserTopScorePlayerNames(userId, playerName) {
   }
 }
 
+async function updateUserLatestFindingsPlayerNames(userId, playerName) {
+  const latestFindingsSnapshot = await db
+    .collection('latestFindings')
+    .where('user', '==', userId)
+    .get()
+
+  for (const latestFinding of latestFindingsSnapshot.docs) {
+    console.log(
+      'updating latest finding',
+      latestFinding.id,
+      'player name to ',
+      playerName
+    )
+    await db
+      .collection('latestFindings')
+      .doc(latestFinding.id)
+      .update({
+        playerName
+      })
+  }
+}
+
 async function checkForConflictingPlayerName(userId, playerName) {
   const usersWithSamePlayerName = await db
     .collection('users')

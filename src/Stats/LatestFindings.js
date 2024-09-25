@@ -56,12 +56,41 @@ class Stats extends Component {
       }
     )
 
+    const topPlayers = latestFindingsWithBirds
+      .reduce((acc, finding) => {
+        const player = acc.find((p) => p.id === finding.user)
+        if (player) {
+          player.count++
+        } else {
+          acc.push({
+            id: finding.user,
+            name: finding.playerName,
+            count: 1
+          })
+        }
+        return acc
+      }, [])
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10)
+
     return (
       <div>
         <h1>Varhaisimmat havainnot</h1>
         <Paper style={{padding: '20px', color: 'black', marginBottom: '20px'}}>
           Lajeja yhteensä: <b>{latestFindingsWithBirds.length}</b>
         </Paper>
+
+        <Paper style={{padding: '20px', color: 'black', marginBottom: '20px'}}>
+          <h2>Eniten ensihavaintoja</h2>
+          <ol>
+            {topPlayers.map((player) => (
+              <li key={player.id}>
+                {player.name || '(Ei pelaajanimeä)'}: {player.count} havaintoa
+              </li>
+            ))}
+          </ol>
+        </Paper>
+
         <Paper>
           <Table padding="dense">
             <TableHead>
