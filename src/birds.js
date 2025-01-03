@@ -5108,8 +5108,8 @@ module.exports = [
     nameLatin: 'Fratercula arctica',
     nameEn: '',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'lunni.jpg',
+    photographer: 'T. Juhani',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Lunni'
   },
   {
@@ -5122,8 +5122,8 @@ module.exports = [
     nameLatin: 'Phalacrocorax aristotelis',
     nameEn: '',
     rarity: 5,
-    photo: 'birderkuva.jpg',
-    photographer: '',
+    photo: 'karimetso.jpg',
+    photographer: 'T. Juhani',
     detectLink: 'https://fi.m.wikipedia.org/wiki/Karimetso'
   },
   {

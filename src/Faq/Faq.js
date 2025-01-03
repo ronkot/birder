@@ -14,6 +14,12 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.36.1"
+            notes={[
+              'Lisätty kuvat lunnille ja karimetsolle. Kiitos kuvista T. Juhani!'
+            ]}
+          />
+          <Release
             release="0.36.0"
             notes={['Lisätty TOP-10 -lista varhaisista havainnoista']}
           />
