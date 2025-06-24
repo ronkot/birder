@@ -14,6 +14,12 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.37.0"
+            notes={[
+              'Lisätty aasianpääskykahlaaja'
+            ]}
+          />
+          <Release
             release="0.36.1"
             notes={[
               'Lisätty kuvat lunnille ja karimetsolle. Kiitos kuvista T. Juhani!'
@@ -180,11 +186,11 @@ export function ChangeLog() {
   )
 }
 
-const Release = ({release, notes}) => {
+const Release = ({ release, notes }) => {
   return (
     <>
       <b>{release}</b>
-      <ul style={{paddingLeft: '15px'}}>
+      <ul style={{ paddingLeft: '15px' }}>
         {notes.map((note, i) => (
           <li key={i}>{note}</li>
         ))}

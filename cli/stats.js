@@ -11,7 +11,7 @@ const db = new Firestore({
   keyFilename: env.firebaseCredentialsFile
 })
 
-const YEAR = '2022'
+const YEAR = '2024'
 const FINDINGS_FILE = `findings-${YEAR}.json`
 const COORDINATES_FILE = `coordinates-${YEAR}.txt`
 
@@ -25,6 +25,7 @@ async function getData() {
   const snapshot = await db
     .collection('findings')
     .where('date', '>=', `${YEAR}-01-01`)
+    .where('date', '<', `${YEAR + 1}-01-01`)
     .get()
   const data = snapshot.docs.map((doc) => doc.data())
   writeFileSync(FINDINGS_FILE, JSON.stringify(data))
