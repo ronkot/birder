@@ -5166,5 +5166,19 @@ module.exports = [
     "photo": "birderkuva.jpg",
     "photographer": "",
     "detectLink": "https://fi.m.wikipedia.org/wiki/Aasianp%C3%A4%C3%A4skykahlaaja"
+  },
+  {
+    "id": "b-370",
+    "orderLatin": "Passeriformes",
+    "orderFi": "Varpuslinnut",
+    "familyLatin": "Motacillidae",
+    "familyFi": "Västäräkit",
+    "nameFi": "Vuorikirvinen",
+    "nameLatin": "Anthus spinoletta",
+    "nameEn": "",
+    "rarity": 5,
+    "photo": "birderkuva.jpg",
+    "photographer": "",
+    "detectLink": "https://fi.m.wikipedia.org/wiki/Vuorikirvinen"
   }
 ]

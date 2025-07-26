@@ -14,6 +14,12 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.38.0"
+            notes={[
+              'Lisätty vuorikirvinen'
+            ]}
+          />
+          <Release
             release="0.37.0"
             notes={[
               'Lisätty aasianpääskykahlaaja'
