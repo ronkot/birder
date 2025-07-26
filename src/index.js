@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {createStore, compose, applyMiddleware} from 'redux'
-import {Provider} from 'react-redux'
-import {reactReduxFirebase, getFirebase} from 'react-redux-firebase'
-import {reduxFirestore} from 'redux-firestore'
+import { createStore, compose, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
+import { reduxFirestore } from 'redux-firestore'
 import thunk from 'redux-thunk'
 import moment from 'moment'
 import 'moment/locale/fi'
@@ -14,9 +14,21 @@ import './index.css'
 import firebase from './firebase/firebase'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import rootReducer, {initialState} from './reducers'
+import rootReducer, { initialState } from './reducers'
 import env from './env'
 import version from './version'
+
+// Store current version in localStorage to detect updates
+const storedVersion = localStorage.getItem('birder-version')
+if (storedVersion && storedVersion !== version) {
+  // Version has changed, clear cache and reload
+  localStorage.setItem('birder-version', version)
+  if ('serviceWorker' in navigator) {
+    serviceWorker.clearCacheAndReload()
+  }
+} else {
+  localStorage.setItem('birder-version', version)
+}
 
 smoothscroll.polyfill() // Polyfills http://iamdustan.com/smoothscroll/
 
@@ -60,20 +72,13 @@ serviceWorker.register({
     const waitingServiceWorker = registration.waiting
 
     if (waitingServiceWorker) {
-      /*
       waitingServiceWorker.addEventListener('statechange', (event) => {
         if (event.target.state === 'activated') {
-          if (
-            window.confirm(
-              `Uusi versio on saatavilla. Haluatko ottaa sen heti käyttöösi?`
-            )
-          ) {
-            window.location.reload()
-          }
+          // Force reload to get the new version
+          window.location.reload()
         }
       })
-      */
-      waitingServiceWorker.postMessage({type: 'SKIP_WAITING'})
+      waitingServiceWorker.postMessage({ type: 'SKIP_WAITING' })
     }
   },
   onSuccess: (registration) => {
