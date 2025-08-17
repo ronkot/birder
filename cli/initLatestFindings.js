@@ -13,11 +13,11 @@ console.log(env)
 async function init() {
   const snapshot = await db
     .collection('findings')
-    .where('date', '>=', '2019-01-01')
+    .where('date', '>=', '2025-01-01')
     .get()
 
   const data = snapshot.docs.map((doc) => doc.data())
-  const byBird = _.groupBy(data, ({date, bird}) => {
+  const byBird = _.groupBy(data, ({ date, bird }) => {
     const year = date.slice(0, 4)
     return `${year}-${bird}`
   })

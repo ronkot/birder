@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/node": "^7.8.7",
+    "@babel/core": "^7.28.3",
+    "@babel/node": "^7.28.0",
     "@google-cloud/firestore": "^4.15.1",
     "babel-preset-env": "^1.7.0",
     "gm": "^1.23.1",
