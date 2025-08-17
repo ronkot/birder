@@ -1,4 +1,4 @@
-import {functions} from '../firebase/firebase'
+import { functions } from '../firebase/firebase'
 
 const updateProfileFunction = functions.httpsCallable('updateProfile')
 

@@ -1,5 +1,5 @@
 import toast from 'react-hot-toast'
-import {functions} from '../firebase/firebase'
+import { functions } from '../firebase/firebase'
 
 export async function sendFriendRequest(friendShortId) {
   console.log('sendFriendRequest', friendShortId)

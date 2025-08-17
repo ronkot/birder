@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
-import { reduxFirestore } from 'redux-firestore'
+import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase'
+import { createFirestoreInstance } from 'redux-firestore'
 import thunk from 'redux-thunk'
 import moment from 'moment'
 import 'moment/locale/fi'
@@ -23,14 +23,17 @@ const storedVersion = localStorage.getItem('birder-version')
 if (storedVersion && storedVersion !== version) {
   // Version has changed, clear cache and reload
   localStorage.setItem('birder-version', version)
-  if ('serviceWorker' in navigator) {
-    serviceWorker.clearCacheAndReload()
+  // Clear all caches
+  if ('caches' in window) {
+    caches.keys().then(function (names) {
+      for (let name of names) caches.delete(name)
+    })
   }
+  // Force page reload
+  window.location.reload(true)
 } else {
   localStorage.setItem('birder-version', version)
 }
-
-smoothscroll.polyfill() // Polyfills http://iamdustan.com/smoothscroll/
 
 moment.locale('fi')
 
@@ -41,52 +44,45 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-// react-redux-firebase options
-const config = {
+// react-redux-firebase config
+const rrfConfig = {
   userProfile: 'users',
   useFirestoreForProfile: true,
-  enableLogging: true
+  enableLogging: false // Reduce logging in compat mode
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
+// Create store without Firebase enhancers (v3+ uses React context instead)
 const store = createStore(
   rootReducer,
   initialState,
   composeEnhancers(
-    applyMiddleware(thunk.withExtraArgument(getFirebase)),
-    reactReduxFirebase(firebase, config),
-    reduxFirestore(firebase)
+    applyMiddleware(thunk.withExtraArgument(getFirebase))
   )
 )
 
+// react-redux-firebase v3+ props for ReactReduxFirebaseProvider
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance // needed for firestore
+}
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ReactReduxFirebaseProvider {...rrfProps}>
+      <App />
+    </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById('root')
 )
 
-serviceWorker.register({
-  onUpdate: (registration) => {
-    const waitingServiceWorker = registration.waiting
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister()
 
-    if (waitingServiceWorker) {
-      waitingServiceWorker.addEventListener('statechange', (event) => {
-        if (event.target.state === 'activated') {
-          // Force reload to get the new version
-          window.location.reload()
-        }
-      })
-      waitingServiceWorker.postMessage({ type: 'SKIP_WAITING' })
-    }
-  },
-  onSuccess: (registration) => {
-    /**
-     * Could show "offline mode available" message here, but let's not do it
-     * before create react app allows speciying the resources to be cached.
-     * Currently the resources in public/ folder aren't cached, but thre's a CRA PR
-     * that will allow configuring paths to be cached.
-     */
-  }
-})
+// kick off the polyfill!
+smoothscroll.polyfill()

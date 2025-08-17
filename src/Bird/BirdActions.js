@@ -1,7 +1,7 @@
-import firebase, {db} from '../firebase/firebase'
-import {selectUser} from '../selectors'
+import firebase, { db } from '../firebase/firebase'
+import { selectUser } from '../selectors'
 
-export const saveFinding = ({id = null, bird, date, place, notes}) => (
+export const saveFinding = ({ id = null, bird, date, place, notes }) => (
   dispatch,
   getState
 ) => {

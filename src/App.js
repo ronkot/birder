@@ -1,37 +1,42 @@
-import React, {Component, PureComponent} from 'react'
-import {Router, Route, Switch, Redirect} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {Toaster} from 'react-hot-toast'
+import React, { Component, PureComponent } from 'react'
+import { Router, Switch, Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Toaster } from 'react-hot-toast'
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 import Sidebar from 'react-sidebar'
+import PropTypes from 'prop-types'
+import { isEmpty, isLoaded } from 'react-redux-firebase'
 
 import './App.css'
+
 import Birdex from './Birdex/Birdex'
 import Bird from './Bird/Bird'
 import Achievements from './Achievements/Achievements'
 import Achievement from './Achievement/Achievement'
+import Faq from './Faq/Faq'
+import Map from './Map/Map'
 import SignIn from './SignIn/SignIn'
 import TopBar from './TopBar/TopBar'
 import Stats from './Stats/Stats'
 import LatestFindings from './Stats/LatestFindings'
 import HiScores from './Stats/HiScores'
-import firebase from './firebase/firebase'
 import Profile from './Profile/Profile'
 import About from './About/About'
 import history from './history'
 import SideMenu from './SideMenu/SideMenu'
-import {setMenuState} from './SideMenu/SideMenuRedux'
+import { setMenuState } from './SideMenu/SideMenuRedux'
 import Friends from './Friends/Friends'
-import {selectFollowedFriendName} from './selectors'
-import {viewOwn} from './AppRedux'
+import { selectFollowedFriendName } from './selectors'
+import { viewOwn } from './AppRedux'
 
 class App extends Component {
   render() {
     const renderContent = () => {
-      if (firebase.isInitializing || !this.props.user.isLoaded) {
+      // Use react-redux-firebase v3+ auth checking
+      if (!isLoaded(this.props.auth)) {
         return <LoadingSplash />
-      } else if (this.props.user.isEmpty) {
+      } else if (isEmpty(this.props.auth)) {
         return <SignIn />
       } else {
         return <SignedInContent {...this.props} />
@@ -92,7 +97,7 @@ class SignedInContent extends Component {
               }}
             >
               Katsellaan kaveria {this.props.followedFriendName}. &nbsp;{' '}
-              <b onClick={this.props.stopWatching} style={{cursor: 'pointer'}}>
+              <b onClick={this.props.stopWatching} style={{ cursor: 'pointer' }}>
                 Takaisin omiin ➡
               </b>
             </div>
@@ -124,6 +129,7 @@ class SignedInContent extends Component {
 const mapStateToProps = (state) => ({
   followedFriendName: selectFollowedFriendName(state),
   user: state.firebase.profile,
+  auth: state.firebase.auth, // Add auth state for v3+ API
   initialized: state.initialized,
   isMenuOpen: state.isMenuOpen
 })
