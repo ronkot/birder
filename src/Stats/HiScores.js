@@ -9,7 +9,9 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Paper from '@material-ui/core/Paper'
+import TablePagination from '@material-ui/core/TablePagination'
 import {withRouter} from 'react-router-dom'
+import {isLoaded} from 'react-redux-firebase'
 import {
   LineChart,
   Line,
@@ -55,7 +57,20 @@ class Hiscores extends Component {
 class HiScores extends Component {
   state = {
     sortBy: 'findings',
-    sortDirection: 'desc'
+    sortDirection: 'desc',
+    page: 0,
+    rowsPerPage: 100
+  }
+
+  handleChangePage = (event, newPage) => {
+    this.setState({page: newPage})
+  }
+
+  handleChangeRowsPerPage = (event) => {
+    this.setState({
+      rowsPerPage: parseInt(event.target.value, 10),
+      page: 0
+    })
   }
 
   onSortByRequested = (sortBy) => {
@@ -72,9 +87,26 @@ class HiScores extends Component {
   }
 
   render() {
+    if (!this.props.hiscoresLoaded) {
+      return (
+        <div style={{textAlign: 'center', padding: 20}}>
+          <i className="fa fa-spinner fa-pulse" />
+        </div>
+      )
+    }
+
     const allTimeStats = this.props.year === 'all'
     const friendIds = this.props.friends.map((friend) => friend.friendId)
     const isFriend = (id) => friendIds.includes(id)
+    const ordered = orderBy(
+      [this.state.sortBy],
+      [this.state.sortDirection],
+      this.props.hiscores
+    )
+    const paginated = ordered.slice(
+      this.state.page * this.state.rowsPerPage,
+      this.state.page * this.state.rowsPerPage + this.state.rowsPerPage
+    )
     return (
       <div>
         <Paper>
@@ -104,11 +136,7 @@ class HiScores extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {orderBy(
-                [this.state.sortBy],
-                [this.state.sortDirection],
-                this.props.hiscores
-              ).map((score, i) => (
+              {paginated.map((score, i) => (
                 <TableRow
                   style={{
                     background: isFriend(score.user)
@@ -117,10 +145,11 @@ class HiScores extends Component {
                       ? 'lightblue'
                       : 'white'
                   }}
-                  key={i}
+                  key={i + this.state.page * this.state.rowsPerPage}
                 >
                   <TableCell component="th" scope="row">
-                    {i + 1}. {score.playerName || ''}{' '}
+                    {i + 1 + this.state.page * this.state.rowsPerPage}.{' '}
+                    {score.playerName || ''}{' '}
                     {isFriend(score.user) && (
                       <i
                         onClick={() => this.props.viewFriend(score.user)}
@@ -136,6 +165,15 @@ class HiScores extends Component {
               ))}
             </TableBody>
           </Table>
+          <TablePagination
+            component="div"
+            rowsPerPageOptions={[50, 100]}
+            count={ordered.length}
+            rowsPerPage={this.state.rowsPerPage}
+            page={this.state.page}
+            onChangePage={this.handleChangePage}
+            onChangeRowsPerPage={this.handleChangeRowsPerPage}
+          />
         </Paper>
       </div>
     )
@@ -300,7 +338,8 @@ export default compose(
       birds: selectBirds(state),
       year: state.year,
       friends: selectApprovedFriends(state),
-      findings: selectCurrentYearFindingsForViewType(state)
+      findings: selectCurrentYearFindingsForViewType(state),
+      hiscoresLoaded: isLoaded(state.firestore.ordered.hiscores)
     }),
     (dispatch, ownProps) => ({
       viewFriend: (friendId) =>
