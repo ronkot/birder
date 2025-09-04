@@ -1,61 +1,62 @@
 {
-  "name": "lintu",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "@sentry/browser": "^5.30.0",
-    "firebase": "^9.23.0",
-    "formik": "^1.5.8",
-    "leaflet": "^1.7.1",
-    "leaflet.markercluster": "^1.5.0",
-    "lodash": "^4.17.21",
-    "react": "^16.14.0",
-    "react-dates": "^21.8.0",
-    "react-dom": "^16.14.0",
-    "react-hot-toast": "^2.1.0",
-    "react-leaflet": "^2.8.0",
-    "react-leaflet-markercluster": "^2.0.0",
-    "react-redux": "^5.1.2",
-    "react-redux-firebase": "^3.11.0",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.1",
-    "react-sidebar": "^3.0.2",
-    "recharts": "^2.15.0",
-    "redux": "^4.1.0",
-    "redux-firestore": "^2.0.1",
-    "redux-thunk": "^2.3.0",
-    "smoothscroll-polyfill": "^0.4.4"
-  },
-  "scripts": {
-    "start": "concurrently npm:start:*",
-    "start:bundler": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "npm run build && firebase deploy",
-    "deploy:hosting": "npm run build && firebase deploy --only hosting",
-    "test": "react-scripts test",
-    "start:emulator": "firebase emulators:start --import=./firestore-dev-data --export-on-exit"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "devDependencies": {
-    "concurrently": "^5.3.0",
-    "firebase-tools": "^14.11.2",
-    "prettier": "^1.19.1"
-  },
-  "prettier": {
-    "bracketSpacing": false,
-    "semi": false,
-    "singleQuote": true,
-    "arrowParens": "always"
-  }
+	"name": "lintu",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@material-ui/core": "^4.11.4",
+		"@material-ui/icons": "^4.11.2",
+		"@sentry/browser": "^5.30.0",
+		"firebase": "^9.23.0",
+		"formik": "^1.5.8",
+		"leaflet": "^1.7.1",
+		"leaflet.markercluster": "^1.5.0",
+		"lodash": "^4.17.21",
+		"react": "^16.14.0",
+		"react-dates": "^21.8.0",
+		"react-dom": "^16.14.0",
+		"react-hot-toast": "^2.1.0",
+		"react-leaflet": "^2.8.0",
+		"react-leaflet-markercluster": "^2.0.0",
+		"react-redux": "^5.1.2",
+		"react-redux-firebase": "^3.11.0",
+		"react-router": "^5.2.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "^5.0.1",
+		"react-sidebar": "^3.0.2",
+		"recharts": "^2.15.0",
+		"redux": "^4.1.0",
+		"redux-firestore": "^2.0.1",
+		"redux-thunk": "^2.3.0",
+		"smoothscroll-polyfill": "^0.4.4"
+	},
+	"scripts": {
+		"start": "concurrently npm:start:*",
+		"start:bundler": "react-scripts start",
+		"build": "react-scripts build",
+		"deploy": "npm run build && firebase deploy",
+		"deploy:hosting": "npm run build && firebase deploy --only hosting",
+		"deploy:functions": "npm run build && firebase deploy --only functions",
+		"test": "react-scripts test",
+		"start:emulator": "firebase emulators:start --import=./firestore-dev-data --export-on-exit"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"devDependencies": {
+		"concurrently": "^5.3.0",
+		"firebase-tools": "^14.11.2",
+		"prettier": "^1.19.1"
+	},
+	"prettier": {
+		"bracketSpacing": false,
+		"semi": false,
+		"singleQuote": true,
+		"arrowParens": "always"
+	}
 }

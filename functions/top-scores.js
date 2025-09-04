@@ -5,7 +5,7 @@ const birds = require('./birds')
 const db = admin.firestore()
 
 module.exports = async (change, context) => {
-  console.log(JSON.stringify(change, null, 2))
+  console.log(JSON.stringify(change))
 
   const deleted = !change.after.exists
   const document = deleted ? change.before.data() : change.after.data()
