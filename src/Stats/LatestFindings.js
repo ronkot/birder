@@ -3,13 +3,12 @@ import {compose} from 'redux'
 import {connect} from 'react-redux'
 import moment from 'moment'
 import orderBy from 'lodash/fp/orderBy'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Paper from '@material-ui/core/Paper'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import {FixedSizeList as List} from 'react-window'
+import {isLoaded} from 'react-redux-firebase'
 import {withRouter} from 'react-router-dom'
 
 import {
@@ -41,6 +40,14 @@ class Stats extends Component {
   }
 
   render() {
+    if (!isLoaded(this.props.latestFindings) || !isLoaded(this.props.birds)) {
+      return (
+        <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
+          <CircularProgress />
+        </div>
+      )
+    }
+
     const allTimeStats = this.props.year === 'all'
 
     const friendIds = this.props.friends.map((friend) => friend.friendId)
@@ -73,6 +80,14 @@ class Stats extends Component {
       .sort((a, b) => b.count - a.count)
       .slice(0, 10)
 
+    const sortedFindings = orderBy(
+      [this.state.sortBy],
+      [this.state.sortDirection],
+      latestFindingsWithBirds
+    )
+
+    const rowHeight = 40
+
     return (
       <div>
         <h1>Varhaisimmat havainnot</h1>
@@ -92,47 +107,49 @@ class Stats extends Component {
         </Paper>
 
         <Paper>
-          <Table padding="dense">
-            <TableHead>
-              <TableRow>
-                <TableCell>
-                  <TableSortLabel
-                    active={this.state.sortBy === 'birdNameFi'}
-                    direction={this.state.sortDirection}
-                    onClick={() => this.onSortByRequested('birdNameFi')}
-                  >
-                    Laji
-                  </TableSortLabel>
-                </TableCell>
-                <TableCell>
-                  <TableSortLabel
-                    active={this.state.sortBy === 'date'}
-                    direction={this.state.sortDirection}
-                    onClick={() => this.onSortByRequested('date')}
-                  >
-                    Pvm
-                  </TableSortLabel>
-                </TableCell>
-                <TableCell>
-                  <TableSortLabel
-                    active={this.state.sortBy === 'playerName'}
-                    direction={this.state.sortDirection}
-                    onClick={() => this.onSortByRequested('playerName')}
-                  >
-                    Pelaaja
-                  </TableSortLabel>
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {orderBy(
-                [this.state.sortBy],
-                [this.state.sortDirection],
-                latestFindingsWithBirds
-              ).map((latestFinding, i) => (
-                <TableRow
-                  key={i}
+          <div style={{display: 'flex', fontWeight: 'bold', padding: '0 16px'}}>
+            <div style={{flex: 2}}>
+              <TableSortLabel
+                active={this.state.sortBy === 'birdNameFi'}
+                direction={this.state.sortDirection}
+                onClick={() => this.onSortByRequested('birdNameFi')}
+              >
+                Laji
+              </TableSortLabel>
+            </div>
+            <div style={{flex: 1}}>
+              <TableSortLabel
+                active={this.state.sortBy === 'date'}
+                direction={this.state.sortDirection}
+                onClick={() => this.onSortByRequested('date')}
+              >
+                Pvm
+              </TableSortLabel>
+            </div>
+            <div style={{flex: 1}}>
+              <TableSortLabel
+                active={this.state.sortBy === 'playerName'}
+                direction={this.state.sortDirection}
+                onClick={() => this.onSortByRequested('playerName')}
+              >
+                Pelaaja
+              </TableSortLabel>
+            </div>
+          </div>
+          <List
+            height={400}
+            itemCount={sortedFindings.length}
+            itemSize={rowHeight}
+            width={'100%'}
+          >
+            {({index, style}) => {
+              const latestFinding = sortedFindings[index]
+              return (
+                <div
+                  key={index}
                   style={{
+                    ...style,
+                    display: 'flex',
                     background: isFriend(latestFinding.user)
                       ? 'lightgreen'
                       : this.props.user.uid === latestFinding.user
@@ -140,13 +157,15 @@ class Stats extends Component {
                       : 'white'
                   }}
                 >
-                  <TableCell>{latestFinding.birdNameFi}</TableCell>
-                  <TableCell>
+                  <TableCell component="div" style={{flex: 2}}>
+                    {latestFinding.birdNameFi}
+                  </TableCell>
+                  <TableCell component="div" style={{flex: 1}}>
                     {moment(latestFinding.date).format(
                       allTimeStats ? 'L' : 'DD.MM'
                     )}
                   </TableCell>
-                  <TableCell>
+                  <TableCell component="div" style={{flex: 1}}>
                     {latestFinding.playerName}{' '}
                     {isFriend(latestFinding.user) && (
                       <i
@@ -158,10 +177,10 @@ class Stats extends Component {
                       />
                     )}
                   </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+                </div>
+              )
+            }}
+          </List>
         </Paper>
       </div>
     )

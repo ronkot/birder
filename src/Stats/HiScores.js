@@ -2,13 +2,12 @@ import React, {Component, useState, useEffect, useMemo} from 'react'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
 import orderBy from 'lodash/fp/orderBy'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Paper from '@material-ui/core/Paper'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import {FixedSizeList as List} from 'react-window'
+import {isLoaded} from 'react-redux-firebase'
 import {withRouter} from 'react-router-dom'
 import {
   LineChart,
@@ -72,55 +71,73 @@ class HiScores extends Component {
   }
 
   render() {
+    if (!isLoaded(this.props.hiscores)) {
+      return (
+        <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
+          <CircularProgress />
+        </div>
+      )
+    }
+
     const allTimeStats = this.props.year === 'all'
     const friendIds = this.props.friends.map((friend) => friend.friendId)
     const isFriend = (id) => friendIds.includes(id)
+    const sortedScores = orderBy(
+      [this.state.sortBy],
+      [this.state.sortDirection],
+      this.props.hiscores
+    )
+
+    const rowHeight = 40
+
     return (
       <div>
         <Paper>
-          <Table padding="dense">
-            <TableHead>
-              <TableRow>
-                <TableCell>Sija</TableCell>
-                {allTimeStats && <TableCell>Vuosi</TableCell>}
-                <TableCell>
-                  <TableSortLabel
-                    active={this.state.sortBy === 'findings'}
-                    direction={this.state.sortDirection}
-                    onClick={() => this.onSortByRequested('findings')}
-                  >
-                    Pinnat
-                  </TableSortLabel>
-                </TableCell>
-                <TableCell>
-                  <TableSortLabel
-                    active={this.state.sortBy === 'stars'}
-                    direction={this.state.sortDirection}
-                    onClick={() => this.onSortByRequested('stars')}
-                  >
-                    Tähdet
-                  </TableSortLabel>
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {orderBy(
-                [this.state.sortBy],
-                [this.state.sortDirection],
-                this.props.hiscores
-              ).map((score, i) => (
-                <TableRow
+          <div style={{display: 'flex', fontWeight: 'bold', padding: '0 16px'}}>
+            <div style={{flex: 3}}>Sija</div>
+            {allTimeStats && <div style={{flex: 1}}>Vuosi</div>}
+            <div style={{flex: 1}}>
+              <TableSortLabel
+                active={this.state.sortBy === 'findings'}
+                direction={this.state.sortDirection}
+                onClick={() => this.onSortByRequested('findings')}
+              >
+                Pinnat
+              </TableSortLabel>
+            </div>
+            <div style={{flex: 1}}>
+              <TableSortLabel
+                active={this.state.sortBy === 'stars'}
+                direction={this.state.sortDirection}
+                onClick={() => this.onSortByRequested('stars')}
+              >
+                Tähdet
+              </TableSortLabel>
+            </div>
+          </div>
+          <List
+            height={400}
+            itemCount={sortedScores.length}
+            itemSize={rowHeight}
+            width={'100%'}
+          >
+            {({index, style}) => {
+              const score = sortedScores[index]
+              return (
+                <div
                   style={{
+                    ...style,
+                    display: 'flex',
                     background: isFriend(score.user)
                       ? 'lightgreen'
                       : this.props.user.uid === score.user
                       ? 'lightblue'
                       : 'white'
                   }}
-                  key={i}
+                  key={index}
                 >
-                  <TableCell component="th" scope="row">
-                    {i + 1}. {score.playerName || ''}{' '}
+                  <TableCell component="div" style={{flex: 3}}>
+                    {index + 1}. {score.playerName || ''}{' '}
                     {isFriend(score.user) && (
                       <i
                         onClick={() => this.props.viewFriend(score.user)}
@@ -129,13 +146,21 @@ class HiScores extends Component {
                       />
                     )}
                   </TableCell>
-                  {allTimeStats && <TableCell>{score.year}</TableCell>}
-                  <TableCell>{score.findings}</TableCell>
-                  <TableCell>{score.stars}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+                  {allTimeStats && (
+                    <TableCell component="div" style={{flex: 1}}>
+                      {score.year}
+                    </TableCell>
+                  )}
+                  <TableCell component="div" style={{flex: 1}}>
+                    {score.findings}
+                  </TableCell>
+                  <TableCell component="div" style={{flex: 1}}>
+                    {score.stars}
+                  </TableCell>
+                </div>
+              )
+            }}
+          </List>
         </Paper>
       </div>
     )
