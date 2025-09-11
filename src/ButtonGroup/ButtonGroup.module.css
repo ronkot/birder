@@ -31,3 +31,15 @@
 .buttonGroupButton:not(:first-child) {
   border-left: 1px solid var(--color-gray-light);
 }
+.buttonGroupSelect {
+  position: relative;
+  width: 100%;
+}
+
+.buttonGroupSelectPopup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}

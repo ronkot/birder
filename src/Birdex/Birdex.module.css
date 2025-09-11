@@ -59,7 +59,7 @@
 
 .controls {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   grid-gap: 5px;
   margin-bottom: 20px;
@@ -69,5 +69,5 @@
 }
 
 .controls > :nth-child(1) {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 3;
 }
