@@ -6,16 +6,19 @@ import {listenFindings, listenFriends} from '../listeners'
 import styles from './Birdex.module.css'
 import {
   selectCurrentYearFindingsForViewType,
-  selectBirdsSortedByName,
+  selectBirds,
   selectUser
 } from '../selectors'
 import {
   setScrollPosition,
   setSearchTerm,
   setViewType,
-  setVisibilityFilter
+  setVisibilityFilter,
+  setSortField,
+  setSortDirection
 } from './BirdexRedux'
 import ButtonGroup from '../ButtonGroup/ButtonGroup'
+import ButtonGroupSelect from '../ButtonGroup/ButtonGroupSelect'
 import {BirdexSearch} from './BirdexSearch'
 import {BirdList} from './BirdList'
 import {BirdGrid} from './BirdGrid'
@@ -71,6 +74,31 @@ class Birdex extends PureComponent {
     }
   }
 
+  sortBirds = (birds) => {
+    const {sortField, sortDirection} = this.props
+    const sorted = [...birds].sort((a, b) => {
+      switch (sortField) {
+        case 'rarity':
+          if (a.rarity === b.rarity)
+            return a.nameFi.localeCompare(b.nameFi)
+          return a.rarity - b.rarity
+        case 'order':
+          if (a.orderFi === b.orderFi)
+            return a.nameFi.localeCompare(b.nameFi)
+          return a.orderFi.localeCompare(b.orderFi)
+        case 'family':
+          if (a.familyFi === b.familyFi)
+            return a.nameFi.localeCompare(b.nameFi)
+          return a.familyFi.localeCompare(b.familyFi)
+        case 'name':
+        default:
+          return a.nameFi.localeCompare(b.nameFi)
+      }
+    })
+    if (sortDirection === 'desc') sorted.reverse()
+    return sorted
+  }
+
   render() {
     const matchSearchTerm = (bird) => {
       if (!this.props.searchTerm) return true
@@ -99,9 +127,9 @@ class Birdex extends PureComponent {
       else
         return !this.props.findings.some((finding) => finding.bird === bird.id)
     }
-    const filteredBirds = this.props.birds
-      .filter(matchSearchTerm)
-      .filter(matchVisiblityFilter)
+    const filteredBirds = this.sortBirds(
+      this.props.birds.filter(matchSearchTerm).filter(matchVisiblityFilter)
+    )
 
     const pointsTtile =
       this.props.year === 'all' ? 'Elikset' : `Pinnat ${this.props.year}`
@@ -141,24 +169,44 @@ class Birdex extends PureComponent {
             ]}
           />
 
-          <ButtonGroup
+          <ButtonGroupSelect
             active={this.props.visibilityFilter}
             onActiveChanged={this.props.setVisibilityFilter}
             buttons={[
-              {
-                key: 'all',
-                content: <i className="fas fa-infinity" />
-              },
-              {
-                key: 'seen',
-                content: <i className="fas fa-eye" />
-              },
-              {
-                key: 'unseen',
-                content: <i className="fas fa-eye-slash" />
-              }
+              {key: 'all', content: <i className="fas fa-infinity" />},
+              {key: 'seen', content: <i className="fas fa-eye" />},
+              {key: 'unseen', content: <i className="fas fa-eye-slash" />}
             ]}
           />
+
+          <div className={styles.sortGroup}>
+            <ButtonGroupSelect
+              active={this.props.sortField}
+              onActiveChanged={this.props.setSortField}
+              buttons={[
+                {key: 'name', content: 'Nimi'},
+                {key: 'rarity', content: 'Harvinaisuus'},
+                {key: 'order', content: 'Lahko'},
+                {key: 'family', content: 'Heimo'}
+              ]}
+            />
+            <div
+              className={styles.sortDirection}
+              onClick={() =>
+                this.props.setSortDirection(
+                  this.props.sortDirection === 'asc' ? 'desc' : 'asc'
+                )
+              }
+            >
+              <i
+                className={`fas ${
+                  this.props.sortDirection === 'asc'
+                    ? 'fa-sort-amount-up'
+                    : 'fa-sort-amount-down'
+                }`}
+              />
+            </div>
+          </div>
         </div>
 
         {this.renderView(filteredBirds)}
@@ -173,12 +221,14 @@ export default compose(
       const user = selectUser(state)
       return {
         user,
-        birds: selectBirdsSortedByName(state),
+        birds: selectBirds(state),
         findings: selectCurrentYearFindingsForViewType(state),
         scrollPosition: state.birdexScrollPosition,
         searchTerm: state.birdexSearchTerm,
         viewType: state.birdexViewType,
         visibilityFilter: state.birdexVisibilityFilter,
+        sortField: state.birdexSortField,
+        sortDirection: state.birdexSortDirection,
         year: state.year
       }
     },
@@ -186,7 +236,9 @@ export default compose(
       setScrollPosition: (position) => dispatch(setScrollPosition(position)),
       setSearchTerm: (term) => dispatch(setSearchTerm(term)),
       setViewType: (type) => dispatch(setViewType(type)),
-      setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter))
+      setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter)),
+      setSortField: (field) => dispatch(setSortField(field)),
+      setSortDirection: (direction) => dispatch(setSortDirection(direction))
     })
   ),
   listenFindings,
