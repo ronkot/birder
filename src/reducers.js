@@ -7,7 +7,9 @@ import {
   scrollPosition,
   searchTerm,
   viewType,
-  visibilityFilter
+  visibilityFilter,
+  sortBy,
+  sortOrder
 } from './Birdex/BirdexRedux'
 import {isMenuOpen} from './SideMenu/SideMenuRedux'
 import {currentYear} from './utils'
@@ -24,6 +26,8 @@ export const initialState = {
   birdexSearchTerm: '',
   birdexViewType: 'grid', // [list, grid]
   birdexVisibilityFilter: 'all', // [seen, unseen]
+  birdexSortBy: 'name',
+  birdexSortOrder: 'asc',
   isMenuOpen: false,
   year: currentYear()
 }
@@ -54,6 +58,8 @@ export default combineReducers({
   birdexSearchTerm: searchTerm,
   birdexViewType: viewType,
   birdexVisibilityFilter: visibilityFilter,
+  birdexSortBy: sortBy,
+  birdexSortOrder: sortOrder,
   isMenuOpen,
   year,
   app: appReducer

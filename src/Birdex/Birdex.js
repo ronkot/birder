@@ -6,14 +6,16 @@ import {listenFindings, listenFriends} from '../listeners'
 import styles from './Birdex.module.css'
 import {
   selectCurrentYearFindingsForViewType,
-  selectBirdsSortedByName,
+  selectBirds,
   selectUser
 } from '../selectors'
 import {
   setScrollPosition,
   setSearchTerm,
   setViewType,
-  setVisibilityFilter
+  setVisibilityFilter,
+  setSortBy,
+  setSortOrder
 } from './BirdexRedux'
 import ButtonGroup from '../ButtonGroup/ButtonGroup'
 import {BirdexSearch} from './BirdexSearch'
@@ -22,6 +24,10 @@ import {BirdGrid} from './BirdGrid'
 import {StaticMap} from '../Map/StaticMap'
 
 class Birdex extends PureComponent {
+  state = {
+    sortOpen: false,
+    visibilityOpen: false
+  }
   componentWillUnmount() {
     const scrollPos = document.querySelector('.appContent').scrollTop
     this.props.setScrollPosition(scrollPos)
@@ -103,6 +109,17 @@ class Birdex extends PureComponent {
       .filter(matchSearchTerm)
       .filter(matchVisiblityFilter)
 
+    const sortFunctions = {
+      name: (a, b) => a.nameFi.localeCompare(b.nameFi),
+      rarity: (a, b) => a.rarity - b.rarity,
+      order: (a, b) => a.orderLatin.localeCompare(b.orderLatin),
+      family: (a, b) => a.familyLatin.localeCompare(b.familyLatin)
+    }
+    const sortedBirds = [...filteredBirds].sort(
+      sortFunctions[this.props.sortBy]
+    )
+    if (this.props.sortOrder === 'desc') sortedBirds.reverse()
+
     const pointsTtile =
       this.props.year === 'all' ? 'Elikset' : `Pinnat ${this.props.year}`
 
@@ -140,28 +157,83 @@ class Birdex extends PureComponent {
               }
             ]}
           />
-
-          <ButtonGroup
-            active={this.props.visibilityFilter}
-            onActiveChanged={this.props.setVisibilityFilter}
-            buttons={[
-              {
-                key: 'all',
-                content: <i className="fas fa-infinity" />
-              },
-              {
-                key: 'seen',
-                content: <i className="fas fa-eye" />
-              },
-              {
-                key: 'unseen',
-                content: <i className="fas fa-eye-slash" />
+          <div className={styles.dropdown}>
+            <div
+              className={styles.controlToggle}
+              onClick={() =>
+                this.setState({visibilityOpen: !this.state.visibilityOpen})
               }
-            ]}
-          />
+            >
+              {this.props.visibilityFilter === 'all' && (
+                <i className="fas fa-infinity" />
+              )}
+              {this.props.visibilityFilter === 'seen' && (
+                <i className="fas fa-eye" />
+              )}
+              {this.props.visibilityFilter === 'unseen' && (
+                <i className="fas fa-eye-slash" />
+              )}
+            </div>
+            {this.state.visibilityOpen && (
+              <div className={styles.dropdownContent}>
+                <ButtonGroup
+                  active={this.props.visibilityFilter}
+                  onActiveChanged={(key) => {
+                    this.props.setVisibilityFilter(key)
+                    this.setState({visibilityOpen: false})
+                  }}
+                  buttons={[
+                    {
+                      key: 'all',
+                      content: <i className="fas fa-infinity" />
+                    },
+                    {
+                      key: 'seen',
+                      content: <i className="fas fa-eye" />
+                    },
+                    {
+                      key: 'unseen',
+                      content: <i className="fas fa-eye-slash" />
+                    }
+                  ]}
+                />
+              </div>
+            )}
+          </div>
+
+          <div className={styles.dropdown}>
+            <div
+              className={styles.controlToggle}
+              onClick={() => this.setState({sortOpen: !this.state.sortOpen})}
+            >
+              <i className="fas fa-sort" />
+            </div>
+            {this.state.sortOpen && (
+              <div className={styles.dropdownContent}>
+                <ButtonGroup
+                  active={this.props.sortBy}
+                  onActiveChanged={this.props.setSortBy}
+                  buttons={[
+                    {key: 'name', content: 'Nimi'},
+                    {key: 'rarity', content: 'Harvinaisuus'},
+                    {key: 'order', content: 'Lahko'},
+                    {key: 'family', content: 'Heimo'}
+                  ]}
+                />
+                <ButtonGroup
+                  active={this.props.sortOrder}
+                  onActiveChanged={this.props.setSortOrder}
+                  buttons={[
+                    {key: 'asc', content: <i className="fas fa-arrow-up" />},
+                    {key: 'desc', content: <i className="fas fa-arrow-down" />}
+                  ]}
+                />
+              </div>
+            )}
+          </div>
         </div>
 
-        {this.renderView(filteredBirds)}
+        {this.renderView(sortedBirds)}
       </div>
     )
   }
@@ -173,12 +245,14 @@ export default compose(
       const user = selectUser(state)
       return {
         user,
-        birds: selectBirdsSortedByName(state),
+        birds: selectBirds(state),
         findings: selectCurrentYearFindingsForViewType(state),
         scrollPosition: state.birdexScrollPosition,
         searchTerm: state.birdexSearchTerm,
         viewType: state.birdexViewType,
         visibilityFilter: state.birdexVisibilityFilter,
+        sortBy: state.birdexSortBy,
+        sortOrder: state.birdexSortOrder,
         year: state.year
       }
     },
@@ -186,7 +260,9 @@ export default compose(
       setScrollPosition: (position) => dispatch(setScrollPosition(position)),
       setSearchTerm: (term) => dispatch(setSearchTerm(term)),
       setViewType: (type) => dispatch(setViewType(type)),
-      setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter))
+      setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter)),
+      setSortBy: (sortBy) => dispatch(setSortBy(sortBy)),
+      setSortOrder: (order) => dispatch(setSortOrder(order))
     })
   ),
   listenFindings,
