@@ -31,6 +31,7 @@ module.exports = async (data, context) => {
   })
 
   await updateUserTopScorePlayerNames(userId, playerName)
+  await updateUserLatestFindingsPlayerNames(userId, playerName)
 
   return profileRef.get().then(r => r.data())
 }
