@@ -9,7 +9,7 @@ import minBy from 'lodash/minBy'
 import {ViewStates} from './AppRedux'
 
 const bronzeAchievement = '/img/bronze.png'
-const silverchievement = '/img/silver.png'
+const silverAchievement = '/img/silver.png'
 const goldAchievement = '/img/gold.png'
 
 export function selectAppState(state) {
@@ -221,7 +221,7 @@ export function selectAchievements(state) {
         },
         {
           target: silverTarget,
-          badge: silverchievement
+          badge: silverAchievement
         },
         {
           target: goldTarget,
@@ -246,7 +246,7 @@ export function selectAchievements(state) {
         },
         {
           target: 100,
-          badge: silverchievement
+          badge: silverAchievement
         },
         {
           target: 250,
@@ -267,7 +267,7 @@ export function selectAchievements(state) {
         },
         {
           target: 6,
-          badge: silverchievement
+          badge: silverAchievement
         },
         {
           target: 8,
@@ -288,7 +288,7 @@ export function selectAchievements(state) {
         },
         {
           target: 4,
-          badge: silverchievement
+          badge: silverAchievement
         },
         {
           target: 5,
