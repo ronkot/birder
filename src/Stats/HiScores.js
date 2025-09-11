@@ -9,6 +9,9 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Paper from '@material-ui/core/Paper'
+import TablePagination from '@material-ui/core/TablePagination'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import {isLoaded} from 'react-redux-firebase'
 import {withRouter} from 'react-router-dom'
 import {
   LineChart,
@@ -55,7 +58,9 @@ class Hiscores extends Component {
 class HiScores extends Component {
   state = {
     sortBy: 'findings',
-    sortDirection: 'desc'
+    sortDirection: 'desc',
+    page: 0,
+    rowsPerPage: 50
   }
 
   onSortByRequested = (sortBy) => {
@@ -71,10 +76,37 @@ class HiScores extends Component {
     }
   }
 
+  handleChangePage = (event, newPage) => {
+    this.setState({page: newPage})
+  }
+
+  handleChangeRowsPerPage = (event) => {
+    this.setState({
+      rowsPerPage: parseInt(event.target.value, 10),
+      page: 0
+    })
+  }
+
   render() {
+    if (!isLoaded(this.props.hiscores)) {
+      return (
+        <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
+          <CircularProgress />
+        </div>
+      )
+    }
+
     const allTimeStats = this.props.year === 'all'
     const friendIds = this.props.friends.map((friend) => friend.friendId)
     const isFriend = (id) => friendIds.includes(id)
+    const sortedScores = orderBy(
+      [this.state.sortBy],
+      [this.state.sortDirection],
+      this.props.hiscores
+    )
+    const start = this.state.page * this.state.rowsPerPage
+    const paginated = sortedScores.slice(start, start + this.state.rowsPerPage)
+
     return (
       <div>
         <Paper>
@@ -104,11 +136,7 @@ class HiScores extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {orderBy(
-                [this.state.sortBy],
-                [this.state.sortDirection],
-                this.props.hiscores
-              ).map((score, i) => (
+              {paginated.map((score, i) => (
                 <TableRow
                   style={{
                     background: isFriend(score.user)
@@ -117,10 +145,10 @@ class HiScores extends Component {
                       ? 'lightblue'
                       : 'white'
                   }}
-                  key={i}
+                  key={start + i}
                 >
                   <TableCell component="th" scope="row">
-                    {i + 1}. {score.playerName || ''}{' '}
+                    {start + i + 1}. {score.playerName || ''}{' '}
                     {isFriend(score.user) && (
                       <i
                         onClick={() => this.props.viewFriend(score.user)}
@@ -136,6 +164,15 @@ class HiScores extends Component {
               ))}
             </TableBody>
           </Table>
+          <TablePagination
+            component="div"
+            count={sortedScores.length}
+            rowsPerPage={this.state.rowsPerPage}
+            page={this.state.page}
+            onChangePage={this.handleChangePage}
+            onChangeRowsPerPage={this.handleChangeRowsPerPage}
+            rowsPerPageOptions={[25, 50, 100]}
+          />
         </Paper>
       </div>
     )
