@@ -2,15 +2,11 @@ import React, {Component, useState, useEffect, useMemo} from 'react'
 import {compose} from 'redux'
 import {connect} from 'react-redux'
 import orderBy from 'lodash/fp/orderBy'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Paper from '@material-ui/core/Paper'
-import TablePagination from '@material-ui/core/TablePagination'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import {FixedSizeList as List} from 'react-window'
 import {isLoaded} from 'react-redux-firebase'
 import {withRouter} from 'react-router-dom'
 import {
@@ -58,9 +54,7 @@ class Hiscores extends Component {
 class HiScores extends Component {
   state = {
     sortBy: 'findings',
-    sortDirection: 'desc',
-    page: 0,
-    rowsPerPage: 50
+    sortDirection: 'desc'
   }
 
   onSortByRequested = (sortBy) => {
@@ -74,17 +68,6 @@ class HiScores extends Component {
         sortDirection: 'desc'
       })
     }
-  }
-
-  handleChangePage = (event, newPage) => {
-    this.setState({page: newPage})
-  }
-
-  handleChangeRowsPerPage = (event) => {
-    this.setState({
-      rowsPerPage: parseInt(event.target.value, 10),
-      page: 0
-    })
   }
 
   render() {
@@ -104,51 +87,57 @@ class HiScores extends Component {
       [this.state.sortDirection],
       this.props.hiscores
     )
-    const start = this.state.page * this.state.rowsPerPage
-    const paginated = sortedScores.slice(start, start + this.state.rowsPerPage)
+
+    const rowHeight = 40
 
     return (
       <div>
         <Paper>
-          <Table padding="dense">
-            <TableHead>
-              <TableRow>
-                <TableCell>Sija</TableCell>
-                {allTimeStats && <TableCell>Vuosi</TableCell>}
-                <TableCell>
-                  <TableSortLabel
-                    active={this.state.sortBy === 'findings'}
-                    direction={this.state.sortDirection}
-                    onClick={() => this.onSortByRequested('findings')}
-                  >
-                    Pinnat
-                  </TableSortLabel>
-                </TableCell>
-                <TableCell>
-                  <TableSortLabel
-                    active={this.state.sortBy === 'stars'}
-                    direction={this.state.sortDirection}
-                    onClick={() => this.onSortByRequested('stars')}
-                  >
-                    Tähdet
-                  </TableSortLabel>
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {paginated.map((score, i) => (
-                <TableRow
+          <div style={{display: 'flex', fontWeight: 'bold', padding: '0 16px'}}>
+            <div style={{flex: 3}}>Sija</div>
+            {allTimeStats && <div style={{flex: 1}}>Vuosi</div>}
+            <div style={{flex: 1}}>
+              <TableSortLabel
+                active={this.state.sortBy === 'findings'}
+                direction={this.state.sortDirection}
+                onClick={() => this.onSortByRequested('findings')}
+              >
+                Pinnat
+              </TableSortLabel>
+            </div>
+            <div style={{flex: 1}}>
+              <TableSortLabel
+                active={this.state.sortBy === 'stars'}
+                direction={this.state.sortDirection}
+                onClick={() => this.onSortByRequested('stars')}
+              >
+                Tähdet
+              </TableSortLabel>
+            </div>
+          </div>
+          <List
+            height={400}
+            itemCount={sortedScores.length}
+            itemSize={rowHeight}
+            width={'100%'}
+          >
+            {({index, style}) => {
+              const score = sortedScores[index]
+              return (
+                <div
                   style={{
+                    ...style,
+                    display: 'flex',
                     background: isFriend(score.user)
                       ? 'lightgreen'
                       : this.props.user.uid === score.user
                       ? 'lightblue'
                       : 'white'
                   }}
-                  key={start + i}
+                  key={index}
                 >
-                  <TableCell component="th" scope="row">
-                    {start + i + 1}. {score.playerName || ''}{' '}
+                  <TableCell component="div" style={{flex: 3}}>
+                    {index + 1}. {score.playerName || ''}{' '}
                     {isFriend(score.user) && (
                       <i
                         onClick={() => this.props.viewFriend(score.user)}
@@ -157,22 +146,21 @@ class HiScores extends Component {
                       />
                     )}
                   </TableCell>
-                  {allTimeStats && <TableCell>{score.year}</TableCell>}
-                  <TableCell>{score.findings}</TableCell>
-                  <TableCell>{score.stars}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-          <TablePagination
-            component="div"
-            count={sortedScores.length}
-            rowsPerPage={this.state.rowsPerPage}
-            page={this.state.page}
-            onChangePage={this.handleChangePage}
-            onChangeRowsPerPage={this.handleChangeRowsPerPage}
-            rowsPerPageOptions={[25, 50, 100]}
-          />
+                  {allTimeStats && (
+                    <TableCell component="div" style={{flex: 1}}>
+                      {score.year}
+                    </TableCell>
+                  )}
+                  <TableCell component="div" style={{flex: 1}}>
+                    {score.findings}
+                  </TableCell>
+                  <TableCell component="div" style={{flex: 1}}>
+                    {score.stars}
+                  </TableCell>
+                </div>
+              )
+            }}
+          </List>
         </Paper>
       </div>
     )
