@@ -1,6 +1,6 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {compose, bindActionCreators} from 'redux'
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { compose, bindActionCreators } from 'redux'
 import moment from 'moment'
 
 import {
@@ -9,12 +9,12 @@ import {
   selectCurrentYearFindingsForViewType,
   selectIsWatchingFriend
 } from '../selectors'
-import {listenFindings} from '../listeners'
-import {saveFinding, removeFinding} from './BirdActions'
+import { listenFindings } from '../listeners'
+import { saveFinding, removeFinding } from './BirdActions'
 import styles from './Bird.module.css'
-import {PrimaryButton} from '../common/Button/Button'
+import { PrimaryButton } from '../common/Button/Button'
 import EditBird from './EditBird'
-import {StaticMap} from '../Map/StaticMap'
+import { StaticMap } from '../Map/StaticMap'
 
 class Bird extends PureComponent {
   state = {
@@ -24,7 +24,7 @@ class Bird extends PureComponent {
   render() {
     if (this.state.editModalOpen) return this.renderForm()
 
-    const {bird, isWatching, finding} = this.props
+    const { bird, isWatching, finding } = this.props
 
     return (
       <div className={styles.bird}>
@@ -62,14 +62,14 @@ class Bird extends PureComponent {
   }
 
   renderRarity() {
-    const {rarity} = this.props.bird
+    const { rarity } = this.props.bird
     return (
       <div className={styles.stars}>
         {Array.from(Array(rarity)).map((_, i) => (
           <span
             key={`active_${i}`}
             className="fas fa-star"
-            style={{color: 'var(--color-highlight)'}}
+            style={{ color: 'var(--color-highlight)' }}
           />
         ))}
         {Array.from(Array(5 - rarity)).map((_, i) => (
@@ -80,8 +80,8 @@ class Bird extends PureComponent {
   }
 
   renderFound() {
-    const {finding} = this.props
-    const {date, place} = finding
+    const { finding } = this.props
+    const { date, place } = finding
     return (
       <>
         <div className={styles.date}>Havaittu {moment(date).format('L')}</div>
@@ -89,7 +89,7 @@ class Bird extends PureComponent {
           <div className={styles.notes}>
             <i
               class="fas fa-pen-alt"
-              style={{fontSize: 20, marginBottom: 10}}
+              style={{ fontSize: 20, marginBottom: 10 }}
             ></i>
             <br />
             {finding.notes}
@@ -97,7 +97,7 @@ class Bird extends PureComponent {
         )}
         {place && place.type === 'coordinates' && (
           <StaticMap
-            findings={[{...this.props.finding, bird: this.props.bird}]}
+            findings={[{ ...this.props.finding, bird: this.props.bird }]}
           />
         )}
       </>
@@ -108,7 +108,7 @@ class Bird extends PureComponent {
     return (
       <EditBird
         finding={this.props.finding}
-        year={this.props.year}
+        year={this.props.year === 'all' ? moment().year() : this.props.year}
         bird={this.props.bird}
         onClose={this.closeEditModal}
         onSaveFinding={this.saveFinding}
@@ -119,11 +119,11 @@ class Bird extends PureComponent {
   }
 
   openEditModal = () => {
-    this.setState({editModalOpen: true})
+    this.setState({ editModalOpen: true })
   }
 
   closeEditModal = () => {
-    this.setState({editModalOpen: false})
+    this.setState({ editModalOpen: false })
   }
 
   saveFinding = (data) => {

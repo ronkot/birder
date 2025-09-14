@@ -5178,5 +5178,33 @@ module.exports = [
     "photo": "birderkuva.jpg",
     "photographer": "",
     "detectLink": "https://fi.m.wikipedia.org/wiki/Vuorikirvinen"
+  },
+  {
+    "id": "b-371",
+    "orderLatin": "Passeriformes",
+    "orderFi": "Varpuslinnut",
+    "familyLatin": "Motacillidae",
+    "familyFi": "Västäräkit",
+    "nameFi": "Nummikirvinen",
+    "nameLatin": "Anthus campestris",
+    "nameEn": "",
+    "rarity": 5,
+    "photo": "birderkuva.jpg",
+    "photographer": "",
+    "detectLink": "https://fi.wikipedia.org/wiki/Nummikirvinen"
+  },
+  {
+    "id": "b-372",
+    "orderLatin": "Accipitriformes",
+    "orderFi": "Päiväpetolinnut",
+    "familyLatin": "Accipitridae",
+    "familyFi": "Haukat",
+    "nameFi": "Keisarikotka",
+    "nameLatin": "Aquila heliaca",
+    "nameEn": "",
+    "rarity": 5,
+    "photo": "birderkuva.jpg",
+    "photographer": "",
+    "detectLink": "https://fi.wikipedia.org/wiki/Keisarikotka"
   }
 ]
