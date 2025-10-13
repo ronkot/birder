@@ -9,6 +9,7 @@ import moment from 'moment'
 import 'moment/locale/fi'
 import * as Sentry from '@sentry/browser'
 import smoothscroll from 'smoothscroll-polyfill'
+import toast from 'react-hot-toast'
 
 import './index.css'
 import firebase from './firebase/firebase'
@@ -20,9 +21,11 @@ import version from './version'
 
 // Store current version in localStorage to detect updates
 const storedVersion = localStorage.getItem('birder-version')
+const justUpdated = localStorage.getItem('birder-just-updated')
 if (storedVersion && storedVersion !== version) {
   // Version has changed, clear cache and reload
   localStorage.setItem('birder-version', version)
+  localStorage.setItem('birder-just-updated', 'true')
   // Clear all caches
   if ('caches' in window) {
     caches.keys().then(function (names) {
@@ -33,6 +36,14 @@ if (storedVersion && storedVersion !== version) {
   window.location.reload(true)
 } else {
   localStorage.setItem('birder-version', version)
+  // Show toast if we just updated
+  if (justUpdated === 'true') {
+    localStorage.removeItem('birder-just-updated')
+    // Wait a bit for app to mount before showing toast
+    setTimeout(() => {
+      toast.success(`Päivitetty versioon ${version}`)
+    }, 1000)
+  }
 }
 
 moment.locale('fi')
@@ -79,10 +90,22 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister()
+// Register service worker to enable PWA features and automatic updates
+serviceWorker.register({
+  onUpdate: (registration) => {
+    const waitingServiceWorker = registration.waiting
+    if (waitingServiceWorker) {
+      waitingServiceWorker.addEventListener('statechange', (event) => {
+        if (event.target.state === 'activated') {
+          // Mark that update is happening, then reload
+          localStorage.setItem('birder-just-updated', 'true')
+          window.location.reload()
+        }
+      })
+      waitingServiceWorker.postMessage({ type: 'SKIP_WAITING' })
+    }
+  }
+})
 
 // kick off the polyfill!
 smoothscroll.polyfill()

@@ -14,7 +14,13 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
-            release="0.30.0"
+            release="0.39.1"
+            notes={[
+              'Korjattu PWA cachetusongelmia'
+            ]}
+          />
+          <Release
+            release="0.39.0"
             notes={[
               'Lisätty nurmikirvinen ja keisarikotka'
             ]}

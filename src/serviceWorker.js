@@ -56,26 +56,24 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
-      // Listen for messages from the service worker
-      navigator.serviceWorker.addEventListener('message', (event) => {
-        if (event.data && event.data.type === 'SKIP_WAITING') {
-          registration.waiting.postMessage({ type: 'SKIP_WAITING' })
-        }
-      })
-
       registration.onupdatefound = () => {
         const installingWorker = registration.installing
+        if (installingWorker == null) {
+          return
+        }
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
-              // At this point, the old content will have been purged and
-              // the fresh content will have been added to the cache.
-              // It's the perfect time to display a "New content is
-              // available; please refresh." message in your web app.
-              console.log('New content is available; please refresh.')
+              // At this point, the updated precached content has been fetched,
+              // but the previous service worker will still serve the older
+              // content until all client tabs are closed.
+              console.log(
+                'New content is available and will be used when all ' +
+                'tabs for this page are closed. See https://cra.link/PWA.'
+              )
 
               // Execute callback
-              if (config.onUpdate) {
+              if (config && config.onUpdate) {
                 config.onUpdate(registration)
               }
             } else {
@@ -85,7 +83,7 @@ function registerValidSW(swUrl, config) {
               console.log('Content is cached for offline use.')
 
               // Execute callback
-              if (config.onSuccess) {
+              if (config && config.onSuccess) {
                 config.onSuccess(registration)
               }
             }
