@@ -14,9 +14,79 @@ Birder's repository organizes Firebase and React resources around a single-page 
   - `App.js` wires routes for Birdex, Achievements, Stats, Friends, and more via a sidebar layout.
   - `index.js` initializes the Redux store, integrates React-Redux-Firebase, sets up Sentry, and handles cache/version logic.
   - `firebase/firebase.js` configures Firebase v9 in compat mode, enables emulator usage, and turns on offline persistence.
-- **`functions/`** – Firebase Cloud Functions (Node 22) for server-side tasks such as hiscore updates, profile management, friend requests, and scheduled backups.
+- **`functions/`** – Firebase Cloud Functions (Node 20) for server-side tasks such as hiscore updates, profile management, friend requests, and scheduled backups.
 - **`cli/`** – Node/Babel scripts for maintenance tasks like statistics generation and image processing.
 - **Firebase rules** – `firestore.rules` strictly limit access to user data, friend documents, findings, hiscores, and latest findings collections.
+
+### Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     React Components                        │
+│  (Birdex, Bird, Friends, Stats, Achievements, etc.)         │
+└─────────────────────────────────────────────────────────────┘
+         │                              ▲
+         │ compose()                    │ connect() + selectors
+         │ firestoreConnect()           │ (selectors.js)
+         ▼                              │
+┌──────────────────┐           ┌──────────────────┐
+│  Firestore       │  sync     │  Redux Store     │
+│  Listeners       │ ────────► │  (reducers.js)   │
+│  (listeners.js)  │           │                  │
+└──────────────────┘           └──────────────────┘
+         │ subscribe
+         ▼
+┌──────────────────┐
+│  Firebase        │◄─────────── writes (findings, etc.)
+│  Firestore       │
+└──────────────────┘
+         │ triggers (onCreate, onWrite)
+         ▼
+┌──────────────────┐
+│  Cloud Functions │
+│  (functions/)    │
+│  - hiscores      │
+│  - latestFindings│
+└──────────────────┘
+```
+
+**Data flow:**
+1. Components use `compose()` to attach Firestore listeners
+2. Listeners subscribe to Firestore collections and sync data into Redux store
+3. Components read data from Redux via `connect()` and selectors
+4. User actions write directly to Firestore
+5. Cloud Functions trigger on Firestore writes to update derived data (hiscores, latestFindings)
+
+### Key patterns
+
+#### Firestore Listeners (`src/listeners.js`)
+Listeners use `firestoreConnect()` HOC to subscribe to Firestore collections:
+```javascript
+export const listenFindings = firestoreConnect((props, store) => {
+  const appState = selectAppState(store.getState())
+  // ... build query based on props and state
+  return [{ collection: 'findings', where }]
+})
+```
+
+#### Selectors (`src/selectors.js`)
+Selectors extract and transform data from Redux state:
+```javascript
+export function selectFriendFindings(state) {
+  return getVal(state.firestore.ordered, 'findings', [])
+    .filter((finding) => finding.user === friendId)
+}
+```
+
+#### Component composition
+Components combine `connect()` and listeners using `compose()`:
+```javascript
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  listenFindings,
+  listenFriends
+)(MyComponent)
+```
 
 ### Key concepts & next steps
 1. **React + Redux basics** – Understand component structure, routing (`App.js`), and state management (`reducers.js`, `selectors.js`).
@@ -28,21 +98,40 @@ Birder's repository organizes Firebase and React resources around a single-page 
 
 ## Development
 
-1. Install dependencies `(npm install && cd functions && npm install)`
-1. Login to firebase (for deployments) `./node_modules/.bin/firebase login`
-1. Start dvelopment server `npm run start`
+### Prerequisites
+- Node.js 23 (use `nvm use 23`)
+- Firebase CLI
+
+### Setup
+1. Install dependencies: `npm install && cd functions && npm install`
+2. Login to Firebase (for deployments): `./node_modules/.bin/firebase login`
+3. Copy environment template: `cp src/env.js.template src/env.js` and fill in credentials
+4. Start development server: `npm run start`
 
 NOTE: The bird image copyrights belong to photographers and thus are not added to this repository. If you wish to run Birder locally, easiest is to add some placeholder image and edit `birds.js` accordingly.
+
+### Testing
+
+Run Cloud Functions tests:
+```bash
+cd functions && npm test
+```
 
 ### CLI commands
 
 1. Install node dependencies `cd cli && npm install`
-1. Instal imagemagick (for image processing cli commands)
-1. Run cli commands using `npm run cli <command script>`
+2. Install imagemagick (for image processing cli commands)
+3. Run cli commands using `npm run cli <command script>`
 
 ## Deployment
 
 1. `npm run deploy`
+
+## Version Management
+
+When releasing a new version:
+1. Update version in `src/version.js`
+2. Add changelog entry in `src/Faq/Faq.js` under the `ChangeLog` component
 
 ## License
 

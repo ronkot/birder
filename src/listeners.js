@@ -4,8 +4,8 @@ import moment from 'moment'
 import { selectUser, selectAppState } from './selectors'
 import { ViewStates } from './AppRedux'
 
-export const listenFindings = firestoreConnect((props) => {
-  // Ensure we have a valid user before setting up listeners
+export const listenFindings = firestoreConnect((props, store) => {
+  const appState = selectAppState(store.getState())
   const user = props.user;
   const year = props.year || 'all';
 
@@ -13,8 +13,17 @@ export const listenFindings = firestoreConnect((props) => {
     return []; // Return empty array if no user yet
   }
 
+  // Determine whose findings to fetch based on view state
+  const userId = appState.view === ViewStates.friends
+    ? appState.friendId
+    : user.uid;
+
+  if (!userId) {
+    return []; // Return empty array if no userId
+  }
+
   const nextYear = year === 'all' ? 'all' : year + 1;
-  const where = [['user', '==', user.uid]];
+  const where = [['user', '==', userId]];
 
   if (year !== 'all') {
     where.push([

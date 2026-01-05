@@ -14,6 +14,12 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.39.2"
+            notes={[
+              'Korjattu kaverin havaintojen näkyminen'
+            ]}
+          />
+          <Release
             release="0.39.1"
             notes={[
               'Korjattu PWA cachetusongelmia'

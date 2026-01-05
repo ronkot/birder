@@ -1,0 +1,85 @@
+---
+alwaysApply: true
+---
+
+# Birder Project Rules
+
+## Technology Stack
+- React 16 with class components (not hooks/functional components)
+- Redux with react-redux-firebase for Firestore integration
+- Material-UI v3 for UI components
+- Firebase v9 in compat mode
+- moment.js for date handling
+
+## Code Patterns
+
+### Firestore Listeners
+- Listeners are defined in `src/listeners.js` using `firestoreConnect()`
+- Listeners accept `(props, store)` - use `store.getState()` to access Redux state when needed
+- Always check for valid user/data before returning queries
+- Return empty array `[]` if prerequisites are not met
+
+Example:
+```javascript
+export const listenFindings = firestoreConnect((props, store) => {
+  const appState = selectAppState(store.getState())
+  const user = props.user;
+
+  if (!user || !user.uid) {
+    return [];
+  }
+
+  return [{ collection: 'findings', where: [['user', '==', user.uid]] }];
+})
+```
+
+### Selectors
+- Selectors are defined in `src/selectors.js`
+- Use `getVal(state.firestore.ordered, 'collection', [])` to access Firestore data
+- Prefix with `select` (e.g., `selectUser`, `selectFriendFindings`)
+- Always provide default values to avoid undefined errors
+
+### Components
+- Use `compose()` from redux to combine `connect()` and `firestoreConnect()` HOCs
+- Pass `user` and `year` as props to components that need Firestore listeners
+- Class components extend `PureComponent` or `Component`
+
+Example:
+```javascript
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  listenFindings,
+  listenFriends
+)(MyComponent)
+```
+
+### Redux Actions
+- Action creators are defined alongside reducers or in dedicated `*Actions.js` files
+- Use thunks for async operations that need dispatch
+
+## Language
+- UI text is in Finnish
+- Code comments and variable names are in English
+
+## Development
+- Run `nvm use 23` before starting development
+- Use `npm run start` to launch React dev server + Firebase emulators
+- Firebase emulators use data from `firestore-dev-data/`
+
+## Version Bumping
+When releasing a new version:
+1. Update `src/version.js` with new version number
+2. Add changelog entry in `src/Faq/Faq.js` under the `ChangeLog` component
+3. Changelog notes should be in Finnish
+
+## Cloud Functions
+- Located in `functions/` directory
+- Use Node 20 (gen1 functions don't support newer)
+- Firestore triggers handle hiscores and latestFindings updates
+- Callable functions handle friend requests and profile updates
+
+## File Organization
+- Feature-based folders in `src/` (e.g., `Bird/`, `Friends/`, `Stats/`)
+- Each feature folder contains component, styles (.module.css), and actions
+- Shared components in `src/common/`
+
