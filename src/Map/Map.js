@@ -42,7 +42,9 @@ export default class BirderMap extends Component {
   }
 
   onViewportChanged = (viewport) => {
-    this.setState({zoom: viewport.zoom})
+    if (viewport.zoom !== this.state.zoom) {
+      this.setState({zoom: viewport.zoom})
+    }
   }
 
   render() {

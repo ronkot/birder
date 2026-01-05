@@ -70,35 +70,33 @@ export const listenFriendFindings = firestoreConnect((props) => {
 })
 
 export const listenHiScores = firestoreConnect((props) => {
-  const year = props.year;
-  const where = [];
+  // Default to current year if year is undefined
+  const year = props.year || moment().year();
 
-  if (year && year !== 'all') {
-    where.push(['year', '==', year]);
+  // 'all' means no year filter
+  if (year === 'all') {
+    return [{ collection: 'hiscores' }];
   }
 
-  return [
-    {
-      collection: 'hiscores',
-      where
-    }
-  ];
+  return [{
+    collection: 'hiscores',
+    where: [['year', '==', year]]
+  }];
 })
 
 export const listenLatestFindings = firestoreConnect((props) => {
-  const year = props.year;
-  const where = [];
+  // Default to current year if year is undefined
+  const year = props.year || moment().year();
 
-  if (year && year !== 'all') {
-    where.push(['year', '==', year]);
+  // 'all' means no year filter
+  if (year === 'all') {
+    return [{ collection: 'latestFindings' }];
   }
 
-  return [
-    {
-      collection: 'latestFindings',
-      where
-    }
-  ];
+  return [{
+    collection: 'latestFindings',
+    where: [['year', '==', year]]
+  }];
 })
 
 export const listenFriends = firestoreConnect((props) => {

@@ -47,7 +47,7 @@ export default class EditBird extends PureComponent {
   }
 
   saveFinding = () => {
-    const date = (this.state.date || moment.year(this.props.year)).toISOString()
+    const date = (this.state.date || moment().year(this.props.year)).toISOString()
     this.props.onSaveFinding({
       id: this.props.finding ? this.props.finding.id : null,
       bird: this.props.bird,
