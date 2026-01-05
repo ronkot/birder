@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { compose } from "redux"
 import orderBy from "lodash/orderBy"
 
-import { selectAchievements } from "../selectors"
+import { selectAchievements, selectUser, selectAppState } from "../selectors"
 import { listenFindings } from "../listeners"
 import styles from "./Achievement.module.css"
 import { ProgressBar } from "../ProgressBar/ProgressBar"
@@ -62,11 +62,15 @@ class Achievement extends PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  const appState = selectAppState(state)
   return {
+    user: selectUser(state),
     achievement: selectAchievements(state).find(
       a => a.id === ownProps.match.params.id
     ),
-    year: state.year
+    year: state.year,
+    friendId: appState.friendId,
+    view: appState.view
   }
 }
 

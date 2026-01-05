@@ -1,22 +1,18 @@
 import { firestoreConnect } from 'react-redux-firebase'
 import moment from 'moment'
 
-import { selectUser, selectAppState } from './selectors'
-import { ViewStates } from './AppRedux'
-
-export const listenFindings = firestoreConnect((props, store) => {
-  const appState = selectAppState(store.getState())
+export const listenFindings = firestoreConnect((props) => {
   const user = props.user;
   const year = props.year || 'all';
+  const friendId = props.friendId;
+  const view = props.view;
 
   if (!user || !user.uid) {
     return []; // Return empty array if no user yet
   }
 
   // Determine whose findings to fetch based on view state
-  const userId = appState.view === ViewStates.friends
-    ? appState.friendId
-    : user.uid;
+  const userId = view === 'friends' ? friendId : user.uid;
 
   if (!userId) {
     return []; // Return empty array if no userId

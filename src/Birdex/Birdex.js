@@ -7,7 +7,8 @@ import styles from './Birdex.module.css'
 import {
   selectCurrentYearFindingsForViewType,
   selectBirdsSortedByName,
-  selectUser
+  selectUser,
+  selectAppState
 } from '../selectors'
 import {
   setScrollPosition,
@@ -171,6 +172,7 @@ export default compose(
   connect(
     (state) => {
       const user = selectUser(state)
+      const appState = selectAppState(state)
       return {
         user,
         birds: selectBirdsSortedByName(state),
@@ -179,7 +181,9 @@ export default compose(
         searchTerm: state.birdexSearchTerm,
         viewType: state.birdexViewType,
         visibilityFilter: state.birdexVisibilityFilter,
-        year: state.year
+        year: state.year,
+        friendId: appState.friendId,
+        view: appState.view
       }
     },
     (dispatch) => ({

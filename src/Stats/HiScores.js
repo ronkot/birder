@@ -26,7 +26,8 @@ import {
   selectHiscores,
   selectBirds,
   selectApprovedFriends,
-  selectCurrentYearFindingsForViewType
+  selectCurrentYearFindingsForViewType,
+  selectAppState
 } from '../selectors'
 import {listenHiScores, listenFriends, listenFindings} from '../listeners'
 import {viewFriend} from '../AppRedux'
@@ -294,14 +295,19 @@ const CumulativeFindings = ({findings, activeYear}) => {
 export default compose(
   withRouter,
   connect(
-    (state) => ({
-      user: selectUser(state),
-      hiscores: selectHiscores(state),
-      birds: selectBirds(state),
-      year: state.year,
-      friends: selectApprovedFriends(state),
-      findings: selectCurrentYearFindingsForViewType(state)
-    }),
+    (state) => {
+      const appState = selectAppState(state)
+      return {
+        user: selectUser(state),
+        hiscores: selectHiscores(state),
+        birds: selectBirds(state),
+        year: state.year,
+        friends: selectApprovedFriends(state),
+        findings: selectCurrentYearFindingsForViewType(state),
+        friendId: appState.friendId,
+        view: appState.view
+      }
+    },
     (dispatch, ownProps) => ({
       viewFriend: (friendId) =>
         dispatch(viewFriend(friendId, ownProps.history)),

@@ -7,7 +7,9 @@ import {
   selectBirds,
   selectCoordinateSuggestions,
   selectCurrentYearFindingsForViewType,
-  selectIsWatchingFriend
+  selectIsWatchingFriend,
+  selectUser,
+  selectAppState
 } from '../selectors'
 import { listenFindings } from '../listeners'
 import { saveFinding, removeFinding } from './BirdActions'
@@ -139,14 +141,18 @@ class Bird extends PureComponent {
 
 const mapStateToProps = (state, ownProps) => {
   const findings = selectCurrentYearFindingsForViewType(state)
+  const appState = selectAppState(state)
   return {
+    user: selectUser(state),
     isWatching: selectIsWatchingFriend(state),
     bird: selectBirds(state).find((b) => b.id === ownProps.match.params.id),
     finding: findings.find(
       (finding) => finding.bird === ownProps.match.params.id
     ),
     coordinateSuggestions: selectCoordinateSuggestions(state),
-    year: state.year
+    year: state.year,
+    friendId: appState.friendId,
+    view: appState.view
   }
 }
 

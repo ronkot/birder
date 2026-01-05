@@ -4,7 +4,7 @@ import {compose} from 'redux'
 import {Link} from 'react-router-dom'
 
 import styles from './Achievements.module.css'
-import {selectAchievements} from '../selectors'
+import {selectAchievements, selectUser, selectAppState} from '../selectors'
 import {listenFindings} from '../listeners'
 import {ProgressBar} from '../ProgressBar/ProgressBar'
 
@@ -30,9 +30,13 @@ class Achievements extends PureComponent {
 
 export default compose(
   connect((state) => {
+    const appState = selectAppState(state)
     return {
+      user: selectUser(state),
       achievements: selectAchievements(state),
-      year: state.year
+      year: state.year,
+      friendId: appState.friendId,
+      view: appState.view
     }
   }),
   listenFindings

@@ -14,11 +14,13 @@ import styles from './Profile.module.css'
 import {
   selectProfile,
   selectBirdsSortedByName,
-  selectOwnFindings
+  selectOwnFindings,
+  selectUser,
+  selectAppState
 } from '../selectors'
 import {listenFindings} from '../listeners'
 
-const Profile = ({user, birds, findings}) => {
+const Profile = ({user, profile, birds, findings}) => {
   async function onSubmit(values, actions) {
     try {
       await updateProfile(values)
@@ -78,8 +80,8 @@ const Profile = ({user, birds, findings}) => {
       <h1>Omat tiedot</h1>
 
       <Paper className={styles.paper}>
-        <Formik
-          initialValues={{playerName: user.playerName}}
+          <Formik
+          initialValues={{playerName: profile.playerName}}
           onSubmit={onSubmit}
         >
           {({
@@ -97,7 +99,7 @@ const Profile = ({user, birds, findings}) => {
                   <TextField
                     disabled
                     label="Sähköposti"
-                    defaultValue={user.email}
+                    defaultValue={profile.email}
                     margin="normal"
                     variant="outlined"
                   />
@@ -146,11 +148,17 @@ const Profile = ({user, birds, findings}) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  user: selectProfile(state),
-  birds: selectBirdsSortedByName(state),
-  findings: selectOwnFindings(state),
-  year: 'all'
-})
+const mapStateToProps = (state) => {
+  const appState = selectAppState(state)
+  return {
+    user: selectUser(state),
+    profile: selectProfile(state),
+    birds: selectBirdsSortedByName(state),
+    findings: selectOwnFindings(state),
+    year: 'all',
+    friendId: appState.friendId,
+    view: appState.view
+  }
+}
 
 export default compose(connect(mapStateToProps), listenFindings)(Profile)

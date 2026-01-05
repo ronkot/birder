@@ -14,6 +14,12 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.39.4"
+            notes={[
+              'Korjattu kaverin havaintojen näyttämisen bugi'
+            ]}
+          />
+          <Release
             release="0.39.3"
             notes={[
               'Korjattu havainnon tallennuksen bugi',
