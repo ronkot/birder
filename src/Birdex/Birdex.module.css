@@ -59,7 +59,7 @@
 
 .controls {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   grid-gap: 5px;
   margin-bottom: 20px;
@@ -69,5 +69,26 @@
 }
 
 .controls > :nth-child(1) {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 3;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownContent {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 2;
+}
+
+.controlToggle {
+  padding: 10px 15px;
+  background: var(--color-blue-dark);
+  color: var(--color-white);
+  font-size: 12px;
+  text-align: center;
+  border-radius: 50px;
+  cursor: pointer;
 }
