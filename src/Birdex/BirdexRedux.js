@@ -2,6 +2,8 @@ const SET_BIRDEX_SCROLL_POSITION = 'SET_BIRDEX_SCROLL_POSITION'
 const SET_BIRDEX_SEARCH_TERM = 'SET_BIRDEX_SEARCH_TERM'
 const SET_BIRDEX_VIEW_TYPE = 'SET_BIRDEX_VOEW_TYPE'
 const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+const SET_SORT_FIELD = 'SET_SORT_FIELD'
+const SET_SORT_DIRECTION = 'SET_SORT_DIRECTION'
 
 export const setScrollPosition = (position) => ({
   type: SET_BIRDEX_SCROLL_POSITION,
@@ -40,5 +42,25 @@ export const setVisibilityFilter = (filter) => ({
 
 export const visibilityFilter = (state = 'all', action) => {
   if (action.type === SET_VISIBILITY_FILTER) return action.filter
+  else return state
+}
+
+export const setSortField = (field) => ({
+  type: SET_SORT_FIELD,
+  field
+})
+
+export const sortField = (state = 'name', action) => {
+  if (action.type === SET_SORT_FIELD) return action.field
+  else return state
+}
+
+export const setSortDirection = (direction) => ({
+  type: SET_SORT_DIRECTION,
+  direction
+})
+
+export const sortDirection = (state = 'asc', action) => {
+  if (action.type === SET_SORT_DIRECTION) return action.direction
   else return state
 }
