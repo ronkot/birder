@@ -11,7 +11,7 @@ const db = new Firestore({
   keyFilename: env.firebaseCredentialsFile
 })
 
-const YEAR = 2025
+const YEAR = 2026
 
 console.log('Starting stats fix for year', YEAR)
 console.log('Using environment:', env)
