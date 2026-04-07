@@ -11,6 +11,7 @@ import {
   selectUser,
   selectAppState
 } from '../selectors'
+import { isBirdVisibleForYearSelection } from '../birdUtils'
 import { listenFindings } from '../listeners'
 import { saveFinding, removeFinding } from './BirdActions'
 import styles from './Bird.module.css'
@@ -20,13 +21,21 @@ import { StaticMap } from '../Map/StaticMap'
 
 class Bird extends PureComponent {
   state = {
-    editModalOpen: false
+    editModalOpen: false,
+    saving: false
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.finding && this.props.finding) {
+      this.setState({ saving: false })
+    }
   }
 
   render() {
     if (this.state.editModalOpen) return this.renderForm()
 
     const { bird, isWatching, finding } = this.props
+    const { saving } = this.state
 
     return (
       <div className={styles.bird}>
@@ -40,6 +49,16 @@ class Bird extends PureComponent {
           <div className={styles.latinName}>{bird.nameLatin}</div>
           <div className={styles.enName}>{bird.nameEn}</div>
           {this.renderRarity()}
+          {bird.validFrom && (
+            <div className={styles.validityInfo}>
+              <i className="fas fa-arrow-right" /> Laji lisätty vuonna {bird.validFrom}
+            </div>
+          )}
+          {bird.validUntil && (
+            <div className={styles.validityInfo}>
+              <i className="fas fa-archive" /> Laji poistettu vuonna {bird.validUntil + 1}
+            </div>
+          )}
           {bird.detectLink && (
             <a
               className={styles.link}
@@ -53,9 +72,9 @@ class Bird extends PureComponent {
           )}
           {finding && this.renderFound()}
 
-          {!isWatching && (
-            <PrimaryButton onClick={this.openEditModal}>
-              {finding ? 'Muokkaa havaintoa' : 'Lisää havainto'}
+          {!isWatching && isBirdVisibleForYearSelection(bird, this.props.year) && (
+            <PrimaryButton onClick={this.openEditModal} disabled={saving}>
+              {finding ? 'Muokkaa havaintoa' : saving ? 'Tallennetaan...' : 'Lisää havainto'}
             </PrimaryButton>
           )}
         </div>
@@ -110,7 +129,7 @@ class Bird extends PureComponent {
     return (
       <EditBird
         finding={this.props.finding}
-        year={this.props.year === 'all' ? moment().year() : this.props.year}
+        year={this.props.year}
         bird={this.props.bird}
         onClose={this.closeEditModal}
         onSaveFinding={this.saveFinding}
@@ -130,6 +149,7 @@ class Bird extends PureComponent {
 
   saveFinding = (data) => {
     this.closeEditModal()
+    this.setState({ saving: true })
     this.props.saveFinding(data)
   }
 

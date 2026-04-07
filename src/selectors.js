@@ -7,6 +7,7 @@ import sortBy from 'lodash/sortBy'
 import minBy from 'lodash/minBy'
 
 import {ViewStates} from './AppRedux'
+import {isBirdVisibleForYearSelection} from './birdUtils'
 
 const bronzeAchievement = '/img/bronze.png'
 const silverAchievement = '/img/silver.png'
@@ -95,6 +96,13 @@ export function selectBirds(state) {
 
 export function selectBirdsSortedByName(state) {
   return selectBirds(state).sort((a, b) => a.nameFi.localeCompare(b.nameFi))
+}
+
+export function selectBirdsForCurrentYear(state) {
+  const year = state.year
+  return selectBirdsSortedByName(state).filter((bird) =>
+    isBirdVisibleForYearSelection(bird, year)
+  )
 }
 
 export function selectFoundBirds(state) {

@@ -10,10 +10,19 @@ import {
 } from '../common/Button/Button'
 import Map from '../Map/Map'
 import ButtonGroup from '../ButtonGroup/ButtonGroup'
+import {defaultDateForBird} from '../birdUtils'
 
 export default class EditBird extends PureComponent {
+  getInitialDate() {
+    const {year, bird} = this.props
+    if (year === 'all') {
+      return defaultDateForBird(bird)
+    }
+    return moment().year(year)
+  }
+
   state = {
-    date: moment().year(this.props.year),
+    date: this.getInitialDate(),
     notes: '',
     dateSelectFocused: false,
     coordinates: null,
@@ -47,7 +56,10 @@ export default class EditBird extends PureComponent {
   }
 
   saveFinding = () => {
-    const date = (this.state.date || moment().year(this.props.year)).toISOString()
+    const fallback = this.props.year === 'all'
+      ? defaultDateForBird(this.props.bird)
+      : moment().year(this.props.year)
+    const date = (this.state.date || fallback).toISOString()
     this.props.onSaveFinding({
       id: this.props.finding ? this.props.finding.id : null,
       bird: this.props.bird,
@@ -75,9 +87,16 @@ export default class EditBird extends PureComponent {
             }
             withPortal={false}
             numberOfMonths={1}
-            isOutsideRange={(day) =>
-              day.isAfter(moment()) || day.year() !== this.props.year
-            }
+            isOutsideRange={(day) => {
+              if (day.isAfter(moment())) return true
+              const {year, bird} = this.props
+              if (year === 'all') {
+                if (bird.validUntil && day.year() > bird.validUntil) return true
+                if (bird.validFrom && day.year() < bird.validFrom) return true
+                return false
+              }
+              return day.year() !== year
+            }}
             id="date-input"
           />
         </div>

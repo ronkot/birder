@@ -37,21 +37,6 @@ if (window.location.hostname === 'localhost') {
   }
 }
 
-// Enable offline persistence in compat mode
-db.enablePersistence()
-  .then(() => {
-    console.log('Offline support enabled')
-  })
-  .catch((err) => {
-    if (err.code === 'failed-precondition') {
-      console.log('Persistence failed: Multiple tabs open')
-    } else if (err.code === 'unimplemented') {
-      console.log('Persistence not available')
-    } else {
-      console.log('No offline support, error:', err.code)
-    }
-  })
-
 console.log('Firebase v9 compat mode initialized')
 
 // Export the firebase object for react-redux-firebase compatibility

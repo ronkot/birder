@@ -31,3 +31,8 @@
   min-width: 0;
   font-weight: normal;
 }
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

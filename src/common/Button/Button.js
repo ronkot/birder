@@ -23,9 +23,9 @@ export class PrimaryButton extends PureComponent {
       <div
         className={`${styles.button} ${styles.primary} ${
           this.props.small ? styles.small : ''
-        }`}
+        } ${this.props.disabled ? styles.disabled : ''}`}
         style={this.props.style}
-        onClick={this.props.onClick}
+        onClick={this.props.disabled ? undefined : this.props.onClick}
       >
         {this.props.children}
       </div>

@@ -16,6 +16,7 @@ export class BirdGrid extends PureComponent {
             <BirdThumbnail
               found={this.props.findings.some((f) => f.bird === bird.id)}
               bird={bird}
+              year={this.props.year}
             />
           </Link>
         ))}

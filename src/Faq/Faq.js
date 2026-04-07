@@ -14,6 +14,13 @@ export function ChangeLog() {
       <ExpansionPanelDetails>
         <Typography>
           <Release
+            release="0.40.0"
+            notes={[
+              'Metsähanhi arkistoitu 2026, listätty tundrametsähanhi ja taigametsähanhi vuodesta 2026 eteenpäin',
+              'Korjattu havaintojen duplikaatteja'
+            ]}
+          />
+          <Release
             release="0.39.4"
             notes={[
               'Korjattu kaverin havaintojen näyttämisen bugi'

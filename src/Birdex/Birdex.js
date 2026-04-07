@@ -6,7 +6,7 @@ import {listenFindings, listenFriends} from '../listeners'
 import styles from './Birdex.module.css'
 import {
   selectCurrentYearFindingsForViewType,
-  selectBirdsSortedByName,
+  selectBirdsForCurrentYear,
   selectUser,
   selectAppState
 } from '../selectors'
@@ -40,6 +40,7 @@ class Birdex extends PureComponent {
           <BirdGrid
             birds={filteredBirds}
             findings={this.props.findings}
+            year={this.props.year}
             to="/birdex"
           />
         )
@@ -175,7 +176,7 @@ export default compose(
       const appState = selectAppState(state)
       return {
         user,
-        birds: selectBirdsSortedByName(state),
+        birds: selectBirdsForCurrentYear(state),
         findings: selectCurrentYearFindingsForViewType(state),
         scrollPosition: state.birdexScrollPosition,
         searchTerm: state.birdexSearchTerm,
